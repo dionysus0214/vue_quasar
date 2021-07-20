@@ -1,10 +1,10 @@
 <template>
   <q-input
     outlined
-    v-model="text"
-    placeholder="Type Something"
-    dense
-  />
+    v-model.number="number"
+    type="number"
+    placeholder="Type Number"
+    dense/>
 </template>
 
 <script>
@@ -13,7 +13,7 @@ import { ref } from 'vue'
 export default {
   setup () {
     return {
-      text: ref('')
+      number: ref()
     }
   }
 }

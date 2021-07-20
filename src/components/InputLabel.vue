@@ -4,7 +4,11 @@
     v-model="text"
     placeholder="Type Something"
     dense
-  />
+  >
+    <template v-slot:before>
+      <span id="label">Label</span>
+    </template>
+  </q-input>
 </template>
 
 <script>
@@ -18,3 +22,10 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+#label {
+  font-size: 14px;
+  padding-right: 4px;
+}
+</style>

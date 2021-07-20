@@ -50,7 +50,7 @@ import EssentialLink from 'components/EssentialLink.vue'
 
 const linksList = [
   {
-    title: 'Input',
+    title: 'Input/Input Number/Textarea',
     icon: 'code',
     link: 'http://10.0.2.21:8080/#/input'
   },
@@ -60,7 +60,7 @@ const linksList = [
     link: 'http://10.0.2.21:8080/#/select'
   },
   {
-    title: 'Button/Dropdown',
+    title: 'Button',
     icon: 'code',
     link: 'http://10.0.2.21:8080/#/button'
   },
@@ -75,19 +75,14 @@ const linksList = [
     link: 'http://10.0.2.21:8080/#/checkbox'
   },
   {
-    title: 'Pagination',
-    icon: 'add',
-    link: 'http://10.0.2.21:8080/#/pagination'
+    title: 'Expansion Item',
+    icon: 'code',
+    link: 'http://10.0.2.21:8080/#/expansionItem'
   },
   {
-    title: 'Modal',
+    title: 'Sample',
     icon: 'add',
-    link: 'http://10.0.2.21:8080/#/modal'
-  },
-  {
-    title: 'Table',
-    icon: 'add',
-    link: 'http://10.0.2.21:8080/#/table'
+    link: 'http://10.0.2.21:8080/#/sample'
   }
 ]
 

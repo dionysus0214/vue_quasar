@@ -5,22 +5,18 @@ const routes = [
     component: () => import('layouts/MainLayout.vue'),
     children: [
       { path: '', component: () => import('pages/Index.vue') },
-      { path: 'input', component: () => import('components/Input.vue') },
-      { path: 'select', component: () => import('components/Select.vue') },
-      { path: 'button', component: () => import('components/Button.vue') },
-      { path: 'radio', component: () => import('components/Radio.vue') },
-      { path: 'checkbox', component: () => import('components/Checkbox.vue') },
-      { path: 'pagination', component: () => import('components/Pagination.vue') },
-      { path: 'table', component: () => import('components/Table.vue') },
-      { path: 'modal', component: () => import('components/Modal.vue') }
+      { path: 'input', component: () => import('pages/Input.vue') },
+      { path: 'select', component: () => import('pages/Select.vue') },
+      { path: 'button', component: () => import('pages/Button.vue') },
+      { path: 'radio', component: () => import('pages/Radio.vue') },
+      { path: 'checkbox', component: () => import('pages/Checkbox.vue') },
+      // { path: 'expansionItem', component: () => import('pages/ExpansionItem.vue') }
+      { path: 'sample', component: () => import('pages/Sample.vue') }
     ]
   },
-
-  // Always leave this as last one,
-  // but you can also remove it
   {
     path: '/:catchAll(.*)*',
-    component: () => import('pages/Error404.vue')
+    component: () => import('pages/ErrorPage.vue')
   }
 ]
 
