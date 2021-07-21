@@ -12,6 +12,7 @@
       />
       <s-input-number
         hint="Number"
+        v-model="number"
       />
       <s-input
         type="textarea"
@@ -35,7 +36,8 @@ export default {
     return {
       text: ref(''),
       password: ref(''),
-      isPwd: ref(true)
+      isPwd: ref(true),
+      number: ref(1)
     }
   }
 }

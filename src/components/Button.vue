@@ -2,7 +2,7 @@
   <q-btn
     no-caps
     unelevated
-    padding="5px 12px"
+    style="padding: 5px 12px"
     :ripple="false"
     color="positive"
     size="sm"

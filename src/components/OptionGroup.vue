@@ -13,7 +13,7 @@ import { ref } from 'vue'
 export default {
   setup () {
     return {
-      group: ref('stock1'),
+      group: ref([]),
       options: [
         { label: 'stock1', value: 'stock1' },
         { label: 'stock2', value: 'stock2' },

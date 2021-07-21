@@ -10,7 +10,7 @@ const routes = [
       { path: 'button', component: () => import('pages/Button.vue') },
       { path: 'radio', component: () => import('pages/Radio.vue') },
       { path: 'checkbox', component: () => import('pages/Checkbox.vue') },
-      // { path: 'expansionItem', component: () => import('pages/ExpansionItem.vue') }
+      { path: 'expansionItem', component: () => import('pages/ExpansionItem.vue') },
       { path: 'sample', component: () => import('pages/Sample.vue') }
     ]
   },

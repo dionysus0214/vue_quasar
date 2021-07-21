@@ -17,13 +17,13 @@
       size="md"
     /><br>
     <s-button
+      class="disable"
       disable
       label="Disabled"
     />
     <s-button
-      id="kakao"
+      class="kakao"
       label="KAKAO"
-      color="warning"
     />
   </div>
 </template>
@@ -37,7 +37,13 @@ export default {
 </script>
 
 <style scoped>
-#kakao {
-  background-color: yellow;
+.disable {
+  background: #EEEEEE !important;
+  color: #888888 !important;
+}
+.kakao {
+  background: #FFFF80 !important;
+  color: #000000  !important;
+  font-weight: bold;
 }
 </style>

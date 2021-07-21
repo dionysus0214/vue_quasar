@@ -75,12 +75,12 @@ const linksList = [
     link: 'http://10.0.2.21:8080/#/checkbox'
   },
   {
-    title: 'Expansion Item',
+    title: 'Help/Caution',
     icon: 'code',
     link: 'http://10.0.2.21:8080/#/expansionItem'
   },
   {
-    title: 'Sample',
+    title: 'Sample Page',
     icon: 'add',
     link: 'http://10.0.2.21:8080/#/sample'
   }

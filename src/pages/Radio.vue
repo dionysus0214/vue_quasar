@@ -3,9 +3,6 @@
     <div class="q-gutter-sm">
       <s-radio />
       <s-option-group />
-      <s-radio
-        disable
-      />
     </div>
   </div>
 </template>
