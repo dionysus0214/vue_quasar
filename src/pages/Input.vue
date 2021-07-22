@@ -1,22 +1,19 @@
 <template>
   <div class="q-pa-md">
     <div class="q-gutter-md" style="max-width: 297px">
+      <s-input />
+      <s-input-label />
+      <s-input-addon />
       <s-input
-        hint="Default"
+        class="disable"
+        disable
       />
-      <s-input-label
-        hint="Label"
-      />
-      <s-input-password
-        hint="Password"
-      />
+      <s-input-password />
       <s-input-number
-        hint="Number"
         v-model="number"
       />
       <s-input
         type="textarea"
-        hint="Textarea"
         counter maxlength="100"
       />
     </div>
@@ -27,11 +24,12 @@
 import { ref } from 'vue'
 import SInput from '../components/Input.vue'
 import SInputLabel from '../components/InputLabel.vue'
+import SInputAddon from '../components/InputAddon.vue'
 import SInputNumber from '../components/InputNumber.vue'
 import SInputPassword from '../components/InputPassword.vue'
 
 export default {
-  components: { SInput, SInputLabel, SInputNumber, SInputPassword },
+  components: { SInput, SInputLabel, SInputAddon, SInputNumber, SInputPassword },
   setup () {
     return {
       text: ref(''),
@@ -42,3 +40,9 @@ export default {
   }
 }
 </script>
+
+<style>
+.disable {
+  background-color: #F6F6F6;
+}
+</style>

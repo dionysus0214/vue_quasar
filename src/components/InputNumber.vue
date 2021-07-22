@@ -9,8 +9,8 @@
     class="s-input-number"
   >
     <template v-slot:append>
-      <q-icon class="s-input-number-icon" name="expand_less" @click="plusNumber" />
-      <q-icon class="s-input-number-icon" name="expand_more" @click="minusNumber" />
+      <q-icon class="s-input-number-icon-up" name="expand_less" @click="plusNumber" />
+      <q-icon class="s-input-number-icon-down" name="expand_more" @click="minusNumber" />
     </template>
   </q-input>
 </template>
@@ -42,8 +42,19 @@ export default {
 </script>
 
 <style>
-.s-input-number-icon {
-  width: 10px !important;
+.s-input-number-icon-up {
+  border-left: 1px solid #CCCCCC;
+  position: absolute;
+  margin: auto;
+  top: 1px;
+  right: 5px;
+}
+
+.s-input-number-icon-down {
+  border-left: 1px solid #CCCCCC;
+  margin: auto;
+  bottom: -8px;
+  right: -7px;
 }
 
 /* Chrome, Safari, Edge, Opera */

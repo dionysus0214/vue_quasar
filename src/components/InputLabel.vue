@@ -6,7 +6,7 @@
     dense
   >
     <template v-slot:before>
-      <span id="label">Label</span>
+      <div class="input-label">Label</div>
     </template>
   </q-input>
 </template>
@@ -24,7 +24,7 @@ export default {
 </script>
 
 <style scoped>
-#label {
+.input-label {
   font-size: 14px;
   padding-right: 4px;
 }

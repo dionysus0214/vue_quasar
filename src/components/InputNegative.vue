@@ -1,8 +1,9 @@
 <template>
   <q-input
-    outlined
+    class="negative"
+    borderless
     v-model="text"
-    placeholder="Type Something"
+    placeholder="  Type Something"
     dense
   />
 </template>
@@ -19,10 +20,11 @@ export default {
 }
 </script>
 
-<style>
-input:hover {
-    outline: none !important;
-    border-color: #0071FF;
-    box-shadow: 0 0 4px #0071FF;
+<style scoped>
+.negative {
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 2px;
+  border-color: #E30000;
 }
 </style>

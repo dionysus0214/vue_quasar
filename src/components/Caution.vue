@@ -1,26 +1,50 @@
 <template>
-  <q-list bordered class="rounded-borders">
-    <q-expansion-item
-      header-style="color: #E30000; font-weight: bold"
-      default-opened
-      expand-icon-toggle
-      expand-icon="none"
-      expand-separator
-      switch-toggle-side
-      label="Caution"
-    >
-      <q-card>
-        <q-card-section horizontal>
-          <q-card-section><strong>Title</strong></q-card-section>
-          <q-card-section>
-            <div>- Lorem ipsum dolor sit amet, consectetur adipisicing elit.</div>
-            <div>- Quidem, eius reprehenderit eos corrupti.</div>
-            <div>- Commodi magni quaerat ex numquam, dolorum officiis modi facere maiores architecto suscipit iste.</div>
-            <div>- Eveniet doloribus ullam aliquid.</div>
-            <div>- Rerum repellendus sit voluptate voluptas eveniet porro.</div>
-          </q-card-section>
+  <q-list bordered class="rounded-borders-caution">
+    <q-card flat>
+      <q-card-section>
+        <span class="caution-header">Caution</span>
+        <span class="caution-contents-title">{{title}}</span>
+      </q-card-section>
+      <q-card class="caution-contents-container">
+        <q-card-section>
+          <slot />
         </q-card-section>
       </q-card>
-    </q-expansion-item>
+    </q-card>
   </q-list>
 </template>
+
+<script>
+export default {
+  props: {
+    title: {
+      default: ''
+    }
+  }
+}
+</script>
+
+<style scoped>
+.rounded-borders-caution {
+  border-style: solid;
+  border-width: 2px;
+  border-color: #E30000;
+  border-radius: 4px;
+}
+
+.caution-header {
+  padding: 50px;
+  color: #E30000;
+  font-weight: bold;
+}
+
+.caution-contents-title {
+  margin: -16px;
+  font-weight: bold;
+}
+
+.caution-contents-container {
+  margin: -30px 0px 0px 110px;
+  background: no-repeat url("../assets/caution_outline.svg") right bottom;
+}
+</style>

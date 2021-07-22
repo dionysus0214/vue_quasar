@@ -4,7 +4,11 @@
     v-model="text"
     placeholder="Type Something"
     dense
-  />
+  >
+    <template v-slot:prepend>
+      <div class="input-addon">Label</div>
+    </template>
+  </q-input>
 </template>
 
 <script>
@@ -19,10 +23,10 @@ export default {
 }
 </script>
 
-<style>
-input:hover {
-    outline: none !important;
-    border-color: #0071FF;
-    box-shadow: 0 0 4px #0071FF;
+<style scoped>
+.input-addon {
+  font-size: 14px;
+  padding-right: 10px;
+  border-right: 1px solid #cccccc;
 }
 </style>
