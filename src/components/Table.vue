@@ -156,7 +156,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style>
 .q-table {
     white-space: normal !important;
 }

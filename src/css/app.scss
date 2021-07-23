@@ -1,1 +1,15 @@
 // app global css in SCSS form
+.q-field {
+  &--outlined {
+    .q-field__control {
+      &:before {
+        border: 1px solid rgba(0,0,0,.24)
+      }
+      &:hover:before {
+        border-color: #0071FF;
+        box-shadow: 0 0 4px #0071FF;
+      }
+    }
+  }
+}
+

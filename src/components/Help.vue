@@ -1,5 +1,5 @@
 <template>
-  <q-list bordered class="rounded-borders-help">
+  <div class="q-pa-none rounded-borders-help">
     <q-expansion-item
       expand-icon-toggle
       expand-separator
@@ -17,7 +17,7 @@
         </q-card-section>
       </q-card>
     </q-expansion-item>
-  </q-list>
+  </div>
 </template>
 
 <script>
@@ -30,7 +30,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style>
 .rounded-borders-help {
   border-style: solid;
   border-width: 2px;

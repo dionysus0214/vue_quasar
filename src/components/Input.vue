@@ -18,11 +18,3 @@ export default {
   }
 }
 </script>
-
-<style>
-input:hover {
-    outline: none !important;
-    border-color: #0071FF;
-    box-shadow: 0 0 4px #0071FF;
-}
-</style>

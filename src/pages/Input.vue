@@ -42,7 +42,15 @@ export default {
 </script>
 
 <style>
+s-input {
+  background-color: palevioletred;
+}
+
 .disable {
   background-color: #F6F6F6;
+}
+
+.disable:hover {
+  box-shadow: none;
 }
 </style>

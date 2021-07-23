@@ -1,5 +1,5 @@
 <template>
-  <q-list bordered class="rounded-borders-caution">
+  <div class="rounded-borders-caution">
     <q-card flat>
       <q-card-section>
         <span class="caution-header">Caution</span>
@@ -11,7 +11,7 @@
         </q-card-section>
       </q-card>
     </q-card>
-  </q-list>
+  </div>
 </template>
 
 <script>
@@ -24,17 +24,19 @@ export default {
 }
 </script>
 
-<style scoped>
+<style lang="scss">
+@import '../css/quasar.variables.scss';
+
 .rounded-borders-caution {
   border-style: solid;
   border-width: 2px;
-  border-color: #E30000;
+  border-color: $negative;
   border-radius: 4px;
 }
 
 .caution-header {
   padding: 50px;
-  color: #E30000;
+  color: $negative;
   font-weight: bold;
 }
 
