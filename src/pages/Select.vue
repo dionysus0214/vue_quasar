@@ -3,12 +3,12 @@
     <div class="q-gutter-md">
       <s-select
         :options="options"
-        hint="Default"
+        label="Select"
       />
 
       <s-select
         disable
-        hint="Disable"
+        label="Disable"
       />
     </div>
   </div>

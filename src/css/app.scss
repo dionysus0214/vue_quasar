@@ -5,7 +5,19 @@
       &:before {
         border: 1px solid rgba(0,0,0,.24)
       }
-      &:hover:before {
+      &:hover:after {
+        border: 1px solid;
+        border-color: #0071FF;
+        box-shadow: 0 0 4px #0071FF;
+      }
+    }
+    &.q-field--highlighted {
+      .q-field__control:hover:before {
+        border-color: transparent;
+      }
+      
+      .q-field__control:after {
+        border: 1px solid;
         border-color: #0071FF;
         box-shadow: 0 0 4px #0071FF;
       }

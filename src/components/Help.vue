@@ -4,14 +4,14 @@
       expand-icon-toggle
       expand-separator
       switch-toggle-side
+      @show="isHidden = true"
+      @hide="isHidden = false"
     >
       <template v-slot:header>
-        <q-card-section class="help-header">Help</q-card-section>
+        <q-item-section class="help-header">Help</q-item-section>
+        <q-item-section class="help-contents-title" v-show="isHidden">{{title}}</q-item-section>
       </template>
       <q-card>
-        <q-card-section class="help-contents-title">
-          {{title}}
-        </q-card-section>
         <q-card-section class="help-contents-container">
           <slot />
         </q-card-section>
@@ -22,6 +22,11 @@
 
 <script>
 export default {
+  data () {
+    return {
+      isHidden: false
+    }
+  },
   props: {
     title: {
       default: ''
@@ -30,26 +35,34 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss">
+@import '../css/quasar.variables.scss';
+
 .rounded-borders-help {
   border-style: solid;
   border-width: 2px;
-  border-color: #00CD52;
+  border-color: $info;
   border-radius: 4px;
+  .q-item {
+    height: 54px;
+    text-align: left;
+  }
+  .q-item__section--main + .q-item__section--main {
+    margin-left: -660px;
+  }
 }
 
 .help-header {
-  color: #00CD52;
+  color: $info;
   font-weight: bold;
 }
 
 .help-contents-title {
-  margin: -20px 0px 0px 132px;
   font-weight: bold;
 }
 
 .help-contents-container {
-  margin: -35px 0px 0px 110px;
+  margin: -19px 0px 0px 110px;
   background: no-repeat url("../assets/help_outline.svg") right bottom;
 }
 </style>

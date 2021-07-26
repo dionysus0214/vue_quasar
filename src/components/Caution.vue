@@ -46,7 +46,7 @@ export default {
 }
 
 .caution-contents-container {
-  margin: -30px 0px 0px 110px;
+  margin: -18px 0px 0px 110px;
   background: no-repeat url("../assets/caution_outline.svg") right bottom;
 }
 </style>

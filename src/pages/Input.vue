@@ -2,8 +2,15 @@
   <div class="q-pa-md">
     <div class="q-gutter-md" style="max-width: 297px">
       <s-input />
-      <s-input-label />
-      <s-input-addon />
+      <s-input-label
+        title="이름"
+      />
+      <s-input-label
+        title="전화번호"
+      />
+      <s-input-addon
+        title="주소"
+      />
       <s-input
         class="disable"
         disable
@@ -32,7 +39,7 @@ export default {
   components: { SInput, SInputLabel, SInputAddon, SInputNumber, SInputPassword },
   setup () {
     return {
-      text: ref(''),
+      email: ref(''),
       password: ref(''),
       isPwd: ref(true),
       number: ref(1)
@@ -42,10 +49,6 @@ export default {
 </script>
 
 <style>
-s-input {
-  background-color: palevioletred;
-}
-
 .disable {
   background-color: #F6F6F6;
 }

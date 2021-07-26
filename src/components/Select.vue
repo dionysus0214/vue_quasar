@@ -2,7 +2,6 @@
   <q-select
     outlined
     v-model="model"
-    label="Select"
     dense
     options-dense
     dropdown-icon="expand_more"

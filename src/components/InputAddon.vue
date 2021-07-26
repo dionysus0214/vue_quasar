@@ -7,7 +7,7 @@
     class="inner-label-input"
   >
     <template v-slot:prepend>
-      <div class="input-addon">Label</div>
+      <div class="input-addon">{{title}}</div>
     </template>
   </q-input>
 </template>
@@ -19,6 +19,11 @@ export default {
   setup () {
     return {
       text: ref('')
+    }
+  },
+  props: {
+    title: {
+      default: ''
     }
   }
 }

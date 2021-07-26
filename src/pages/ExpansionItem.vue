@@ -1,5 +1,5 @@
 <template>
-  <div class="q-pa-sm" style="max-width: 1018px">
+  <div class="q-pa-sm" style="max-width: 1920px">
     <s-help title="Lorem ipsum dolor sit amet">
       <ul>
         <li>Quisque lobortis libero ac mauris cursus, vel pulvinar erat blandit.</li>
@@ -11,11 +11,11 @@
       </ul>
     </s-help>
   </div>
-  <div class="q-pa-sm" style="max-width: 1018px">
+  <div class="q-pa-sm" style="max-width: 1920px">
     <s-caution title="Aenean nec efficitur ex">
       <ul>
         <li>Aenean feugiat purus in, iaculis urna quiselit lobortis vestibulum.</li>
-        <li>Pellentesque consequat lectus ultricies, accumsan mauris ac, gravida elit.</li>
+        <li>Pellentesque volutpat enim tincidunt orci ullamcorpe volutpat enim tincidunt orci ullamcorpe consequat lectus ultricies, accumsan mauris ac, gravida elit.</li>
         <li>Nam fermentum quam sed libero iaculis, nec volutpat erat feugiat.</li>
         <li>Nullam tincidunt velit vel sodales convallis.</li>
         <li>Duis volutpat enim tincidunt orci ullamcorper, sit amet vehicula libero venenatis.</li>

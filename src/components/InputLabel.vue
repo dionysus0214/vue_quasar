@@ -6,7 +6,7 @@
     dense
   >
     <template v-slot:before>
-      <div class="input-label">Label</div>
+      <div class="input-label">{{title}}</div>
     </template>
   </q-input>
 </template>
@@ -18,6 +18,11 @@ export default {
   setup () {
     return {
       text: ref('')
+    }
+  },
+  props: {
+    title: {
+      default: ''
     }
   }
 }
