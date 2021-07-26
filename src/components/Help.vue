@@ -4,12 +4,11 @@
       expand-icon-toggle
       expand-separator
       switch-toggle-side
-      @show="isHidden = true"
-      @hide="isHidden = false"
+      v-model="isOpen"
     >
       <template v-slot:header>
-        <q-item-section class="help-header">Help</q-item-section>
-        <q-item-section class="help-contents-title" v-show="isHidden">{{title}}</q-item-section>
+        <q-item-section avatar class="help-header">Help</q-item-section>
+        <q-item-section class="help-contents-title" v-show="isOpen">{{title}}</q-item-section>
       </template>
       <q-card>
         <q-card-section class="help-contents-container">
@@ -24,7 +23,7 @@
 export default {
   data () {
     return {
-      isHidden: false
+      isOpen: false
     }
   },
   props: {
@@ -47,14 +46,12 @@ export default {
     height: 54px;
     text-align: left;
   }
-  .q-item__section--main + .q-item__section--main {
-    margin-left: -660px;
-  }
 }
 
 .help-header {
   color: $info;
   font-weight: bold;
+  width: 78px;
 }
 
 .help-contents-title {
