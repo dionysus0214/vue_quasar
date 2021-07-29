@@ -4,7 +4,7 @@
     v-model="text"
     placeholder="Type Something"
     dense
-    class="inner-label-input"
+    class="s-input-addon"
   >
     <template v-slot:prepend>
       <div class="input-addon">{{title}}</div>
@@ -30,7 +30,7 @@ export default {
 </script>
 
 <style lang="scss">
-.inner-label-input {
+.s-input-addon {
   .q-field__prepend {
     border-right: 1px solid #cccccc;
     padding-right: 10px;

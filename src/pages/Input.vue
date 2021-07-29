@@ -19,8 +19,7 @@
       <s-input-number
         v-model="number"
       />
-      <s-input
-        type="textarea"
+      <s-textarea
         counter maxlength="100"
       />
     </div>
@@ -34,9 +33,10 @@ import SInputLabel from '../components/InputLabel.vue'
 import SInputAddon from '../components/InputAddon.vue'
 import SInputNumber from '../components/InputNumber.vue'
 import SInputPassword from '../components/InputPassword.vue'
+import STextarea from '../components/Textarea.vue'
 
 export default {
-  components: { SInput, SInputLabel, SInputAddon, SInputNumber, SInputPassword },
+  components: { SInput, SInputLabel, SInputAddon, SInputNumber, SInputPassword, STextarea },
   setup () {
     return {
       email: ref(''),

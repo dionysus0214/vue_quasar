@@ -3,7 +3,6 @@
     outlined
     v-model="innerValue"
     type="number"
-    placeholder="Type Number"
     dense
     @change="$emit('update:modelValue', innerValue)"
     class="s-input-number"
@@ -42,6 +41,10 @@ export default {
 </script>
 
 <style>
+.q-icon {
+  height: 0.7em;
+}
+
 .s-input-number-icon-up {
   border-left: 1px solid #CCCCCC;
   position: absolute;

@@ -80,6 +80,11 @@ const linksList = [
     link: 'http://10.0.2.21:8080/#/expansionItem'
   },
   {
+    title: 'Date Picker',
+    icon: 'code',
+    link: 'http://10.0.2.21:8080/#/datepicker'
+  },
+  {
     title: 'Sample Page',
     icon: 'add',
     link: 'http://10.0.2.21:8080/#/sample'

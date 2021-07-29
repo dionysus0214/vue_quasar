@@ -1,4 +1,12 @@
 // app global css in SCSS form
+body.desktop {
+  .q-focusable:focus, .q-manual-focusable--focused, .q-hoverable:hover {
+    > .q-focus-helper {
+      background: #0075FF;
+      opacity: .5
+    }
+  }
+}
 .q-field {
   &--outlined {
     .q-field__control {
@@ -7,8 +15,8 @@
       }
       &:hover:after {
         border: 1px solid;
-        border-color: #0071FF;
-        box-shadow: 0 0 4px #0071FF;
+        border-color: #0075FF;
+        box-shadow: 0 0 4px #0075FF;
       }
     }
     &.q-field--highlighted {
@@ -18,21 +26,14 @@
       
       .q-field__control:after {
         border: 1px solid;
-        border-color: #0071FF;
-        box-shadow: 0 0 4px #0071FF;
+        border-color: #0075FF;
+        box-shadow: 0 0 4px #0075FF;
       }
     }
   }
-  // &--dense {
-  //   .q-field__control, .q-field__marginal {
-  //     height: 32px;
-  //   }
-  // }
+  &--dense {
+    .q-field__control, .q-field__marginal {
+      height: 32px;
+    }
+  }
 }
-
-// .q-textarea {
-//   &.q-field--dense
-//     .q-field__control, .q-field__native {
-//       min-height: 80px 
-//     }
-// }

@@ -36,3 +36,9 @@ export default {
   }
 }
 </script>
+
+<style>
+.q-field--dense .q-field__label {
+  top: 5px;
+}
+</style>

@@ -3,10 +3,10 @@
     <div class="q-gutter-md">
       <s-select
         :options="options"
-        label="Select"
       />
 
       <s-select
+        class="disable"
         disable
         label="Disable"
       />
@@ -28,3 +28,9 @@ export default {
   }
 }
 </script>
+
+<style>
+.disable {
+  background-color: #F6F6F6;
+}
+</style>

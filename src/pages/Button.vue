@@ -32,7 +32,7 @@
     <s-button
       class="button-medium-icon"
       outline
-      color="positive"
+      color="dark"
       label="Button"
       icon="search"
     />
@@ -62,7 +62,11 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss">
+.q-btn--dense .on-left {
+  margin-right: 2px;
+}
+
 .button-small {
   width: 69px;
   height: 32px;

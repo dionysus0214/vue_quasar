@@ -11,6 +11,7 @@ const routes = [
       { path: 'radio', component: () => import('pages/Radio.vue') },
       { path: 'checkbox', component: () => import('pages/Checkbox.vue') },
       { path: 'expansionItem', component: () => import('pages/ExpansionItem.vue') },
+      { path: 'datepicker', component: () => import('pages/Datepicker.vue') },
       { path: 'sample', component: () => import('pages/Sample.vue') }
     ]
   },

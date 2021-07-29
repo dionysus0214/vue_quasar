@@ -6,7 +6,8 @@
     unelevated
     style="padding: 5px 12px"
     :ripple="false"
-    color="positive"
+    color="dark"
+    class="s-button"
   />
 </template>
 
@@ -28,9 +29,7 @@ export default {
 </script>
 
 <style>
-/* button:hover {
-    outline: none !important;
-    border-color: #006AC1;
-    box-shadow: 0 0 4px #006AC1;
-} */
+.s-button {
+  border-radius: 4px;
+}
 </style>

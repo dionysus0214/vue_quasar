@@ -3,8 +3,7 @@
     outlined
     v-model="text"
     placeholder="Type Something"
-    dense
-    class="s-input"
+    type="textarea"
   />
 </template>
 
