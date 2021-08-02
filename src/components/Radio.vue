@@ -22,3 +22,12 @@ export default {
   }
 }
 </script>
+
+<style lang="scss">
+.q-radio--dense .q-radio__bg {
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+</style>

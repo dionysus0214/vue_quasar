@@ -12,6 +12,9 @@ const routes = [
       { path: 'checkbox', component: () => import('pages/Checkbox.vue') },
       { path: 'expansionItem', component: () => import('pages/ExpansionItem.vue') },
       { path: 'datepicker', component: () => import('pages/Datepicker.vue') },
+      { path: 'pagination', component: () => import('pages/Pagination.vue') },
+      { path: 'dialog', component: () => import('pages/Dialog.vue') },
+      { path: 'tooltip', component: () => import('pages/Tooltip.vue') },
       { path: 'sample', component: () => import('pages/Sample.vue') }
     ]
   },

@@ -1,20 +1,13 @@
 <template>
-  <div class="q-pa-lg flex flex-center">
-    <q-pagination
-      v-model="current"
-      color="primary"
-      :max="10"
-      :max-pages="6"
-      boundary-numbers
-    />
-  </div>
-  <div class="q-pa-lg flex flex-center">
-    <q-pagination
-      v-model="current"
-      :max="5"
-      direction-links
-    />
-  </div>
+  <q-pagination
+    v-model="current"
+    unelevated
+    direction-links
+    round
+    color="black"
+    active-color="blue-9"
+    active-text-color="white"
+  />
 </template>
 
 <script>

@@ -3,10 +3,10 @@
     <template v-slot:prepend>
       <q-icon name="event" class="cursor-pointer">
         <q-popup-proxy ref="qDateProxy" transition-show="scale" transition-hide="scale">
-          <q-date v-model="date" minimal>
-            <div class="row items-center justify-end">
+          <q-date v-model="date" color="positive" minimal no-unset>
+            <!-- <div class="row items-center justify-end">
               <q-btn v-close-popup label="Close" color="primary" flat />
-            </div>
+            </div> -->
           </q-date>
         </q-popup-proxy>
       </q-icon>
@@ -25,7 +25,3 @@ export default {
   }
 }
 </script>
-
-<style>
-
-</style>

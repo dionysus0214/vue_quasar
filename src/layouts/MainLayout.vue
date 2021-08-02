@@ -85,6 +85,21 @@ const linksList = [
     link: 'http://10.0.2.21:8080/#/datepicker'
   },
   {
+    title: 'Pagination',
+    icon: 'code',
+    link: 'http://10.0.2.21:8080/#/pagination'
+  },
+  {
+    title: 'Dialog',
+    icon: 'code',
+    link: 'http://10.0.2.21:8080/#/dialog'
+  },
+  {
+    title: 'Tooltip',
+    icon: 'code',
+    link: 'http://10.0.2.21:8080/#/tooltip'
+  },
+  {
     title: 'Sample Page',
     icon: 'add',
     link: 'http://10.0.2.21:8080/#/sample'

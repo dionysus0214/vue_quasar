@@ -1,12 +1,4 @@
 // app global css in SCSS form
-body.desktop {
-  .q-focusable:focus, .q-manual-focusable--focused, .q-hoverable:hover {
-    > .q-focus-helper {
-      background: #0075FF;
-      opacity: .5
-    }
-  }
-}
 .q-field {
   &--outlined {
     .q-field__control {

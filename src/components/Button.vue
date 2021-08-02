@@ -7,7 +7,6 @@
     style="padding: 5px 12px"
     :ripple="false"
     color="dark"
-    class="s-button"
   />
 </template>
 
@@ -18,6 +17,7 @@ export default {
       colors: [
         'primary',
         'secondary',
+        'dark',
         'positive',
         'negative',
         'info',
@@ -27,9 +27,3 @@ export default {
   }
 }
 </script>
-
-<style>
-.s-button {
-  border-radius: 4px;
-}
-</style>
