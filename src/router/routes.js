@@ -15,6 +15,9 @@ const routes = [
       { path: 'pagination', component: () => import('pages/Pagination.vue') },
       { path: 'dialog', component: () => import('pages/Dialog.vue') },
       { path: 'tooltip', component: () => import('pages/Tooltip.vue') },
+      { path: 'filePicker', component: () => import('pages/FilePicker.vue') },
+      { path: 'tabs', component: () => import('pages/Tabs.vue') },
+      { path: 'toggle', component: () => import('pages/Toggle.vue') },
       { path: 'sample', component: () => import('pages/Sample.vue') }
     ]
   },

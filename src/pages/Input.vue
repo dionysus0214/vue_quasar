@@ -4,6 +4,7 @@
       <s-input />
       <s-input-label
         title="이름"
+        v-model="name"
       />
       <s-input-label
         title="전화번호"
@@ -22,6 +23,19 @@
       <s-textarea
         counter maxlength="100"
       />
+      <q-input
+        v-model.number="model"
+        type="number"
+        filled
+        style="max-width: 200px"
+      />
+      <q-file
+      v-model="files"
+      outlined
+      use-chips
+      multiple
+      style="max-width: 300px"
+    />
     </div>
   </div>
 </template>
@@ -40,9 +54,17 @@ export default {
   setup () {
     return {
       email: ref(''),
-      password: ref(''),
+      // password: ref(''),
       isPwd: ref(true),
-      number: ref(1)
+      files: ref(null)
+    }
+  },
+  data () {
+    return {
+      name: null,
+      password: null,
+      number: ref(1),
+      model: ref(100)
     }
   }
 }

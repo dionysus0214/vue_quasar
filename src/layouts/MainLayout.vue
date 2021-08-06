@@ -50,24 +50,9 @@ import EssentialLink from 'components/EssentialLink.vue'
 
 const linksList = [
   {
-    title: 'Input/Input Number/Textarea',
-    icon: 'code',
-    link: 'http://10.0.2.21:8080/#/input'
-  },
-  {
-    title: 'Select',
-    icon: 'code',
-    link: 'http://10.0.2.21:8080/#/select'
-  },
-  {
     title: 'Button',
     icon: 'code',
     link: 'http://10.0.2.21:8080/#/button'
-  },
-  {
-    title: 'Radio',
-    icon: 'code',
-    link: 'http://10.0.2.21:8080/#/radio'
   },
   {
     title: 'Checkbox',
@@ -75,14 +60,29 @@ const linksList = [
     link: 'http://10.0.2.21:8080/#/checkbox'
   },
   {
+    title: 'Date Picker',
+    icon: 'code',
+    link: 'http://10.0.2.21:8080/#/datepicker'
+  },
+  {
+    title: 'Dialog',
+    icon: 'code',
+    link: 'http://10.0.2.21:8080/#/dialog'
+  },
+  {
+    title: 'File Picker',
+    icon: 'code',
+    link: 'http://10.0.2.21:8080/#/filePicker'
+  },
+  {
     title: 'Help/Caution',
     icon: 'code',
     link: 'http://10.0.2.21:8080/#/expansionItem'
   },
   {
-    title: 'Date Picker',
+    title: 'Input/Input Number/Textarea',
     icon: 'code',
-    link: 'http://10.0.2.21:8080/#/datepicker'
+    link: 'http://10.0.2.21:8080/#/input'
   },
   {
     title: 'Pagination',
@@ -90,9 +90,24 @@ const linksList = [
     link: 'http://10.0.2.21:8080/#/pagination'
   },
   {
-    title: 'Dialog',
+    title: 'Radio',
     icon: 'code',
-    link: 'http://10.0.2.21:8080/#/dialog'
+    link: 'http://10.0.2.21:8080/#/radio'
+  },
+  {
+    title: 'Select',
+    icon: 'code',
+    link: 'http://10.0.2.21:8080/#/select'
+  },
+  {
+    title: 'Tabs',
+    icon: 'code',
+    link: 'http://10.0.2.21:8080/#/tabs'
+  },
+  {
+    title: 'Toggle',
+    icon: 'code',
+    link: 'http://10.0.2.21:8080/#/toggle'
   },
   {
     title: 'Tooltip',

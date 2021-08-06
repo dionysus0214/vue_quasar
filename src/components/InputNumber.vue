@@ -1,7 +1,7 @@
 <template>
   <q-input
     outlined
-    v-model="innerValue"
+    v-model.number="innerValue"
     type="number"
     dense
     @change="$emit('update:modelValue', innerValue)"

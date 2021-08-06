@@ -12,7 +12,7 @@
 import { ref } from 'vue'
 
 export default {
-  setup () {
+  data () {
     return {
       text: ref('')
     }
