@@ -12,7 +12,7 @@
         />
 
         <q-toolbar-title>
-          Sellmate Component v.2
+          Sellmate Component v.3
         </q-toolbar-title>
       </q-toolbar>
     </q-header>

@@ -1,6 +1,5 @@
 <template>
   <q-pagination
-    v-model="current"
     unelevated
     direction-links
     round
@@ -9,15 +8,3 @@
     active-text-color="white"
   />
 </template>
-
-<script>
-import { ref } from 'vue'
-
-export default {
-  setup () {
-    return {
-      current: ref(3)
-    }
-  }
-}
-</script>

@@ -29,7 +29,10 @@ import SHelp from '../components/Help.vue'
 import SCaution from '../components/Caution.vue'
 
 export default {
-  components: { SHelp, SCaution }
+  components: {
+    SHelp,
+    SCaution
+  }
 }
 </script>
 

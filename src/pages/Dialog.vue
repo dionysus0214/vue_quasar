@@ -32,7 +32,11 @@ import SConfirmInfo from '../components/ConfirmInfo.vue'
 import SConfirmWarning from '../components/ConfirmWarning.vue'
 
 export default {
-  components: { SConfirmInfo, SConfirmWarning, SButton },
+  components: {
+    SConfirmInfo,
+    SConfirmWarning,
+    SButton
+  },
   setup () {
     return {
       confirm: ref(false),

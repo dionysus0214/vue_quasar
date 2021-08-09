@@ -1,7 +1,6 @@
 <template>
   <q-input
     outlined
-    v-model="password"
     :type="isPwd ? 'password' : 'text'"
     placeholder="Type Password"
     dense
@@ -22,7 +21,6 @@ import { ref } from 'vue'
 export default {
   setup () {
     return {
-      password: ref(''),
       isPwd: ref(true)
     }
   }

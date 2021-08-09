@@ -12,15 +12,17 @@
 </template>
 
 <script>
+import { ref } from 'vue'
 import SDatepicker from '../components/Datepicker.vue'
 
 export default {
-  components: { SDatepicker }
+  components: {
+    SDatepicker
+  },
+  setup () {
+    return {
+      date: ref('')
+    }
+  }
 }
 </script>
--
-<style lang="scss">
-// .q-field--dense .q-field__before, .q-field--dense .q-field__prepend {
-//   padding-right: 40px;
-// }
-</style>

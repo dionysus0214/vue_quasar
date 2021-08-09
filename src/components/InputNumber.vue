@@ -1,10 +1,7 @@
 <template>
   <q-input
     outlined
-    v-model.number="innerValue"
-    type="number"
     dense
-    @change="$emit('update:modelValue', innerValue)"
     class="s-input-number"
   >
     <template v-slot:append>
@@ -15,26 +12,13 @@
 </template>
 
 <script>
-import { ref } from 'vue'
-
 export default {
-  props: {
-    modelValue: Number
-  },
-  data () {
-    return {
-      innerValue: ref(0)
-    }
-  },
-  mounted () {
-    this.innerValue = this.modelValue
-  },
   methods: {
     plusNumber () {
-      this.innerValue++
+      this.$emit('update:modelValue', this.$attrs.modelValue + 1)
     },
     minusNumber () {
-      this.innerValue--
+      this.$emit('update:modelValue', this.$attrs.modelValue - 1)
     }
   }
 }

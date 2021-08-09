@@ -1,41 +1,43 @@
 <template>
   <div class="q-pa-md">
     <div class="q-gutter-md" style="max-width: 297px">
-      <s-input />
+      <s-input
+        v-model="text"
+      />
+      <s-input
+        label="이름1"
+        v-model="text"
+      />
+      <s-input
+        label="이름2"
+        v-model="text"
+      />
       <s-input-label
         title="이름"
         v-model="name"
       />
       <s-input-label
         title="전화번호"
+        v-model="phoneNumber"
       />
       <s-input-addon
         title="주소"
+        v-model="address"
       />
       <s-input
         class="disable"
         disable
       />
-      <s-input-password />
+      <s-input-password
+        v-model="password"
+      />
       <s-input-number
-        v-model="number"
+        v-model.number="model"
       />
       <s-textarea
         counter maxlength="100"
+        v-model="text"
       />
-      <q-input
-        v-model.number="model"
-        type="number"
-        filled
-        style="max-width: 200px"
-      />
-      <q-file
-      v-model="files"
-      outlined
-      use-chips
-      multiple
-      style="max-width: 300px"
-    />
     </div>
   </div>
 </template>
@@ -50,20 +52,21 @@ import SInputPassword from '../components/InputPassword.vue'
 import STextarea from '../components/Textarea.vue'
 
 export default {
-  components: { SInput, SInputLabel, SInputAddon, SInputNumber, SInputPassword, STextarea },
+  components: {
+    SInput,
+    SInputLabel,
+    SInputAddon,
+    SInputNumber,
+    SInputPassword,
+    STextarea
+  },
   setup () {
     return {
-      email: ref(''),
-      // password: ref(''),
-      isPwd: ref(true),
-      files: ref(null)
-    }
-  },
-  data () {
-    return {
-      name: null,
-      password: null,
-      number: ref(1),
+      text: ref(null),
+      name: ref(null),
+      phoneNumber: ref(null),
+      address: ref(null),
+      password: ref(null),
       model: ref(100)
     }
   }
