@@ -27,7 +27,7 @@ export default {
 </script>
 
 <style>
-.q-checkbox__bg {
+/* .q-checkbox__bg {
   border: 1px solid #888888;
-}
+} */
 </style>

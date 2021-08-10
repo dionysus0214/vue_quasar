@@ -1,7 +1,7 @@
 <template>
   <div class="q-pa-md">
     <div class="q-gutter-y-md" style="max-width: 600px">
-      <s-tabs/>
+      <s-tabs />
     </div>
   </div>
 </template>

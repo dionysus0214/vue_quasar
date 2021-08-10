@@ -10,31 +10,28 @@
       />
       <s-input
         label="이름2"
+        insideLabel
         v-model="text"
       />
-      <s-input-label
-        title="이름"
-        v-model="name"
+      <s-input
+        password
+        v-model="text"
       />
-      <s-input-label
-        title="전화번호"
-        v-model="phoneNumber"
-      />
-      <s-input-addon
-        title="주소"
-        v-model="address"
+      <s-input
+        label="비밀번호"
+        insideLabel
+        password
+        v-model="text"
       />
       <s-input
         class="disable"
         disable
       />
-      <s-input-password
-        v-model="password"
-      />
       <s-input-number
-        v-model.number="model"
+        v-model.number="number"
       />
-      <s-textarea
+      <s-input
+        type="textarea"
         counter maxlength="100"
         v-model="text"
       />
@@ -45,29 +42,17 @@
 <script>
 import { ref } from 'vue'
 import SInput from '../components/Input.vue'
-import SInputLabel from '../components/InputLabel.vue'
-import SInputAddon from '../components/InputAddon.vue'
 import SInputNumber from '../components/InputNumber.vue'
-import SInputPassword from '../components/InputPassword.vue'
-import STextarea from '../components/Textarea.vue'
 
 export default {
   components: {
     SInput,
-    SInputLabel,
-    SInputAddon,
-    SInputNumber,
-    SInputPassword,
-    STextarea
+    SInputNumber
   },
   setup () {
     return {
       text: ref(null),
-      name: ref(null),
-      phoneNumber: ref(null),
-      address: ref(null),
-      password: ref(null),
-      model: ref(100)
+      number: ref(100)
     }
   }
 }

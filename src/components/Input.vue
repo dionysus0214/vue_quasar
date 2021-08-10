@@ -1,24 +1,49 @@
 <template>
   <q-input
+    class="s-input"
     outlined
     placeholder="Type Something"
     dense
-    class="s-input"
+    :type="inputType"
   >
     <template v-if="label !== undefined && !insideLabel" v-slot:before>
-      <div class="input-label">{{label}}</div>
+      <div class="input-label">{{ label }}</div>
     </template>
     <template v-if="label !== undefined && insideLabel" v-slot:prepend>
-      <div class="input-addon">{{label}}</div>
+      <div class="input-addon">{{ label }}</div>
+    </template>
+    <template v-if="password" v-slot:append>
+      <q-icon
+        :name="isVisible ? 'visibility' : 'visibility_off'"
+        @click="isVisible = !isVisible"
+      />
     </template>
   </q-input>
 </template>
 
 <script>
+import { ref, computed } from 'vue'
+
 export default {
   props: {
     label: String,
-    insideLabel: Boolean
+    insideLabel: Boolean,
+    password: Boolean,
+    type: String
+  },
+  setup (props) {
+    const isVisible = ref(false)
+    const inputType = computed(() => {
+      if (props.password) {
+        return isVisible.value ? 'text' : 'password'
+      }
+      return props.type
+    })
+
+    return {
+      isVisible,
+      inputType
+    }
   }
 }
 </script>
@@ -30,12 +55,12 @@ export default {
     padding-right: 10px;
     margin-right: 10px;
   }
-  .input-addon {
-    font-size: 14px;
-  }
   .input-label {
     font-size: 14px;
     padding-right: 4px;
+  }
+  .input-addon {
+    font-size: 14px;
   }
 }
 </style>

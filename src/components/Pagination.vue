@@ -3,7 +3,6 @@
     unelevated
     direction-links
     round
-    color="black"
     active-color="blue-9"
     active-text-color="white"
   />

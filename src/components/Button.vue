@@ -9,21 +9,3 @@
     color="dark"
   />
 </template>
-
-<script>
-export default {
-  setup () {
-    return {
-      colors: [
-        'primary',
-        'secondary',
-        'dark',
-        'positive',
-        'negative',
-        'info',
-        'warning'
-      ]
-    }
-  }
-}
-</script>

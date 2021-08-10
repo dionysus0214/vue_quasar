@@ -5,7 +5,8 @@
       label="Info"
       @click="confirm = true"
     />
-    <s-confirm-info
+    <s-confirm
+      info
       v-model="confirm"
       title="Infomation"
       content="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis commodo nisi nec sem congue vulputate. Fusce ultrices metus elit, at molestie quam dignissim nec."
@@ -17,7 +18,8 @@
       color="negative"
       @click="warning = true"
     />
-    <s-confirm-warning
+    <s-confirm
+      warning
       v-model="warning"
       title="Warning"
       content="Donec finibus, sapien sit amet gravida porttitor, enim tortor pulvinar quam, pharetra tincidunt eros libero consequat est. Donec sit amet malesuada ipsum, nec consectetur eros. Phasellus sodales ac felis ac mattis."
@@ -28,13 +30,11 @@
 <script>
 import { ref } from 'vue'
 import SButton from '../components/Button.vue'
-import SConfirmInfo from '../components/ConfirmInfo.vue'
-import SConfirmWarning from '../components/ConfirmWarning.vue'
+import SConfirm from '../components/Confirm.vue'
 
 export default {
   components: {
-    SConfirmInfo,
-    SConfirmWarning,
+    SConfirm,
     SButton
   },
   setup () {
