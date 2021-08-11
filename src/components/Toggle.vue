@@ -2,10 +2,20 @@
   <div class="container">
     <label class="switch" for="checkbox">
       <input type="checkbox" id="checkbox" />
-      <div class="slider round"></div>
+      <div class="slider round" @click="isChecked"></div>
     </label>
   </div>
 </template>
+
+<script>
+export default {
+  methods: {
+    isChecked () {
+      this.$emit('update:modelValue', this.$attrs.modelValue = !this.$attrs.modelValue)
+    }
+  }
+}
+</script>
 
 <style>
 .container {

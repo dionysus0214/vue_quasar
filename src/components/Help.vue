@@ -8,7 +8,7 @@
     >
       <template v-slot:header>
         <q-item-section avatar class="help-header">Help</q-item-section>
-        <q-item-section class="help-contents-title" v-show="isOpen">{{title}}</q-item-section>
+        <q-item-section class="help-contents-title" v-show="isOpen">{{ title }}</q-item-section>
       </template>
       <q-card>
         <q-card-section class="help-contents-container">
@@ -29,9 +29,7 @@ export default {
     }
   },
   props: {
-    title: {
-      default: ''
-    }
+    title: String
   }
 }
 </script>

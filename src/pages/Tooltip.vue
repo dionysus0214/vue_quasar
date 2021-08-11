@@ -12,6 +12,8 @@
 import STooltip from '../components/Tooltip.vue'
 
 export default {
-  components: { STooltip }
+  components: {
+    STooltip
+  }
 }
 </script>

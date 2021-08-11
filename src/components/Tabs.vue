@@ -1,6 +1,5 @@
 <template>
   <q-tabs
-    v-model="tab"
     align="left"
     class="tabs text-grey"
     active-color="positive"
@@ -15,27 +14,16 @@
   </q-tabs>
 </template>
 
-<script>
-import { ref } from 'vue'
-
-export default {
-  setup () {
-    return {
-      tab: ref('tab01')
-    }
-  }
-}
-</script>
-
 <style>
 .tab {
   border: 1px solid #CCCCCC;
+  border-bottom: transparent;
   border-radius: 2px;
   margin-right: 4px;
+  padding: 0px 20px;
 }
 
 .tab:active {
   border: 1px solid #0075FF;
-  border-bottom: transparent;
 }
 </style>

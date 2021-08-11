@@ -26,7 +26,7 @@ export default {
   },
   setup () {
     return {
-      currentPage: ref(1)
+      currentPage: ref(5)
     }
   }
 }

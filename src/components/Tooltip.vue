@@ -13,11 +13,11 @@
 import SButton from '../components/Button.vue'
 
 export default {
-  components: { SButton },
+  components: {
+    SButton
+  },
   props: {
-    content: {
-      default: ''
-    }
+    content: String
   }
 }
 </script>

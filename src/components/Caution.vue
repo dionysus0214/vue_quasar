@@ -3,7 +3,7 @@
     <q-card flat>
       <q-card-section>
         <span class="caution-header">Caution</span>
-        <span class="caution-contents-title">{{title}}</span>
+        <span class="caution-contents-title">{{ title }}</span>
       </q-card-section>
       <q-card class="caution-contents-container">
         <q-card-section>
@@ -17,9 +17,7 @@
 <script>
 export default {
   props: {
-    title: {
-      default: ''
-    }
+    title: String
   }
 }
 </script>

@@ -18,7 +18,9 @@
 import SSelect from '../components/Select.vue'
 
 export default {
-  components: { SSelect },
+  components: {
+    SSelect
+  },
   setup () {
     return {
       options: [
