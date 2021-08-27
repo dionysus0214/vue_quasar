@@ -2,27 +2,29 @@
   <div class="q-pa-md">
     <div class="q-gutter-md">
       <s-datepicker
-        style="width: 146px"
+        short
+        v-model="date"
       />
       <s-datepicker
-        style="width: 200px"
+        long
+        v-model="date"
       />
     </div>
   </div>
 </template>
 
 <script>
-import { ref } from 'vue'
-import SDatepicker from '../components/Datepicker.vue'
+import { ref } from 'vue';
+import SDatepicker from '../components/SDatepicker.vue';
 
 export default {
   components: {
-    SDatepicker
+    SDatepicker,
   },
-  setup () {
+  setup() {
     return {
-      date: ref('')
-    }
-  }
-}
+      date: ref(''),
+    };
+  },
+};
 </script>

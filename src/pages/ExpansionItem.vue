@@ -25,15 +25,15 @@
 </template>
 
 <script>
-import SHelp from '../components/Help.vue'
-import SCaution from '../components/Caution.vue'
+import SHelp from '../components/SHelp.vue';
+import SCaution from '../components/SCaution.vue';
 
 export default {
   components: {
     SHelp,
-    SCaution
-  }
-}
+    SCaution,
+  },
+};
 </script>
 
 <style>

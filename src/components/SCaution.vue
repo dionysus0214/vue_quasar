@@ -17,9 +17,9 @@
 <script>
 export default {
   props: {
-    title: String
-  }
-}
+    title: String,
+  },
+};
 </script>
 
 <style lang="scss">

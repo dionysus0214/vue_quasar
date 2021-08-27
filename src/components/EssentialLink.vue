@@ -3,7 +3,7 @@
     clickable
     tag="a"
     target="_self"
-    :href="link"
+    :to="link"
   >
     <q-item-section
       v-if="icon"
@@ -19,25 +19,25 @@
 </template>
 
 <script>
-import { defineComponent } from 'vue'
+import { defineComponent } from 'vue';
 
 export default defineComponent({
   name: 'EssentialLink',
   props: {
     title: {
       type: String,
-      required: true
+      required: true,
     },
 
     link: {
       type: String,
-      default: '#'
+      default: '#',
     },
 
     icon: {
       type: String,
-      default: ''
-    }
-  }
-})
+      default: '',
+    },
+  },
+});
 </script>

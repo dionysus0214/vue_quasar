@@ -11,8 +11,8 @@
 
       <q-card-section>
         <div class="modal-icon q-mt-md">
-          <q-img v-if="info" src="~assets/icon_info_outline.svg" width="28px" height="28px" />
-          <q-img v-else-if="warning" src="~assets/icon_warning_outline.svg" width="28px" height="28px" />
+          <q-img v-if="type === 'info'" src="~assets/icon_info_outline.svg" width="28px" height="28px" />
+          <q-img v-else src="~assets/icon_warning_outline.svg" width="28px" height="28px" />
         </div>
         <div class="modal-title q-mt-sm">
           {{ title }}
@@ -21,8 +21,8 @@
           {{ content }}
         </div>
         <div class="modal-button q-mt-md">
-          <s-button class="modal-button-first" label="Agree" :color="info ? 'dark' : 'negative'" />
-          <s-button outline label="Disagree" :color="info ? 'dark' : 'negative'" />
+          <s-button class="modal-button-first" label="Agree" :color="type === 'info' ? 'blue-2' : 'negative'" />
+          <s-button outline label="Disagree" :color="type === 'info' ? 'blue-2' : 'negative'" />
         </div>
       </q-card-section>
     </q-card>
@@ -30,19 +30,27 @@
 </template>
 
 <script>
-import SButton from './Button.vue'
+import SButton from './SButton.vue';
 
 export default {
   components: {
-    SButton
+    SButton,
   },
   props: {
-    info: Boolean,
-    warning: Boolean,
-    title: String,
-    content: String
-  }
-}
+    title: {
+      type: String,
+      default: '',
+    },
+    content: {
+      type: String,
+      default: '',
+    },
+    type: {
+      type: String,
+      default: 'info',
+    },
+  },
+};
 </script>
 
 <style>

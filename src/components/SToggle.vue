@@ -10,14 +10,16 @@
 <script>
 export default {
   methods: {
-    isChecked () {
-      this.$emit('update:modelValue', this.$attrs.modelValue = !this.$attrs.modelValue)
-    }
-  }
-}
+    isChecked() {
+      this.$emit('update:modelValue', this.$attrs.modelValue = !this.$attrs.modelValue);
+    },
+  },
+};
 </script>
 
-<style>
+<style lang="scss">
+@import '../css/quasar.variables.scss';
+
 .container {
   margin: 0 auto;
 }
@@ -34,7 +36,7 @@ export default {
 }
 
 .slider {
-  background-color: #888888;
+  background-color: $grey-4;
   position: absolute;
   top: 0;
   bottom: 0;
@@ -45,7 +47,7 @@ export default {
 }
 
 .slider:before {
-  background-color: #fff;
+  background-color: white;
   content: "";
   width: 20px;
   height: 20px;
@@ -56,7 +58,7 @@ export default {
 }
 
 input:checked + .slider {
-  background-color: #0075FF;
+  background-color: $positive;
 }
 
 input:checked + .slider:before {

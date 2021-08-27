@@ -3,21 +3,27 @@
     <s-toggle
       v-model="check"
     />
+    <s-button-toggle
+      v-model="model"
+    />
   </div>
 </template>
 
 <script>
-import { ref } from 'vue'
-import SToggle from '../components/Toggle.vue'
+import { ref } from 'vue';
+import SToggle from '../components/SToggle.vue';
+import SButtonToggle from '../components/SButtonToggle.vue';
 
 export default {
   components: {
-    SToggle
+    SToggle,
+    SButtonToggle,
   },
-  setup () {
+  setup() {
     return {
-      check: ref(false)
-    }
-  }
-}
+      check: ref(false),
+      model: ref(''),
+    };
+  },
+};
 </script>

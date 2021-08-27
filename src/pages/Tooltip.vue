@@ -9,11 +9,11 @@
 </template>
 
 <script>
-import STooltip from '../components/Tooltip.vue'
+import STooltip from '../components/STooltip.vue';
 
 export default {
   components: {
-    STooltip
-  }
-}
+    STooltip,
+  },
+};
 </script>

@@ -20,18 +20,18 @@
 </template>
 
 <script>
-import { ref } from 'vue'
+import { ref } from 'vue';
 
 export default {
-  setup () {
+  setup() {
     return {
-      isOpen: ref(false)
-    }
+      isOpen: ref(false),
+    };
   },
   props: {
-    title: String
-  }
-}
+    title: String,
+  },
+};
 </script>
 
 <style lang="scss">

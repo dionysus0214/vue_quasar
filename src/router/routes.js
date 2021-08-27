@@ -1,4 +1,3 @@
-
 const routes = [
   {
     path: '/',
@@ -18,13 +17,15 @@ const routes = [
       { path: 'filePicker', component: () => import('pages/FilePicker.vue') },
       { path: 'tabs', component: () => import('pages/Tabs.vue') },
       { path: 'toggle', component: () => import('pages/Toggle.vue') },
-      { path: 'sample', component: () => import('pages/Sample.vue') }
-    ]
+      { path: 'chip', component: () => import('pages/Chip.vue') },
+      { path: 'transfer', component: () => import('src/pages/Transfer.vue') },
+      { path: 'banner', component: () => import('src/pages/Banner.vue') },
+    ],
   },
   {
     path: '/:catchAll(.*)*',
-    component: () => import('pages/ErrorPage.vue')
-  }
-]
+    component: () => import('pages/ErrorPage.vue'),
+  },
+];
 
-export default routes
+export default routes;

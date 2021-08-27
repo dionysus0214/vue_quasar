@@ -1,111 +1,75 @@
 <template>
   <div class="q-pa-md q-gutter-sm">
     <s-button
-      class="button-small"
+      size="sm"
       label="Button"
     />
     <s-button
-      class="button-small-icon"
+      size="sm"
+      color="secondary"
       icon="search"
       label="Button"
     />
     <s-button
-      class="button-small"
+      size="sm"
       outline
       label="Button"
     />
     <s-button
-      class="button-small"
+      size="sm"
       color="negative"
       label="Button"
     />
     <s-button
-      class="button-small-icon-only"
-      outline
-      color="negative"
-      icon="exit_to_app"
+      size="sm"
+      icon="home"
     /><br>
     <s-button
-      class="button-medium"
+      size="md"
       label="Button"
     />
     <s-button
-      class="button-medium-icon"
+      size="md"
       outline
-      color="dark"
       label="Button"
       icon="search"
     />
     <s-button
-      class="button-medium"
+      size="md"
       outline
       color="negative"
       label="Button"
+    />
+    <s-button
+      size="md"
+      color="secondary"
+      icon="reorder"
     /><br>
     <s-button
-      class="button-small disable"
+      class="kakao"
+      label="로그인"
+    />
+    <s-button
       disable
+      size="md"
       label="Disabled"
-    />
-    <s-button
-      class="button-small kakao"
-      label="KAKAO"
-    />
+    /><br>
   </div>
 </template>
 
 <script>
-import SButton from '../components/Button.vue'
+import SButton from '../components/SButton.vue';
 
 export default {
   components: {
-    SButton
-  }
-}
+    SButton,
+  },
+};
 </script>
 
-<style lang="scss">
-.q-btn--dense .on-left {
-  margin-right: 2px;
-}
-
-.button-small {
-  width: 69px;
-  height: 32px;
-  font-size: 14px;
-  line-height: 22px;
-}
-
-.button-small-icon {
-  width: 91px;
-  height: 32px;
-  font-size: 14px;
-}
-
-.button-small-icon-only {
-  width: 32px;
-  height: 32px;
-}
-
-.button-medium {
-  width: 107px;
-  height: 42px;
-  font-size: 18px;
-}
-
-.button-medium-icon {
-  width: 135px;
-  height: 42px;
-  font-size: 18px;
-}
-
-.disable {
-  background: #EEEEEE !important;
-  color: #888888 !important;
-}
-
+<style>
 .kakao {
-  background: #FFFF80 !important;
+  background: #FFD400 !important;
   color: #000000  !important;
 }
 </style>

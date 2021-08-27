@@ -12,7 +12,7 @@
         />
 
         <q-toolbar-title>
-          Sellmate Component v.3
+          Sellmate Component YEAH
         </q-toolbar-title>
       </q-toolbar>
     </q-header>
@@ -46,95 +46,110 @@
 </template>
 
 <script>
-import EssentialLink from 'components/EssentialLink.vue'
+import EssentialLink from 'components/EssentialLink.vue';
 
 const linksList = [
   {
+    title: 'Banner',
+    icon: 'code',
+    link: '/banner',
+  },
+  {
     title: 'Button',
     icon: 'code',
-    link: 'http://10.0.2.21:8080/#/button'
+    link: '/button',
   },
   {
     title: 'Checkbox',
     icon: 'code',
-    link: 'http://10.0.2.21:8080/#/checkbox'
+    link: '/checkbox',
+  },
+  {
+    title: 'Chip',
+    icon: 'code',
+    link: '/chip',
   },
   {
     title: 'Date Picker',
     icon: 'code',
-    link: 'http://10.0.2.21:8080/#/datepicker'
+    link: '/datepicker',
   },
   {
     title: 'Dialog',
     icon: 'code',
-    link: 'http://10.0.2.21:8080/#/dialog'
+    link: '/dialog',
   },
   {
     title: 'File Picker',
     icon: 'code',
-    link: 'http://10.0.2.21:8080/#/filePicker'
+    link: '/filePicker',
   },
   {
     title: 'Help/Caution',
     icon: 'code',
-    link: 'http://10.0.2.21:8080/#/expansionItem'
+    link: '/expansionItem',
   },
   {
     title: 'Input/Input Number/Textarea',
     icon: 'code',
-    link: 'http://10.0.2.21:8080/#/input'
+    link: '/input',
   },
   {
     title: 'Pagination',
     icon: 'code',
-    link: 'http://10.0.2.21:8080/#/pagination'
+    link: '/pagination',
   },
   {
     title: 'Radio',
     icon: 'code',
-    link: 'http://10.0.2.21:8080/#/radio'
+    link: '/radio',
   },
   {
-    title: 'Select',
+    title: 'Select/Search Select',
     icon: 'code',
-    link: 'http://10.0.2.21:8080/#/select'
+    link: '/select',
   },
   {
     title: 'Tabs',
     icon: 'code',
-    link: 'http://10.0.2.21:8080/#/tabs'
+    link: '/tabs',
   },
   {
-    title: 'Toggle',
+    title: 'Toggle/Button Toggle',
     icon: 'code',
-    link: 'http://10.0.2.21:8080/#/toggle'
+    link: '/toggle',
   },
   {
     title: 'Tooltip',
     icon: 'code',
-    link: 'http://10.0.2.21:8080/#/tooltip'
-  }
-]
+    link: '/tooltip',
+  },
+  {
+    title: 'Transfer',
+    icon: 'code',
+    link: '/transfer',
+  },
+];
 
-import { defineComponent, ref } from 'vue'
+import { defineComponent, ref } from 'vue';
 
 export default defineComponent({
   name: 'MainLayout',
 
   components: {
-    EssentialLink
+    EssentialLink,
   },
 
-  setup () {
-    const leftDrawerOpen = ref(false)
+  setup() {
+    const leftDrawerOpen = ref(false);
 
     return {
       essentialLinks: linksList,
       leftDrawerOpen,
-      toggleLeftDrawer () {
-        leftDrawerOpen.value = !leftDrawerOpen.value
-      }
-    }
-  }
-})
+      toggleLeftDrawer() {
+        leftDrawerOpen.value = !leftDrawerOpen.value;
+      },
+    };
+  },
+});
 </script>

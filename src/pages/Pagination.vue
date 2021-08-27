@@ -17,17 +17,17 @@
 </template>
 
 <script>
-import { ref } from 'vue'
-import SPagination from '../components/Pagination.vue'
+import { ref } from 'vue';
+import SPagination from '../components/SPagination.vue';
 
 export default {
   components: {
-    SPagination
+    SPagination,
   },
-  setup () {
+  setup() {
     return {
-      currentPage: ref(5)
-    }
-  }
-}
+      currentPage: ref(5),
+    };
+  },
+};
 </script>

@@ -27,8 +27,7 @@ module.exports = {
     // 'plugin:vue/vue3-strongly-recommended', // Priority B: Strongly Recommended (Improving Readability)
     // 'plugin:vue/vue3-recommended', // Priority C: Recommended (Minimizing Arbitrary Choices and Cognitive Overhead)
 
-    'standard'
-
+    'airbnb-base'
   ],
 
   plugins: [
@@ -71,7 +70,10 @@ module.exports = {
     'import/no-extraneous-dependencies': 'off',
     'prefer-promise-reject-errors': 'off',
 
-
+    'no-param-reassign': 0,
+    'no-nested-ternary': 'off',
+    'no-console': 'off',
+    'max-len': 'off',
     // allow debugger during development only
     'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off'
   }

@@ -24,7 +24,6 @@
         v-model="text"
       />
       <s-input
-        class="disable"
         disable
       />
       <s-input-number
@@ -40,30 +39,20 @@
 </template>
 
 <script>
-import { ref } from 'vue'
-import SInput from '../components/Input.vue'
-import SInputNumber from '../components/InputNumber.vue'
+import { ref } from 'vue';
+import SInput from '../components/SInput.vue';
+import SInputNumber from '../components/SInputNumber.vue';
 
 export default {
   components: {
     SInput,
-    SInputNumber
+    SInputNumber,
   },
-  setup () {
+  setup() {
     return {
       text: ref(null),
-      number: ref(100)
-    }
-  }
-}
+      number: ref(0),
+    };
+  },
+};
 </script>
-
-<style>
-.disable {
-  background-color: #F6F6F6;
-}
-
-.disable:hover {
-  box-shadow: none;
-}
-</style>

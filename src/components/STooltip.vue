@@ -1,6 +1,7 @@
 <template>
   <div class="tooltip">
     <s-button
+      size="sm-icon"
       label="tooltip test"
     />
     <div class="tooltip-content">
@@ -10,20 +11,21 @@
 </template>
 
 <script>
-import SButton from '../components/Button.vue'
+import SButton from './SButton.vue';
 
 export default {
   components: {
-    SButton
+    SButton,
   },
   props: {
-    content: String
-  }
-}
+    content: String,
+  },
+};
 </script>
 
 <style lang="scss">
 @import '../css/quasar.variables.scss';
+
 .tooltip {
   position: relative;
   display: inline-block;
@@ -37,7 +39,7 @@ export default {
   position: relative;
   top: 20px;
   left: -70px;
-  background: $blue-1;
+  background: $blue-3;
   color: white;
   font-size: 14px;
   padding: 6px 12px;
@@ -54,7 +56,7 @@ export default {
   width: 0;
   height: 0;
   border: 15px solid transparent;
-  border-bottom-color: $blue-1;
+  border-bottom-color: $blue-3;
   margin-left: -20px;
   margin-top: -20px;
 }
