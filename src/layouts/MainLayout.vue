@@ -129,6 +129,11 @@ const linksList = [
     icon: 'code',
     link: '/transfer',
   },
+  {
+    title: 'Sample',
+    icon: 'add',
+    link: '/sample',
+  },
 ];
 
 import { defineComponent, ref } from 'vue';

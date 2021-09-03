@@ -74,6 +74,7 @@ module.exports = {
     'no-nested-ternary': 'off',
     'no-console': 'off',
     'max-len': 'off',
+    'linebreak-style': 0,
     // allow debugger during development only
     'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off'
   }

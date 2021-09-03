@@ -4,7 +4,15 @@
     dense
     options-dense
     dropdown-icon="expand_more"
-  />
+  >
+    <template v-slot:no-option>
+      <q-item>
+        <q-item-section class="text-grey">
+          No results
+        </q-item-section>
+      </q-item>
+    </template>
+  </q-select>
 </template>
 
 <style lang="scss">
