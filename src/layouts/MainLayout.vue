@@ -12,7 +12,7 @@
         />
 
         <q-toolbar-title>
-          Sellmate Component YEAH
+          Sellmate Component v.3
         </q-toolbar-title>
       </q-toolbar>
     </q-header>
@@ -75,9 +75,14 @@ const linksList = [
     link: '/datepicker',
   },
   {
-    title: 'Dialog',
+    title: 'Dialog(Confirm)',
     icon: 'code',
     link: '/dialog',
+  },
+  {
+    title: 'Extension Item(Help, Caution)',
+    icon: 'code',
+    link: '/expansionItem',
   },
   {
     title: 'File Picker',
@@ -85,12 +90,7 @@ const linksList = [
     link: '/filePicker',
   },
   {
-    title: 'Help/Caution',
-    icon: 'code',
-    link: '/expansionItem',
-  },
-  {
-    title: 'Input/Input Number/Textarea',
+    title: 'Input',
     icon: 'code',
     link: '/input',
   },
@@ -105,9 +105,14 @@ const linksList = [
     link: '/radio',
   },
   {
-    title: 'Select/Search Select',
+    title: 'Select',
     icon: 'code',
     link: '/select',
+  },
+  {
+    title: 'Table',
+    icon: 'code',
+    link: '/table',
   },
   {
     title: 'Tabs',

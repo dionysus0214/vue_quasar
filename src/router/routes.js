@@ -20,6 +20,7 @@ const routes = [
       { path: 'chip', component: () => import('pages/Chip.vue') },
       { path: 'transfer', component: () => import('src/pages/Transfer.vue') },
       { path: 'banner', component: () => import('src/pages/Banner.vue') },
+      { path: 'table', component: () => import('src/pages/Table.vue') },
       { path: 'sample', component: () => import('src/pages/Sample.vue') },
     ],
   },

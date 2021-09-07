@@ -108,7 +108,6 @@ import SSelect from '../components/SSelect.vue';
 const stringOptions = [
   'apple', 'banana', 'cherry', 'grape', 'melon', 'peach', 'strawberry',
 ];
-
 export default {
   components: {
     SInput,
@@ -117,7 +116,6 @@ export default {
   setup() {
     const model = ref(null);
     const filterOptions = ref(stringOptions);
-
     return {
       separator: ref('cell'),
       text: ref(null),
@@ -128,7 +126,6 @@ export default {
         'A열', 'B열', 'C열', 'D열', 'E열', 'F열', 'G열', 'H열',
       ],
       filterOptions,
-
       createValue(val, done) {
         if (val.length > 0) {
           if (!stringOptions.includes(val)) {
@@ -137,7 +134,6 @@ export default {
           done(val, 'toggle');
         }
       },
-
       filterFn(val, update) {
         update(() => {
           if (val === '') {
@@ -150,11 +146,9 @@ export default {
           }
         });
       },
-
       setModel(val) {
         model.value = val;
       },
-
     };
   },
 };
@@ -162,7 +156,6 @@ export default {
 
 <style lang="scss">
 @import '../css/quasar.variables.scss';
-
 .q-table {
   thead {
     th:first-child {

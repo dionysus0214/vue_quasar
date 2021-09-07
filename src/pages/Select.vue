@@ -25,6 +25,12 @@
         @new-value="createValue"
         hint="select+search+add(multi)"
       />
+      <s-select
+        group
+        v-model="groupModel"
+        :options="groupOptions"
+        hint="group"
+      />
     </div>
   </div>
 </template>
@@ -34,7 +40,7 @@ import { ref } from 'vue';
 import SSelect from '../components/SSelect.vue';
 
 const stringOptions = [
-  'apple', 'banana', 'cherry', 'grape', 'melon', 'peach', 'strawberry',
+  'order_no', 'product_name', 'product_item_code', 'item_name', 'pay_method', 'pay_datetime',
 ];
 
 export default {
@@ -46,13 +52,43 @@ export default {
     const filterOptions = ref(stringOptions);
 
     return {
-      separator: ref('cell'),
       text: ref(null),
       model: ref(null),
       searchModel: ref(null),
       searchAddModel: ref(null),
+      groupModel: ref(null),
       options: [
         'A열', 'B열', 'C열', 'D열', 'E열', 'F열', 'G열', 'H열',
+      ],
+      groupOptions: [
+        {
+          group: 'Group 1',
+          disable: true,
+        },
+        {
+          label: 'Google',
+          value: 'Google',
+        },
+        {
+          label: 'Facebook',
+          value: 'Facebook',
+        },
+        {
+          label: 'Twitter',
+          value: 'Twitter',
+        },
+        {
+          group: 'Group 2',
+          disable: true,
+        },
+        {
+          label: 'Apple',
+          value: 'Apple',
+        },
+        {
+          label: 'Oracle',
+          value: 'Oracle',
+        },
       ],
       filterOptions,
 
