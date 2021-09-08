@@ -1,48 +1,39 @@
 <template>
-  <q-table
-    :separator="separator"
-    flat
-    bordered
-    hide-bottom
-    >
-      <template v-slot:header="props">
-        <q-tr :props="props">
-          <q-th
-            v-for="col in props.cols"
-            :key="col.name"
-            :props="props"
-          >
-            {{ col.label }}
-          </q-th>
-        </q-tr>
-      </template>
-      <template v-slot:body="props">
-        <q-tr :props="props">
-          <q-td key="name" :props="props">
-            {{ props.row.name }}
-          </q-td>
-          <q-td key="content" :props="props">
-            <slot :name="props.row.name"></slot>
-          </q-td>
-        </q-tr>
-      </template>
+  <q-table :separator="separator" flat bordered hide-bottom>
+    <template v-slot:header="props">
+      <q-tr :props="props">
+        <q-th v-for="col in props.cols" :key="col.name" :props="props">
+          {{ col.label }}
+        </q-th>
+      </q-tr>
+    </template>
+    <template v-slot:body="props">
+      <q-tr :props="props">
+        <q-td key="label" :props="props">
+          {{ props.row.label }}
+        </q-td>
+        <q-td key="value" :props="props">
+          <slot :name="props.row.label"></slot>
+        </q-td>
+      </q-tr>
+    </template>
   </q-table>
 </template>
 
 <script>
-import { ref } from 'vue';
+import { ref } from "vue";
 
 export default {
   setup() {
     return {
-      separator: ref('cell'),
+      separator: ref("cell"),
     };
   },
 };
 </script>
 
 <style lang="scss">
-@import '../css/quasar.variables.scss';
+@import "../css/quasar.variables.scss";
 
 .q-table {
   thead {
@@ -52,7 +43,7 @@ export default {
   }
   th {
     font-size: 14px;
-    font-weight: bold ;
+    font-weight: bold;
   }
   tbody {
     td {
