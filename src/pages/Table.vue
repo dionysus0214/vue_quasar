@@ -126,7 +126,7 @@ export default {
           } else {
             const needle = val.toLowerCase();
             filterOptions.value = stringOptions.filter(
-              (v) => v.toLowerCase().indexOf(needle) > -1
+              (v) => v.toLowerCase().indexOf(needle) > -1,
             );
           }
         });

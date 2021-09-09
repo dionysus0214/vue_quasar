@@ -1,7 +1,7 @@
 <template>
   <div class="tooltip">
     <s-button
-      size="sm-icon"
+      size="md"
       label="tooltip test"
     />
     <div class="tooltip-content">

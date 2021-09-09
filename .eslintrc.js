@@ -75,7 +75,7 @@ module.exports = {
     'no-console': 'off',
     'max-len': 'off',
     'linebreak-style': 0,
-    'quotes': [2, "double", { "avoidEscape": false }],
+    'quotes': ['off', 'single'],
     'trailing-comma': 0,
     // allow debugger during development only
     'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off'
