@@ -75,12 +75,12 @@ const linksList = [
     link: '/datepicker',
   },
   {
-    title: 'Dialog(Confirm)',
+    title: 'Dialog',
     icon: 'code',
     link: '/dialog',
   },
   {
-    title: 'Extension Item(Help, Caution)',
+    title: 'Extension Item',
     icon: 'code',
     link: '/expansionItem',
   },
@@ -128,11 +128,6 @@ const linksList = [
     title: 'Tooltip',
     icon: 'code',
     link: '/tooltip',
-  },
-  {
-    title: 'Transfer',
-    icon: 'code',
-    link: '/transfer',
   },
   {
     title: 'Sample',

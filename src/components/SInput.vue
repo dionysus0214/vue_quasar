@@ -49,7 +49,7 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .s-input {
   .q-field__prepend {
     border-right: 1px solid $grey-3;
