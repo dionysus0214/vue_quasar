@@ -55,6 +55,11 @@ const linksList = [
     link: '/banner',
   },
   {
+    title: 'Breadcrumbs',
+    icon: 'code',
+    link: '/breadcrumbs',
+  },
+  {
     title: 'Button',
     icon: 'code',
     link: '/button',

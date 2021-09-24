@@ -1,10 +1,10 @@
 <template>
   <q-input
     class="s-input"
+    :type="inputType"
     outlined
     placeholder="Type Something"
     dense
-    :type="inputType"
   >
     <template v-if="label !== undefined && !insideLabel" v-slot:before>
       <div class="input-label">{{ label }}</div>
@@ -49,7 +49,7 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .s-input {
   .q-field__prepend {
     border-right: 1px solid $grey-3;

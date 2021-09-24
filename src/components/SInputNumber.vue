@@ -1,8 +1,10 @@
 <template>
   <q-input
+    class="s-input-number"
+    type="number"
     outlined
     dense
-    class="s-input-number"
+    placeholder="0"
   >
     <template v-slot:append>
       <q-btn size="sm" dense unelevated :ripple="false" class="s-input-number-icon-up" icon="expand_less" @click="plusNumber" />
@@ -58,14 +60,14 @@ export default {
 }
 
 /* Chrome, Safari, Edge, Opera */
-.s-input-number input::-webkit-outer-spin-button,
-.s-input-number input::-webkit-inner-spin-button {
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
 
 /* Firefox */
-.s-input-number input[type=number] {
+input[type=number] {
   -moz-appearance: textfield;
 }
 </style>
