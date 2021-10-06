@@ -15,7 +15,7 @@
 
 <script>
 import { ref } from 'vue';
-import SDatepicker from '../components/SDatepicker.vue';
+import SDatepicker from '../components/SDatePicker.vue';
 
 export default {
   components: {

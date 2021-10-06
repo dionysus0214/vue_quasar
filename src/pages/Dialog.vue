@@ -9,8 +9,12 @@
       type="info"
       v-model="confirm"
       title="Infomation"
-      content="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis commodo nisi nec sem congue vulputate. Fusce ultrices ommodo nisi metus elit, at molestie quam dignissim nec."
-    />
+      buttonLabel="Agree"
+    >
+      <template v-slot:content>
+        <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis commodo nisi nec sem congue vulputate. Fusce ultrices ommodo nisi metus elit, at molestie quam dignissim nec.</div>
+      </template>
+    </s-confirm>
     <s-button
       size="md"
       label="Warning"
@@ -18,11 +22,19 @@
       @click="warning = true"
     />
     <s-confirm
+      persistent
       type="warning"
+      withHeaderIcon
       v-model="warning"
       title="Warning"
-      content="Donec finibus, sapien sit amet gravida porttitor, enim tortor pulvinar quam, pharetra tincidunt eros libero consequat est. Donec sit amet malesuada ipsum, nec eros. Phasellus sodales ac felis ac mattis."
-    />
+      twoButtons
+      buttonLabel="Agree"
+      secondButtonLabel="Disagree"
+    >
+      <template v-slot:content>
+        <div>Donec finibus, sapien sit amet gravida porttitor, enim tortor pulvinar quam, pharetra tincidunt eros libero consequat est. Donec sit amet malesuada ipsum, nec eros. Phasellus sodales ac felis ac mattis.</div>
+      </template>
+    </s-confirm>
   </div>
 </template>
 

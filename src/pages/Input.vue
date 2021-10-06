@@ -29,6 +29,9 @@
       <s-input-number
         v-model.number="number"
       />
+      <s-input-number
+        disable
+      />
       <s-input
         type="textarea"
         counter maxlength="100"

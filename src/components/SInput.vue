@@ -1,10 +1,10 @@
 <template>
   <q-input
     class="s-input"
+    :type="inputType"
     outlined
     placeholder="Type Something"
     dense
-    :type="inputType"
   >
     <template v-if="label !== undefined && !insideLabel" v-slot:before>
       <div class="input-label">{{ label }}</div>

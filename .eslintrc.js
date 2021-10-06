@@ -75,6 +75,7 @@ module.exports = {
     'no-console': 'off',
     'max-len': 'off',
     'linebreak-style': 0,
+    'quotes': ['off', 'single'],
     'trailing-comma': 0,
     'quotes': ['off', 'single'],
     // allow debugger during development only
