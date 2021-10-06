@@ -11,25 +11,13 @@
           @click="toggleLeftDrawer"
         />
 
-        <q-toolbar-title>
-          Sellmate Component v.3
-        </q-toolbar-title>
+        <q-toolbar-title> Sellmate Component v.3 </q-toolbar-title>
       </q-toolbar>
     </q-header>
 
-    <q-drawer
-      v-model="leftDrawerOpen"
-      show-if-above
-      bordered
-      class="bg-grey-1"
-    >
+    <q-drawer v-model="leftDrawerOpen" show-if-above bordered class="bg-grey-1">
       <q-list>
-        <q-item-label
-          header
-          class="text-grey-8"
-        >
-          Component List
-        </q-item-label>
+        <q-item-label header class="text-grey-8"> Component List </q-item-label>
 
         <EssentialLink
           v-for="link in essentialLinks"
@@ -46,105 +34,110 @@
 </template>
 
 <script>
-import EssentialLink from 'components/EssentialLink.vue';
+import EssentialLink from "components/EssentialLink.vue";
 
 const linksList = [
   {
-    title: 'Banner',
-    icon: 'code',
-    link: '/banner',
+    title: "Banner",
+    icon: "code",
+    link: "/banner",
   },
   {
-    title: 'Button',
-    icon: 'code',
-    link: '/button',
+    title: "Button",
+    icon: "code",
+    link: "/button",
   },
   {
-    title: 'Checkbox',
-    icon: 'code',
-    link: '/checkbox',
+    title: "Caution",
+    icon: "code",
+    link: "/caution",
   },
   {
-    title: 'Chip',
-    icon: 'code',
-    link: '/chip',
+    title: "Checkbox",
+    icon: "code",
+    link: "/checkbox",
   },
   {
-    title: 'Date Picker',
-    icon: 'code',
-    link: '/datepicker',
+    title: "Chip",
+    icon: "code",
+    link: "/chip",
   },
   {
-    title: 'Dialog(Confirm)',
-    icon: 'code',
-    link: '/dialog',
+    title: "Date Picker",
+    icon: "code",
+    link: "/datepicker",
   },
   {
-    title: 'Extension Item(Help, Caution)',
-    icon: 'code',
-    link: '/expansionItem',
+    title: "Dialog",
+    icon: "code",
+    link: "/dialog",
   },
   {
-    title: 'File Picker',
-    icon: 'code',
-    link: '/filePicker',
+    title: "File Picker",
+    icon: "code",
+    link: "/filePicker",
   },
   {
-    title: 'Input',
-    icon: 'code',
-    link: '/input',
+    title: "Help",
+    icon: "code",
+    link: "/help",
   },
   {
-    title: 'Pagination',
-    icon: 'code',
-    link: '/pagination',
+    title: "Input",
+    icon: "code",
+    link: "/input",
   },
   {
-    title: 'Radio',
-    icon: 'code',
-    link: '/radio',
+    title: "Pagination",
+    icon: "code",
+    link: "/pagination",
   },
   {
-    title: 'Select',
-    icon: 'code',
-    link: '/select',
+    title: "Radio",
+    icon: "code",
+    link: "/radio",
   },
   {
-    title: 'Table',
-    icon: 'code',
-    link: '/table',
+    title: "Select",
+    icon: "code",
+    link: "/select",
   },
   {
-    title: 'Tabs',
-    icon: 'code',
-    link: '/tabs',
+    title: "Table",
+    icon: "code",
+    link: "/table",
   },
   {
-    title: 'Toggle/Button Toggle',
-    icon: 'code',
-    link: '/toggle',
+    title: "Tabs",
+    icon: "code",
+    link: "/tabs",
   },
   {
-    title: 'Tooltip',
-    icon: 'code',
-    link: '/tooltip',
+    title: "Toggle/Button Toggle",
+    icon: "code",
+    link: "/toggle",
   },
   {
-    title: 'Transfer',
-    icon: 'code',
-    link: '/transfer',
+    title: "Tooltip",
+    icon: "code",
+    link: "/tooltip",
   },
   {
-    title: 'Sample',
-    icon: 'add',
-    link: '/sample',
+    title: "Transfer",
+    icon: "code",
+    link: "/transfer",
+  },
+  {
+    title: "Sample",
+    icon: "add",
+    link: "/sample",
   },
 ];
 
-import { defineComponent, ref } from 'vue';
+import { defineComponent, ref } from "vue";
 
 export default defineComponent({
-  name: 'MainLayout',
+  name: "MainLayout",
 
   components: {
     EssentialLink,

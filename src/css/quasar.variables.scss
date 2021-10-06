@@ -1,42 +1,116 @@
-// Quasar SCSS (& Sass) Variables
-// --------------------------------------------------
-// To customize the look and feel of this app, you can override
-// the Sass/SCSS variables found in Quasar's source Sass/SCSS files.
+$primary: #051d36;
+$secondary: #555555;
+$accent: #9c27b0;
 
-// Check documentation for full list of Quasar variables
+$positive: #0075ff;
+$negative: #e30000;
+$info: #00cd52;
+$warning: #f2c037;
 
-// Your own variables (that are declared here) and Quasar's own
-// ones will be available out of the box in your .vue/.scss/.sass files
+$red-1: #220000;
+$red-2: #440000;
+$red-3: #5e0000;
+$red-4: #820000;
+$red-5: #ad0000;
+$red-6: #e30000;
+$red-7: #f42f2f;
+$red-8: #fb5e5e;
+$red-9: #fd9595;
+$red-10: #fdc5c5;
+$red-11: #fce6e6;
 
-// It's highly recommended to change the default colors
-// to match your app's branding.
-// Tip: Use the "Theme Builder" on Quasar's documentation website.
+$orange-1: #2f1100;
+$orange-2: #4d1b00;
+$orange-3: #752a00;
+$orange-4: #9b3700;
+$orange-5: #ce4900;
+$orange-6: #ff5b00;
+$orange-7: #ff7c34;
+$orange-8: #ff9b63;
+$orange-9: #ffbb96;
+$orange-10: #ffbb96;
+$orange-11: #ffd9c5;
 
-$primary   : #051D36;
-$secondary : #555555;
-$accent    : #9C27B0;
+$yellow-1: #2c2c00;
+$yellow-2: #454500;
+$yellow-3: #636300;
+$yellow-4: #838300;
+$yellow-5: #a5a500;
+$yellow-6: #c7c700;
+$yellow-7: #e0e01f;
+$yellow-8: #f3f354;
+$yellow-9: #ffff80;
+$yellow-10: #fafab2;
+$yellow-11: #f5f5d6;
 
-$positive  : #0075FF;
-$negative  : #e30000;
-$info      : #00CD52;
-$warning   : #F2C037;
+$green-1: #001d0b;
+$green-2: #003013;
+$green-3: #00461c;
+$green-4: #006629;
+$green-5: #007b31;
+$green-6: #00973c;
+$green-7: #00a944;
+$green-8: #00cd52;
+$green-9: #40de7f;
+$green-10: #87edb0;
+$green-11: #cdfadf;
 
-$blue-1    : #006AC1;
-$blue-2    : #025497;
-$blue-3    : #07284A;
+$light-blue-1: #021a25;
+$light-blue-2: #02212f;
+$light-blue-3: #032d40;
+$light-blue-4: #033f59;
+$light-blue-5: #06587d;
+$light-blue-6: #066d9b;
+$light-blue-7: #128fc7;
+$light-blue-8: #229fd7;
+$light-blue-9: #50bff0;
+$light-blue-10: #a4e2fd;
+$light-blue-11: #d9f2fd;
 
-$grey-1    : #F6F6F6;
-$grey-2    : #EEEEEE;
-$grey-3    : #CCCCCC;
-$grey-4    : #888888;
+$blue-1: #001226;
+$blue-2: #001b39;
+$blue-3: #002b5e;
+$blue-4: #004290;
+$blue-5: #005cc9;
+$blue-6: #0075ff;
+$blue-7: #2d8dff;
+$blue-8: #64abff;
+$blue-9: #93c4ff;
+$blue-10: #bbdaff;
+$blue-11: #e6f1ff;
+
+$indigo-1: #011428;
+$indigo-2: #03172d;
+$indigo-3: #051d36;
+$indigo-4: #07284a;
+$indigo-5: #004177;
+$indigo-6: #025497;
+$indigo-7: #006ac1;
+$indigo-8: #1f8ae1;
+$indigo-9: #5cb0f3;
+$indigo-10: #9cd1fc;
+$indigo-11: #d5ebfe;
+
+$grey-1: #222222;
+$grey-2: #333333;
+$grey-3: #444444;
+$grey-4: #555555;
+$grey-5: #737373;
+$grey-6: #888888;
+$grey-7: #aaaaaa;
+$grey-8: #cccccc;
+$grey-9: #e1e1e1;
+$grey-10: #eeeeee;
+$grey-11: #f6f6f6;
 
 $space-base: 16px !default;
-$typography-font-family: 'Noto Sans KR' !default;
+$typography-font-family: "Noto Sans KR" !default;
 
 $generic-border-radius: 2px !default;
 
 $button-border-radius: 4px !default;
-$button-padding: 5px 12px !default;
 $button-font-size: 14px !default;
 
 $input-font-size: 14px !default;
+$toolbar-padding: 0 !default;
+$toolbar-min-height: 56px !default;

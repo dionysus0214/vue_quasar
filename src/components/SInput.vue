@@ -23,7 +23,7 @@
 </template>
 
 <script>
-import { ref, computed } from 'vue';
+import { ref, computed } from "vue";
 
 export default {
   props: {
@@ -36,7 +36,7 @@ export default {
     const isVisible = ref(false);
     const inputType = computed(() => {
       if (props.password) {
-        return isVisible.value ? 'text' : 'password';
+        return isVisible.value ? "text" : "password";
       }
       return props.type;
     });

@@ -1,65 +1,81 @@
 <template>
-  <div class="q-pa-none rounded-borders-help">
-    <q-expansion-item
-      expand-icon-toggle
-      expand-separator
-      switch-toggle-side
-      v-model="isOpen"
-    >
-      <template v-slot:header>
-        <q-item-section avatar class="help-header">Help</q-item-section>
-        <q-item-section class="help-contents-title" v-show="isOpen">{{ title }}</q-item-section>
-      </template>
-      <q-card>
-        <q-card-section class="help-contents-container">
+  <q-btn
+    flat
+    :ripple="false"
+    class="s-help-btn bg-info"
+    text-color="white"
+    no-caps
+    dense
+    rounded
+    :label="label"
+    icon="help_outline"
+  >
+    <q-popup-proxy :offset="[0, 8]">
+      <q-card class="s-help-contents" dense>
+        <q-card-actions class="s-help-header">
+          <q-icon
+            name="help_outline"
+            color="info"
+            size="24px"
+            class="s-help-icon"
+          />
+          <div class="s-help-title">{{ title }}</div>
+          <q-icon
+            v-close-popup
+            flat
+            :ripple="false"
+            dense
+            name="close"
+            right
+            class="s-help-close"
+            size="19px"
+          />
+        </q-card-actions>
+        <q-card-section class="s-help-list">
           <slot />
         </q-card-section>
       </q-card>
-    </q-expansion-item>
-  </div>
+    </q-popup-proxy>
+  </q-btn>
 </template>
 
 <script>
-import { ref } from 'vue';
-
 export default {
-  setup() {
-    return {
-      isOpen: ref(false),
-    };
-  },
   props: {
     title: String,
+    label: String,
   },
 };
 </script>
 
-<style lang="scss">
-@import '../css/quasar.variables.scss';
-
-.rounded-borders-help {
-  border-style: solid;
-  border-width: 2px;
-  border-color: $info;
-  border-radius: 4px;
-  .q-item {
-    height: 54px;
-    text-align: left;
-  }
-}
-
-.help-header {
-  color: $info;
-  font-weight: bold;
-  width: 78px;
-}
-
-.help-contents-title {
-  font-weight: bold;
-}
-
-.help-contents-container {
-  margin: -19px 0px 0px 110px;
-  background: no-repeat url("../assets/help_outline.svg") right bottom;
-}
+<style lang="sass" scoped>
+.s-help-btn
+  width: 92px
+  height: 32px
+.s-help-contents
+  min-width: 535px
+  min-height: 190px
+  padding: 20px 32px
+.s-help-header
+  padding: 0
+  margin-bottom: 18px
+  .s-help-icon
+    margin-right: 12px
+  .s-help-title
+    width: 428px
+    font:
+      weight: 700
+      size: 20px
+  .s-help-close
+    margin-left: 0
+    position: absolute
+    top: 10px
+    right: 10px
+    cursor: pointer
+.s-help-list
+  width: 471px
+  height: 150px
+  padding: 0
+  font-size: 14px
+  line-height: 25px
 </style>

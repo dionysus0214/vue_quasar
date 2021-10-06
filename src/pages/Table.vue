@@ -16,14 +16,7 @@
           <s-input v-model="text" />
         </div>
         <div class="grid" style="width: 300px">
-          <s-select
-            v-model="searchModel"
-            :options="filterOptions"
-            use-input
-            input-debounce="0"
-            @filter="filterFn"
-            @input-value="setModel"
-          />
+          <s-select v-model="searchModel" :options="options" />
         </div>
       </template>
       <template v-slot:상세요구사항>
@@ -31,14 +24,7 @@
           <s-select v-model="model" :options="options" />
         </div>
         <div class="grid" style="width: 300px">
-          <s-select
-            v-model="searchModel"
-            :options="filterOptions"
-            use-input
-            input-debounce="0"
-            @filter="filterFn"
-            @input-value="setModel"
-          />
+          <s-select v-model="searchModel" :options="options" />
         </div>
       </template>
     </s-table>
@@ -50,15 +36,6 @@ import { ref } from "vue";
 import STable from "../components/STable.vue";
 import SInput from "../components/SInput.vue";
 import SSelect from "../components/SSelect.vue";
-
-const stringOptions = [
-  "order_no",
-  "product_name",
-  "product_item_code",
-  "item_name",
-  "pay_method",
-  "pay_datetime",
-];
 
 const columns = [
   {
@@ -107,9 +84,6 @@ export default {
     SSelect,
   },
   setup() {
-    const model = ref(null);
-    const filterOptions = ref(stringOptions);
-
     return {
       columns,
       rows,
@@ -117,24 +91,6 @@ export default {
       model: ref(null),
       searchModel: ref(null),
       options: ["A열", "B열", "C열", "D열", "E열", "F열", "G열", "H열"],
-      filterOptions,
-
-      filterFn(val, update) {
-        update(() => {
-          if (val === "") {
-            filterOptions.value = stringOptions;
-          } else {
-            const needle = val.toLowerCase();
-            filterOptions.value = stringOptions.filter(
-              (v) => v.toLowerCase().indexOf(needle) > -1
-            );
-          }
-        });
-      },
-
-      setModel(val) {
-        model.value = val;
-      },
     };
   },
 };
