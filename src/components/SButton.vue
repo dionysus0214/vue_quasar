@@ -33,7 +33,7 @@ export default defineComponent({
 <style lang="sass">
 .s-button
   &.q-btn
-    min-width: 69px
+    min-width: 76px
     min-height: 32px
     padding: 5px 12px
     font-size: 14px
@@ -53,7 +53,7 @@ export default defineComponent({
 
 .s-button
   &.button-medium
-    min-width: 107px
+    min-width: 114px
     min-height: 42px
     padding: 8px 24px
     font-size: 18px
