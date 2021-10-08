@@ -5,8 +5,8 @@
         <div class="image-wrap">
           <img
             src="~assets/banner_image.png"
-            style="width: 1025px; height: 108px;"
-          >
+            style="width: 1025px; height: 108px"
+          />
         </div>
       </template>
       <template v-slot:button>
@@ -29,7 +29,7 @@
 </template>
 
 <script>
-import SBanner from '../components/SBanner.vue';
+import SBanner from "../components/SBanner.vue";
 
 export default {
   components: {

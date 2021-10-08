@@ -16,7 +16,7 @@
           <s-select v-model="model" :options="options" />
         </div>
         <div class="grid" style="width: 300px">
-          <s-select v-model="searchModel" :options="options" />
+          <s-select v-model="model" :options="options" />
         </div>
       </template>
       <template v-slot:배송비선착불지정>
@@ -29,7 +29,7 @@
           </div>
         </div>
         <div class="grid" style="width: 300px">
-          <s-select v-model="searchModel" :options="options" />
+          <s-select v-model="model" :options="options" />
         </div>
       </template>
       <template v-slot:withToggle>

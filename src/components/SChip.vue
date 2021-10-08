@@ -1,20 +1,15 @@
 <template>
-  <q-chip
-    class="chip"
-    square
-    removable
-    icon-remove="close"
-  >
+  <q-chip class="chip" square removable icon-remove="close">
     <slot></slot>
   </q-chip>
 </template>
 
 <style lang="scss">
-@import '../css/quasar.variables.scss';
+@import "../css/quasar.variables.scss";
 
 .chip {
-  background-color: $grey-1;
-  border: 1px solid $grey-3;
+  background-color: $grey-11;
+  border: 1px solid $grey-8;
   border-radius: 4px;
   padding: 5px 12px;
 }

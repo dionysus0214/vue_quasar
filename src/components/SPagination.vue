@@ -3,7 +3,7 @@
     unelevated
     direction-links
     round
-    active-color="blue-1"
+    active-color="indigo-7"
     active-text-color="white"
   />
 </template>

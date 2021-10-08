@@ -60,11 +60,26 @@
 }
 
 .disabled {
-  background: $grey-11 !important;
-  color: $grey-2 !important;
+  background: $grey-10 !important;
+  color: $grey-6 !important;
   cursor: not-allowed;
 }
 
 .q-card {
   border-radius: 8px !important;
+}
+
+.q-tab {
+  border: 1px solid $grey-8;
+  border-bottom: transparent;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+  padding: 0px 20px &--active {
+    border-top: 1px solid $positive;
+    border-left: 1px solid $positive;
+    border-right: 1px solid $positive;
+  }
+  &--inactive {
+    border-bottom: 1px solid $grey-8;
+  }
 }

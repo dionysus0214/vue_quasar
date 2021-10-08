@@ -52,7 +52,7 @@ export default {
 <style lang="scss">
 .s-input {
   .q-field__prepend {
-    border-right: 1px solid $grey-3;
+    border-right: 1px solid $grey-8;
     padding-right: 8px;
     margin-right: 10px;
   }

@@ -123,11 +123,6 @@ const linksList = [
     link: "/tooltip",
   },
   {
-    title: "Transfer",
-    icon: "code",
-    link: "/transfer",
-  },
-  {
     title: "Sample",
     icon: "add",
     link: "/sample",

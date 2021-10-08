@@ -1,9 +1,7 @@
 <template>
   <div class="q-pa-md">
     <div class="q-gutter-y-md" style="max-width: 600px">
-      <s-tabs
-        v-model="tab"
-      >
+      <s-tabs v-model="tab">
         <s-tab name="tab1" label="Lorem ipsum" />
         <s-tab name="tab2" label="Maecenas tempor" />
         <s-tab name="tab3" label="Integer augue veli" />
@@ -14,12 +12,18 @@
 </template>
 
 <script>
-import { ref } from 'vue';
+import { ref } from "vue";
+import STab from "../components/STab.vue";
+import STabs from "../components/STabs.vue";
 
 export default {
+  components: {
+    STab,
+    STabs,
+  },
   setup() {
     return {
-      tab: ref(''),
+      tab: ref(""),
     };
   },
 };

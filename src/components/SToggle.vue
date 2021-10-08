@@ -11,14 +11,18 @@
 export default {
   methods: {
     isChecked() {
-      this.$emit('update:modelValue', this.$attrs.modelValue = !this.$attrs.modelValue);
+      this.$emit(
+        "update:modelValue",
+        // eslint-disable-next-line comma-dangle
+        (this.$attrs.modelValue = !this.$attrs.modelValue)
+      );
     },
   },
 };
 </script>
 
 <style lang="scss">
-@import '../css/quasar.variables.scss';
+@import "../css/quasar.variables.scss";
 
 .container {
   margin: 0 auto;
@@ -32,18 +36,18 @@ export default {
 }
 
 .switch input {
-  display:none;
+  display: none;
 }
 
 .slider {
-  background-color: $grey-4;
+  background-color: $grey-8;
   position: absolute;
   top: 0;
   bottom: 0;
   left: 0;
   right: 0;
   cursor: pointer;
-  transition: .4s;
+  transition: 0.4s;
 }
 
 .slider:before {
@@ -54,7 +58,7 @@ export default {
   bottom: 2px;
   left: 2px;
   position: absolute;
-  transition: .4s;
+  transition: 0.4s;
 }
 
 input:checked + .slider {

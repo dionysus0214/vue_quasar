@@ -10,17 +10,17 @@ export default {
   props: {
     label: {
       type: String,
-      default: '',
+      default: "",
     },
   },
 };
 </script>
 
 <style lang="sass">
-@import '../../dev/src/css/quasar.variables.sass'
+@import "../css/quasar.variables.scss"
 
 .space
   width: 4px
   height: 48px
-  border-bottom: 1px solid $grey-3
+  border-bottom: 1px solid $grey-8
 </style>

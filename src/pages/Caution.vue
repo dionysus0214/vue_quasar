@@ -22,6 +22,16 @@
   </div>
 </template>
 
+<script>
+import SCaution from "../components/SCaution.vue";
+
+export default {
+  components: {
+    SCaution,
+  },
+};
+</script>
+
 <style lang="sass">
 ul
   list-style-type: "-  "

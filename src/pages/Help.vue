@@ -9,6 +9,8 @@
 </template>
 
 <script>
+import SHelp from "../components/SHelp.vue";
+
 const HelpList = [
   "Est posuere blandit fermentum mattis lobortis aliquam pellentesque",
   "Felis gravida augue aliquet tellus",
@@ -17,7 +19,11 @@ const HelpList = [
   "Enim elementum mauris velit sit non fringilla risus et, eros",
   "Viverra tortor, sociis ut pulvinar gravida urna, et faucibus lobortis",
 ];
+
 export default {
+  components: {
+    SHelp,
+  },
   data() {
     return {
       titles: "Help-Title",
