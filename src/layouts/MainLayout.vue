@@ -65,7 +65,7 @@ const linksList = [
   {
     title: "Date Picker",
     icon: "code",
-    link: "/datepicker",
+    link: "/datePicker",
   },
   {
     title: "Dialog",

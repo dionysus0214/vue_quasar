@@ -16,7 +16,7 @@ export default {
 };
 </script>
 
-<style lang="sass">
+<style lang="sass" scoped>
 @import '../css/quasar.variables.scss'
 
 .s-caution
@@ -46,6 +46,7 @@ export default {
     font:
       weight: 400
       size: 14px
+    z-index: 1
   .s-caution-icon
     width: 216px
     height: 186px

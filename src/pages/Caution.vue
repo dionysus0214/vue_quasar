@@ -1,14 +1,13 @@
 <template>
   <div class="q-pa-sm" style="max-width: 1920px">
-    <s-caution title="Aenean nec efficitur ex">
+    <s-caution title="Caution">
       <ul>
         <li>
           Aenean feugiat purus in, iaculis urna quiselit lobortis vestibulum.
         </li>
         <li>
           Pellentesque volutpat enim tincidunt orci ullamcorpe volutpat enim
-          tincidunt orci ullamcorpe consequat lectus ultricies, accumsan mauris
-          ac, gravida elit.
+          tincidunt orci ullamcorpe consequat lectus.
         </li>
         <li>
           Nam fermentum quam sed libero iaculis, nec volutpat erat feugiat.
@@ -33,8 +32,9 @@ export default {
 </script>
 
 <style lang="sass">
-ul
-  list-style-type: "-  "
-  li
-    line-height: 22px
+.s-caution
+  ul
+    list-style-type: "-  "
+    li
+      line-height: 24px
 </style>

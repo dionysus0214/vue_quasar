@@ -1,29 +1,26 @@
 <template>
-  <div class="q-pa-md">
-    <div class="q-gutter-md">
-      <s-datepicker
-        short
-        v-model="date"
-      />
-      <s-datepicker
-        long
-        v-model="date"
-      />
+  <div class="q-pa-md flex">
+    <div class="q-gutter-sm q-ma-md">
+      <s-date-picker short v-model="innerValue" />
+      <s-date-picker long v-model="innerValue" />
+      <s-date-picker range v-model="dateRange" :showDate="showDate" />
     </div>
   </div>
 </template>
 
 <script>
-import { ref } from 'vue';
-import SDatepicker from '../components/SDatePicker.vue';
+import { ref } from "vue";
+import SDatePicker from "../components/SDatePicker.vue";
 
 export default {
   components: {
-    SDatepicker,
+    SDatePicker,
   },
   setup() {
     return {
-      date: ref(''),
+      innerValue: ref(null),
+      dateRange: ref({}),
+      showDate: ref(false),
     };
   },
 };
