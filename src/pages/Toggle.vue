@@ -29,7 +29,7 @@ export default {
   setup() {
     return {
       toggleClick: ref(false),
-      model: ref(""),
+      model: ref(''),
       options: ref(item),
     };
   },

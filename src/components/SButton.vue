@@ -5,26 +5,26 @@
     no-wrap
     unelevated
     :ripple="false"
-    color="indigo-6"
     :class="{
       'button-medium': size === 'md',
       'icon-with': $attrs.icon && $attrs.label,
       'icon-only': $attrs.icon && !$attrs.label,
+      'no-hover' : noHover,
     }"
   />
 </template>
 
 <script>
-import { defineComponent } from "vue";
-import { QBtn } from "quasar";
 
-export default defineComponent({
-  name: "SChip",
-  components: { QBtn },
+export default ({
   props: {
     size: {
       type: String,
-      default: "sm",
+      default: 'sm',
+    },
+    noHover: {
+      type: Boolean,
+      default: false,
     },
   },
 });
@@ -33,7 +33,7 @@ export default defineComponent({
 <style lang="sass">
 .s-button
   &.q-btn
-    min-width: 76px
+    min-width: 69px
     min-height: 32px
     padding: 5px 12px
     font-size: 14px
@@ -53,7 +53,7 @@ export default defineComponent({
 
 .s-button
   &.button-medium
-    min-width: 114px
+    min-width: 107px
     min-height: 42px
     padding: 8px 24px
     font-size: 18px
@@ -71,4 +71,16 @@ export default defineComponent({
       padding: 9px
       .q-icon
         font-size: 24px
+.no-hover
+  &::before
+    display: none
+  &.q-focusable:focus > .q-focus-helper,
+  &.q-manual-focusable--focused > .q-focus-helper,
+  &.q-hoverable:hover > .q-focus-helper,
+  &.q-hoverable:hover > .q-focus-helper
+    background: none !important
+    opacity: 0 !important
+    &::before, &::after
+      opacity: 0 !important
+      background: none !important
 </style>

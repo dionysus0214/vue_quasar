@@ -1,20 +1,79 @@
 <template>
   <div class="q-pa-md q-gutter-sm">
-    <s-button size="sm" label="Button" />
-    <s-button size="sm" color="secondary" icon="search" label="Button" />
-    <s-button size="sm" outline label="Button" />
-    <s-button size="sm" outline color="grey-6" label="Button" />
-    <s-button size="sm" icon="home" /><br />
-    <s-button size="md" label="Button" />
-    <s-button size="md" outline label="Button" icon="search" />
-    <s-button size="md" outline color="negative" label="Button" />
-    <s-button size="md" color="secondary" icon="reorder" /><br />
-    <s-button class="kakao" label="로그인" />
-    <s-button outline disable size="md" label="Disabled" /><br />
+    <s-button
+      size="sm"
+      label="Button"
+      noHover
+      color="indigo-6"
+    />
+    <s-button
+      size="sm"
+      color="secondary"
+      icon="search"
+      label="Button"
+    />
+    <s-button
+      size="sm"
+      outline
+      label="Button"
+    />
+    <s-button
+      size="sm"
+      outline
+      color="grey-6"
+      label="Button"
+    />
+    <s-button
+      size="sm"
+      icon="home"
+      noHover
+    /><br>
+    <s-button
+      size="md"
+      label="Button"
+      color="indigo-6"
+    />
+    <s-button
+      size="md"
+      outline
+      color="indigo-6"
+      label="Button"
+      icon="search"
+    />
+    <s-button
+      size="md"
+      outline
+      color="negative"
+      label="Button"
+    />
+    <s-button
+      size="md"
+      color="secondary"
+      icon="reorder"
+    /><br>
+    <s-button
+      class="kakao"
+      label="로그인"
+    />
+    <s-button
+      outline
+      disable
+      size="md"
+      label="Disabled"
+    /><br>
     <s-button-group>
-      <s-button outline label="Button1" />
-      <s-button label="Button2" />
-      <s-button outline label="Button3" />
+      <s-button
+        outline
+        label="Button1"
+      />
+      <s-button
+        label="Button2"
+        color="indigo-6"
+      />
+      <s-button
+        outline
+        label="Button3"
+      />
     </s-button-group>
   </div>
 </template>
