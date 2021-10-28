@@ -40,7 +40,7 @@
             unelevated
             style="padding: 5px 12px"
             :ripple="false"
-            @click="$emit('removeTemplate')"
+            @click="$emit('click')"
           >
             {{ buttonLabel }}
           </q-btn>
