@@ -2,14 +2,13 @@
   <q-file
     outlined
     dense
-    use-chips
+    clearable
     v-model="file"
     class="s-file"
-    label="Click to upload"
-    label-color="grey-8"
   >
     <template v-slot:prepend>
       <q-img src="~assets/icon_attach_file.svg" width="24px" height="24px" />
+      <div :class="file == null ? 's-file-placeholder' : 'no-placeholder'">{{placeText}}</div>
     </template>
   </q-file>
 </template>
@@ -18,6 +17,9 @@
 import { ref } from 'vue';
 
 export default ({
+  props: {
+    placeText: null,
+  },
   setup() {
     return {
       file: ref(null),
@@ -27,7 +29,7 @@ export default ({
 </script>
 
 <style lang="sass">
-@import '../css/variable.sass'
+@import '../css/quasar.variables.scss'
 
 .s-file.q-file
   width: 294px
@@ -40,17 +42,18 @@ export default ({
       box-shadow: none
       border: none
     .q-field__prepend
-      width: 24px
+      width: fit-content
       height: 100%
       padding: 0
-      margin: 0 10px 0 8px
+      margin-left: 8px
     .q-field__control-container
-      padding: 5px 12px 5px 0px
+      padding: 5px 0
       .q-field__native
-      .q-field__label
-        top: 6px
-.q-field--dense.q-field--float .q-field__label
-  transform: translateY(-37%) scale(0.6)
+        padding: 0
+        min-height: 100%
+        width: 97% !important
+    .q-field__append
+      padding: 0 8px 0 0
   &:hover
     .q-field__control
       border: 1px solid $grey-2
@@ -58,18 +61,27 @@ export default ({
         box-shadow: none
         border: none
       .q-field__prepend
-        .q-icon
+        .q-img
           color: black
-.q-chip
-  border-radius: 4px
-  background: none
-  padding: 0
-  margin: 0
-  height: 22px
-  width: 100%
-  .q-chip__content
-    span
-      width: 98%
-  .q-chip__icon
-    margin: 0 !important
+  .q-chip
+    border-radius: 4px
+    background: none
+    padding: 0
+    margin: 0
+    height: 22px
+    .q-chip__content
+      span
+        width: 98%
+    .q-chip__icon
+      margin: 0 !important
+
+.s-file-placeholder
+  height: 100%
+  width: fit-content
+  line-height: 30px
+  font-size: 14px
+  position: absolute
+  left: 32px
+.no-placeholder
+  display: none
 </style>
