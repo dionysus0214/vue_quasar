@@ -13,31 +13,20 @@
 </template>
 
 <script>
-import { ref } from "vue";
+import { ref } from 'vue';
 
-export default {
-  props: {
-    options: {
-      type: Array,
-      required: true,
-    },
-    optionValue: {
-      type: String,
-      required: true,
-    },
-  },
+export default ({
   data() {
     return {
-      option: this.options,
-      innerValue: ref(this.optionValue),
+      innerValue: ref('item01'),
     };
   },
   methods: {
     handleUpdate() {
-      this.$emit("update:modelValue", this.innerValue);
+      this.$emit('update:modelValue', this.innerValue);
     },
   },
-};
+});
 </script>
 
 <style lang="sass">

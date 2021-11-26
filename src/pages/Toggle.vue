@@ -1,5 +1,5 @@
 <template>
-  <div class="q-pa-md">
+  <div class="q-pa-md q-gutter-md">
     <s-toggle v-model="toggleClick" />
     <s-button-toggle
       v-model="model"
@@ -29,7 +29,7 @@ export default {
   setup() {
     return {
       toggleClick: ref(false),
-      model: ref(""),
+      model: ref(''),
       options: ref(item),
     };
   },

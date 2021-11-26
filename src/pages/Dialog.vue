@@ -3,6 +3,7 @@
     <s-button
       size="md"
       label="Info"
+      color="indigo-6"
       @click="confirm = true"
     />
     <s-confirm

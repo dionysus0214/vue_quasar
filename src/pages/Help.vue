@@ -1,6 +1,6 @@
 <template>
   <div class="q-pa-md">
-    <s-help :title="titles" label="Help" style="margin-left: 20px">
+    <s-help label="Help" title="This is title">
       <ul>
         <li v-for="(i, j) in HelpList" :key="j">{{ i }}</li>
       </ul>
@@ -26,7 +26,6 @@ export default {
   },
   data() {
     return {
-      titles: "Help-Title",
       HelpList,
     };
   },

@@ -3,6 +3,7 @@
     <div class="q-gutter-md" style="max-width: 297px">
       <s-file-picker
         v-model="singleFile"
+        placeText="파일을 등록하세요"
       />
     </div>
   </div>
