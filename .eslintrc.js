@@ -78,7 +78,6 @@ module.exports = {
     'quotes': ['off', 'single'],
     'trailing-comma': 0,
     'quotes': ['off', 'single'],
-    'comma-dangle': ['error', 'never'],
     // allow debugger during development only
     'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off'
   }

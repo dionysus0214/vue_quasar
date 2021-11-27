@@ -1,3 +1,4 @@
+/* eslint-disable comma-dangle */
 <template>
   <draggable
     class="transfer"
@@ -127,17 +128,6 @@
 import { ref, watch } from "vue";
 import { Notify } from "quasar";
 import draggable from "vuedraggable";
-import { api } from "../../../../boot/axios.js";
-import {
-  infoOutlineIcon,
-  arrowBottomIcon,
-  arrowTopIcon,
-  hamburgerIcon,
-  rightSingleIcon,
-  rightDoubleIcon,
-  leftSingleIcon,
-  leftDoubleIcon,
-} from "../../../../assets/icons.js";
 
 export default {
   name: "excelFormatSetting",
@@ -390,15 +380,6 @@ export default {
       templateId,
       tempLoading,
 
-      infoOutlineIcon,
-      arrowBottomIcon,
-      arrowTopIcon,
-      hamburgerIcon,
-      rightSingleIcon,
-      rightDoubleIcon,
-      leftSingleIcon,
-      leftDoubleIcon,
-
       transferItem,
       clickSelectableItem,
       clickSelectedItem,
@@ -414,4 +395,99 @@ export default {
 };
 </script>
 
-<style></style>
+<style lang="scss">
+.excel-format-transfer {
+  width: 100%;
+  height: 506px;
+  .transfer {
+    height: 100%;
+    width: 276px;
+    background-color: white;
+    border-radius: 2px;
+    border: 1px solid $grey-8;
+    overflow-y: auto;
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+    &::-webkit-scrollbar {
+      display: none; /* Chrome, Safari, Opera*/
+    }
+    .box {
+      width: 100%;
+      height: 36px;
+      border-bottom: 1px solid $grey-8;
+      padding: 7px 12px 7px 16px;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      div {
+        width: 212px;
+        height: 22px;
+        line-height: 22px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+    }
+    .active,
+    .box:active {
+      background-color: $positive;
+      color: white;
+    }
+    .ghost,
+    .sortable-chosen,
+    .sortable-ghost {
+      opacity: 0.7;
+      background-color: $positive;
+      color: white;
+    }
+    .transfer-title {
+      height: 46px;
+      background-color: $grey-11;
+      padding: 11px 12px 11px 16px;
+      color: $grey-1;
+      line-height: 14px;
+      position: sticky;
+      top: 0px;
+      z-index: 1000;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 2px solid $grey-8;
+      font: {
+        size: 14px;
+        weight: 700;
+      }
+    }
+  }
+  .transfer-button {
+    width: 32px;
+    margin: auto 21px;
+    text-align: center;
+    padding: 0;
+    .q-focusable:focus .q-focus-helper,
+    .q-hoverable:hover .q-focus-helper {
+      background: inherit !important;
+      opacity: 0;
+    }
+    .q-btn {
+      margin: 4px 0;
+    }
+  }
+}
+.excel-format-transfer-default {
+  height: 468px !important;
+  width: 100%;
+  .transfer {
+    user-select: none !important;
+    .box {
+      cursor: no-drop !important;
+    }
+    .active,
+    .box:active {
+      background-color: white !important;
+      color: $grey-2 !important;
+    }
+  }
+}
+</style>
