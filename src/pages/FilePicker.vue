@@ -2,9 +2,9 @@
   <div class="q-pa-md">
     <div class="q-gutter-md" style="max-width: 297px">
       <s-file-picker
+        v-model="singleFile"
         placeholder="파일을 업로드하세요."
         @update:modelValue="updateModelValue"
-        ref="sFilePickerRef"
       />
       <s-button label="되랏" color="indigo-6" @click="resetFile" />
     </div>
@@ -22,15 +22,15 @@ export default {
     SFilePicker,
   },
   setup() {
-    const sFilePickerRef = ref(null);
-    function updateModelValue() {
-      console.log('updateModelValue');
+    const singleFile = ref(null);
+    function updateModelValue(file) {
+      console.log('updateModelValue', file);
     }
     function resetFile() {
-      sFilePickerRef.value.file = null;
+      singleFile.value = null;
     }
     return {
-      sFilePickerRef,
+      singleFile,
       updateModelValue,
       resetFile,
     };

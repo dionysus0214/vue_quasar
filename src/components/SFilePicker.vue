@@ -4,7 +4,7 @@
     dense
     clearable
     v-model="file"
-    @update:modelValue="$emit('update:modelValue')"
+    @update:modelValue="$emit('update:modelValue', file)"
     class="s-file"
   >
     <template v-slot:prepend>
@@ -15,7 +15,7 @@
 </template>
 
 <script>
-import { ref } from 'vue';
+import { ref, watch } from 'vue';
 
 export default ({
   props: {
@@ -23,7 +23,13 @@ export default ({
     placeholder: String,
   },
   setup(props) {
-    const file = ref(props.singleFile);
+    const file = ref(props.modelValue);
+
+    watch(() => props.modelValue,
+      (newVal) => {
+        file.value = newVal;
+        console.log(file.value);
+      });
 
     return {
       file,

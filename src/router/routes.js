@@ -22,7 +22,7 @@ const routes = [
       { path: 'banner', component: () => import('src/pages/Banner.vue') },
       { path: 'table', component: () => import('src/pages/Table.vue') },
       { path: 'breadcrumbs', component: () => import('src/pages/Breadcrumbs.vue') },
-      { path: 'transfer', component: () => import('src/pages/Transfer.vue') },
+      { path: 'project', component: () => import('src/pages/Project.vue') },
     ],
   },
   {
