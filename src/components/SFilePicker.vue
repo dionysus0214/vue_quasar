@@ -4,11 +4,12 @@
     dense
     clearable
     v-model="file"
+    @update:modelValue="$emit('update:modelValue')"
     class="s-file"
   >
     <template v-slot:prepend>
       <q-img src="~assets/icon_attach_file.svg" width="24px" height="24px" />
-      <div :class="file == null ? 's-file-placeholder' : 'no-placeholder'">{{placeText}}</div>
+      <div :class="!file ? 's-file-placeholder' : 'no-placeholder'">{{ placeholder }}</div>
     </template>
   </q-file>
 </template>
@@ -18,11 +19,14 @@ import { ref } from 'vue';
 
 export default ({
   props: {
-    placeText: null,
+    modelValue: File,
+    placeholder: String,
   },
-  setup() {
+  setup(props) {
+    const file = ref(props.singleFile);
+
     return {
-      file: ref(null),
+      file,
     };
   },
 });
@@ -46,6 +50,7 @@ export default ({
       height: 100%
       padding: 0
       margin-left: 8px
+      cursor: pointer
     .q-field__control-container
       padding: 5px 0
       .q-field__native
@@ -60,9 +65,6 @@ export default ({
       &::after, &::before
         box-shadow: none
         border: none
-      .q-field__prepend
-        .q-img
-          color: black
   .q-chip
     border-radius: 4px
     background: none
@@ -82,6 +84,7 @@ export default ({
   font-size: 14px
   position: absolute
   left: 32px
+  display: block
 .no-placeholder
   display: none
 </style>
