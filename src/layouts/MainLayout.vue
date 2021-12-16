@@ -123,9 +123,9 @@ const linksList = [
     link: "/tooltip",
   },
   {
-    title: "Sample",
-    icon: "add",
-    link: "/sample",
+    title: "Transfer",
+    icon: "code",
+    link: "/transfer",
   },
 ];
 
