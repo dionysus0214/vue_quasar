@@ -27,8 +27,7 @@
             <q-tab-panels v-model="tab">
               <q-tab-panel name="auto">
                 <div class="text-right">
-                  <!-- TODO: disable 처리 -->
-                  <s-button class="q-py-none" label="+ 추가" color="black" flat @click="addTemplateItem" />
+                  <s-button class="q-py-none" label="+ 추가" color="black" flat @click="addTemplateItem" :disable="hasNewItem" />
                 </div>
                 <q-list>
                   <template v-if="fetchingTemplates">
@@ -47,9 +46,16 @@
                   </q-item>
                   <editable-list-item
                     v-else
-                    v-for="template in templates"
-                    :key="template.id"
                     v-model="template.template_name"
+                    v-for="(template, index) in templates"
+                    :key="template.id"
+                    :focused="selectedItem === template.id"
+                    :default="template.default"
+                    :new="template.new_item"
+                    @clicked="selectedItem = template.id"
+                    @create="createTemplate(template)"
+                    @uptate="updateTemplate(template)"
+                    @delete="deleteTemplate(template, index)"
                   />
                 </q-list>
               </q-tab-panel>
@@ -104,18 +110,37 @@ export default {
     async function onSiteChanged(selectedSite) {
       fetchingTemplates.value = true;
       const response = templateList;
-      response.forEach(item => {
+      response.forEach((item) => {
+        item.default = (item.template_name === '기본');
+        item.new_item = false;
         templates.value.push(item);
       });
       fetchingTemplates.value = false;
     }
 
+    const hasNewItem = computed(() => templates.value.reduce((prev, current) => prev || current.new_item, false));
     async function addTemplateItem() {
-      console.log();
+      templates.value.push({
+        id: null,
+        template_name: '',
+        default: false,
+        new_item: true,
+      });
+    }
+
+    function createTemplate(template) {
+      addTemplateItem();
+    }
+    function updateTemplate(template) {
+      console.log('템플릿 수정');
+    }
+    function deleteTemplate(template, index) {
+      templates.value.splice(index, 1);
     }
 
     return {
       selectedSite: ref(null),
+      selectedItem: ref(null),
       sites,
       fetchingSites,
       fetchSites,
@@ -124,7 +149,12 @@ export default {
       templates,
       fetchingTemplates,
       onSiteChanged,
+
+      hasNewItem,
       addTemplateItem,
+      createTemplate,
+      updateTemplate,
+      deleteTemplate,
     };
   },
 };
