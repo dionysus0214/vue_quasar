@@ -81,6 +81,8 @@ export default {
             cancel: true,
             persistent: true,
           }).onOk(() => {
+            // javascript의 비동기 처리 특성때문에 DOM을 탐색하거나 수정하는 로직이 있을 경우, DOM이 갱신되기 전에 DOM을 탐색해서 undefined나 null 에러가 발생할 수 있음
+            // nextTick()은 DOM에 모든 변경사항이 완전히 반영된 후 사용자 정의 로직을 실행할 수 있도록 함
             nextTick(() => {
               inputField.value.select();
             });
@@ -93,7 +95,6 @@ export default {
     }
 
     function handleBlur() {
-      console.log('handle blur');
       if (props.modelValue !== model.value) {
         handleFocusOut();
       }

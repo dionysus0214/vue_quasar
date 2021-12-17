@@ -64,6 +64,36 @@
             <q-separator />
           </q-card>
         </div>
+        <div class="detail-column">
+          <q-card bordered flat>
+            <q-tabs>
+              <q-tab v-for="category in orderDataArray" :key="category.value" :label="category.label" @click="onTabSelected(category)" />
+            </q-tabs>
+            <q-scroll-area style="height: 730px;">
+              <template v-for="category in orderDataArray" :key="category.label">
+                <h3 class="text-h6" :id="category.value">{{ category.label }}
+                  <small>{{ category.aComments }}</small>
+                </h3>
+                <q-list bordered>
+                  <q-item v-for="item in category.sub" :key="item.value">
+                    <q-item-section>
+                      <q-item-label>{{ item.subTitle }}</q-item-label>
+                      <q-item-label caption>{{ item.subCaption }}</q-item-label>
+                      <q-select v-model="templateData[item.value]" hide-dropdown-icon />
+                    </q-item-section>
+                  </q-item>
+                </q-list>
+              </template>
+            </q-scroll-area>
+          </q-card>
+        </div>
+        <div class="guide-column">
+          <q-card bordered flat>
+            <q-card-section>
+              <div class="text-h6">가이드</div>
+            </q-card-section>
+          </q-card>
+        </div>
       </div>
     </div>
   </q-page>
@@ -138,6 +168,23 @@ export default {
       templates.value.splice(index, 1);
     }
 
+    const { getScrollTarget, setVerticalScrollPosition } = scroll;
+    function onTabSelected(category) {
+      const headerElement = document.getElementById(category.value);
+      const target = getScrollTarget(headerElement);
+      const offset = headerElement.offsetTop;
+      const duration = 250;
+      setVerticalScrollPosition(target, offset, duration);
+    }
+
+    const templateData = ref({});
+    orderDataArray.forEach((category) => {
+      category.sub.forEach((item) => {
+        templateData.value[item.value] = [item.value];
+        console.log(templateData.value[item.value]);
+      });
+    });
+
     return {
       selectedSite: ref(null),
       selectedItem: ref(null),
@@ -155,6 +202,10 @@ export default {
       createTemplate,
       updateTemplate,
       deleteTemplate,
+
+      orderDataArray,
+      templateData,
+      onTabSelected,
     };
   },
 };
