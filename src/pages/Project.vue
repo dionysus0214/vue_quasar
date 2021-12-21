@@ -79,7 +79,7 @@
                     <q-item-section>
                       <q-item-label>{{ item.subTitle }}</q-item-label>
                       <q-item-label caption>{{ item.subCaption }}</q-item-label>
-                      <q-select v-model="templateData[item.value]" hide-dropdown-icon />
+                      <editable-chip-input v-model="templateData[item.value]" />
                     </q-item-section>
                   </q-item>
                 </q-list>
@@ -108,6 +108,7 @@ import { siteList, templateList, orderDataArray } from '../constants/data';
 import SSelect from '../components/SSelect.vue';
 import SButton from '../components/SButton.vue';
 import EditableListItem from '../components/EditableListItem.vue';
+import EditableChipInput from '../components/EditableChipInput.vue';
 
 const TAP_VALUE_MAP = {
   auto: 0,
@@ -119,6 +120,7 @@ export default {
     SSelect,
     SButton,
     EditableListItem,
+    EditableChipInput,
   },
   setup() {
     const sites = ref([]);
