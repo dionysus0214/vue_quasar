@@ -183,7 +183,6 @@ export default {
     orderDataArray.forEach((category) => {
       category.sub.forEach((item) => {
         templateData.value[item.value] = [item.value];
-        console.log(templateData.value[item.value]);
       });
     });
 
