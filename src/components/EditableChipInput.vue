@@ -6,14 +6,17 @@
     hide-dropdown-icon
     :use-input="!editable"
     multiple
-    outlined
-  >
+    outlined>
     <template v-slot:selected-item="scope">
       <select v-if="Object.keys(OPERATORS).includes(model[scope.index])" @click.stop>
-        <option v-for="(label, option) in ORERATORS" :value="option" :key="option" :selected="model[scope.index] === option">
-          {{ label }}
-        </option>
+        <option v-for="( label, option ) in OPERATORS" :value="option" :key="option" :selected="model[scope.index] === option">{{label}}</option>
       </select>
+      <editable-chip
+        v-else
+        v-model="model[scope.index]"
+        @editable="editable = true"
+        @remove="scope.removeAtIndex(scope.index)"></editable-chip>
+      <select v-if="scope.index === (model.length - 1)" disabled></select>
     </template>
   </q-select>
 </template>
@@ -21,6 +24,7 @@
 <script>
 import { ref, getCurrentInstance } from 'vue';
 import ModelBindable from '../mixins/ModelBindable';
+import EditableChip from './EditableChip.vue';
 
 const OPERATORS = {
   '|': '대체하기',
@@ -30,6 +34,7 @@ const OPERATORS = {
 export default {
   name: 'EditableChipInput',
   mixins: [ModelBindable],
+  components: { EditableChip },
   props: {
     modelValue: {
       type: Array,
