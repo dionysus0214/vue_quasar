@@ -1,9 +1,20 @@
 <template>
   <div class="q-pa-md flex">
     <div class="q-gutter-sm q-ma-md">
-      <s-date-picker short v-model="innerValue" />
-      <s-date-picker long v-model="innerValue" />
-      <s-date-picker range v-model="dateRange" :showDate="showDate" />
+      <s-date-picker
+        short
+        v-model="innerValue"
+      />
+      <s-date-picker
+        long
+        v-model="innerValue"
+      />
+      <s-date-picker
+        range
+        v-model="dateRange"
+        :isDisable="isDisable"
+        :inquiryLimit="1"
+      />
     </div>
   </div>
 </template>

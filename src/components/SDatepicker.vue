@@ -7,15 +7,16 @@
       long: long,
       range: range,
     }"
-    class="no-padding"
-    :mask="!range ? 'date' : ''"
-    :placeholder="!range ? 'yyyy/mm/dd' : ''"
+    class="q-pa-none s-date-picker"
+    :mask="!range ? 'yyyy-mm-dd' : ''"
+    :placeholder="!range ? 'yyyy-mm-dd' : 'yyyy-mm-dd ~ yyyy-mm-dd'"
     :readonly="range"
     :modelValue="range ? inputDate : innerValue"
+    :disable="$props.isDisable"
   >
     <template v-slot:prepend>
       <div v-if="!range">
-        <q-icon name="event" class="cursor-pointer">
+        <q-btn icon="event" dense :ripple="false" flat class="q-pa-none">
           <q-menu
             v-model="calendarOpen"
             fit
@@ -30,10 +31,10 @@
               @update:modelValue="handleUpdate"
             />
           </q-menu>
-        </q-icon>
+        </q-btn>
       </div>
       <div v-if="range">
-        <q-icon name="event" class="cursor-pointer">
+        <q-btn icon="event" dense :ripple="false" flat class="q-pa-none">
           <q-menu
             v-model="calendarOpen"
             fit
@@ -46,30 +47,31 @@
               range
               square
               color="positive"
-              class="no-padding"
+              class="q-pa-none"
               :options="optionsFn"
               @update:modelValue="dateUpdate"
             />
           </q-menu>
-        </q-icon>
+        </q-btn>
       </div>
     </template>
   </q-input>
 </template>
 
 <script>
-import { ref } from "vue";
+import { ref, watch } from "vue";
 
 export default {
   props: {
     short: Boolean,
     long: Boolean,
     range: Boolean,
-    showDate: Boolean,
     modelValue: Object,
+    isDisable: Boolean,
+    inquiryLimit: Number,
   },
-  setup(_, { emit }) {
-    const calendarOpen = ref(true);
+  setup(props, { emit }) {
+    const calendarOpen = ref(false);
     function getDateStr(myDate) {
       const year = myDate.getFullYear();
       let month = myDate.getMonth() + 1;
@@ -79,36 +81,44 @@ export default {
       return `${year}/${month}/${day}`;
     }
     const today = getDateStr(new Date());
-    function monthAgo() {
+    function monthAgo(val) {
       const newDate = new Date();
       const monthOfYear = newDate.getMonth();
-      newDate.setMonth(monthOfYear - 3);
+      newDate.setMonth(monthOfYear - Number(val));
       return getDateStr(newDate);
     }
-    const dateRange = ref({ from: "", to: "" });
+    const dateRange = ref({});
     const inputDate = ref(null);
 
     function dateUpdate() {
-      if (typeof dateRange.value === "string") {
+      if (typeof dateRange.value === 'string') {
         dateRange.value = {
-          from: dateRange.value.replaceAll("/", "-"),
-          to: dateRange.value.replaceAll("/", "-"),
+          from: dateRange.value.replaceAll('/', '-'),
+          to: dateRange.value.replaceAll('/', '-'),
         };
         inputDate.value = `${dateRange.value.from} ~ ${dateRange.value.to}`;
         calendarOpen.value = false;
       } else {
-        dateRange.value.from = dateRange.value.from.replaceAll("/", "-");
-        dateRange.value.to = dateRange.value.to.replaceAll("/", "-");
+        dateRange.value.from = dateRange.value.from.replaceAll('/', '-');
+        dateRange.value.to = dateRange.value.to.replaceAll('/', '-');
         inputDate.value = `${dateRange.value.from} ~ ${dateRange.value.to}`;
         calendarOpen.value = false;
       }
-      emit("update:modelValue", dateRange.value);
+      emit('update:modelValue', dateRange.value);
     }
     const innerValue = ref(null);
     function handleUpdate() {
-      emit("update:modelValue", innerValue.value);
+      emit('update:modelValue', innerValue.value);
       calendarOpen.value = false;
     }
+    watch(
+      () => props.isDisable,
+      (val) => {
+        calendarOpen.value = !val;
+        inputDate.value = val ? null : inputDate.value;
+      },
+    );
+
     return {
       calendarOpen,
       dateRange,
@@ -117,7 +127,7 @@ export default {
       handleUpdate,
       innerValue,
       optionsFn(date) {
-        return date >= monthAgo() && date <= today;
+        return date >= monthAgo(props.inquiryLimit) && date <= today;
       },
     };
   },
@@ -125,7 +135,7 @@ export default {
 </script>
 
 <style lang="sass">
-@import '../css/quasar.variables.scss'
+@import '../css/variable.sass'
 
 .short
   width: 146px
@@ -145,16 +155,24 @@ export default {
   height: 32px !important
   .q-field__inner
     .q-field__control
-      padding: 5px 12px !important
+      padding: 4px 12px !important
       height: 100%
       .q-field__marginal
         color: $grey-5
       .q-field__prepend
-        height: 100%
+        height: 24px
         padding-right: 12px
         div
           height: 100%
           display: contents
+          .q-btn
+            color: $grey-4
+            height: 24px !important
+            min-height: 0
+          .q-focusable:focus .q-focus-helper,
+          .q-hoverable:hover .q-focus-helper
+            background: inherit !important
+            opacity: 0
       .q-field__control-container
         height: 100%
         .q-field__native
