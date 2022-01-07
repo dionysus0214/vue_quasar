@@ -38,11 +38,6 @@ import EssentialLink from "components/EssentialLink.vue";
 
 const linksList = [
   {
-    title: "Banner",
-    icon: "code",
-    link: "/banner",
-  },
-  {
     title: "Button",
     icon: "code",
     link: "/button",
@@ -73,6 +68,11 @@ const linksList = [
     link: "/dialog",
   },
   {
+    title: "Dropdown",
+    icon: "code",
+    link: "/dropdown",
+  },
+  {
     title: "File Picker",
     icon: "code",
     link: "/filePicker",
@@ -101,11 +101,6 @@ const linksList = [
     title: "Select",
     icon: "code",
     link: "/select",
-  },
-  {
-    title: "Table",
-    icon: "code",
-    link: "/table",
   },
   {
     title: "Tabs",

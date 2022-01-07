@@ -8,18 +8,18 @@
     class="s-file"
   >
     <template v-slot:prepend>
-      <q-img src="~assets/icon_attach_file.svg" width="24px" height="24px" />
-      <div :class="!file ? 's-file-placeholder' : 'no-placeholder'">{{ placeholder }}</div>
+      <q-icon :name="attachFileIcon" size="24px" color="grey-2" @click.stop />
+      <div :class="!file ? 's-file-placeholder' : 's-file-no-placeholder'" @click.stop>{{ placeholder }}</div>
     </template>
   </q-file>
 </template>
 
 <script>
 import { ref, watch } from 'vue';
+import { attachFileIcon } from '../assets/icons.js';
 
 export default ({
   props: {
-    modelValue: File,
     placeholder: String,
   },
   setup(props) {
@@ -28,10 +28,10 @@ export default ({
     watch(() => props.modelValue,
       (newVal) => {
         file.value = newVal;
-        console.log(file.value);
       });
 
     return {
+      attachFileIcon,
       file,
     };
   },
@@ -44,53 +44,59 @@ export default ({
 .s-file.q-file
   width: 294px
   border-radius: 2px
-  .q-field__control
-    align-items: center
-    padding: 0
-    border: 1px solid $grey-6
-    &::after, &::before
-      box-shadow: none
-      border: none
-    .q-field__prepend
-      width: fit-content
-      height: 100%
-      padding: 0
-      margin-left: 8px
-      cursor: pointer
-    .q-field__control-container
-      padding: 5px 0
-      .q-field__native
+  .q-field__inner
+    .q-field__control
+      align-items: center
+      padding: 0 12px 0 8px
+      border: 1px solid $grey-6
+      &::after, &::before
+        box-shadow: none
+        border: none
+      .q-field__prepend
+        width: fit-content
+        height: 100%
         padding: 0
-        min-height: 100%
-        width: 97% !important
-    .q-field__append
-      padding: 0 8px 0 0
+        cursor: pointer
+        .s-file-placeholder
+          height: 100%
+          width: fit-content
+          line-height: 30px
+          font-size: 14px
+          font-weight: 400
+          color: $grey-8
+          display: block
+          margin-left: 10px
+        .s-file-no-placeholder
+          display: none
+      .q-field__control-container
+        width: 100%
+        .q-field__native
+          width: 100%
+          padding: 0
+          padding-left: 10px
+          min-height: 100%
+          >div
+            width: 100%
+            overflow: hidden
+            color: $grey-2
+            word-break: keep-all
+            white-space: nowrap
+            text-overflow: ellipsis
   &:hover
     .q-field__control
       border: 1px solid $grey-2
       &::after, &::before
         box-shadow: none
         border: none
-  .q-chip
-    border-radius: 4px
-    background: none
-    padding: 0
-    margin: 0
-    height: 22px
-    .q-chip__content
-      span
-        width: 98%
-    .q-chip__icon
-      margin: 0 !important
 
-.s-file-placeholder
-  height: 100%
-  width: fit-content
-  line-height: 30px
-  font-size: 14px
-  position: absolute
-  left: 32px
-  display: block
-.no-placeholder
-  display: none
+.s-file.q-field--disabled
+  .q-field__inner
+    .q-field__control
+      border: 1px solid $grey-8
+      .q-field__prepend
+        opacity: 1 !important
+        .s-file-placeholder
+          color: $grey-6
+      &-container
+        opacity: 1 !important
 </style>

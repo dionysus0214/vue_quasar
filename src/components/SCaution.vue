@@ -1,17 +1,22 @@
 <template>
-  <q-card class="s-caution" flat>
-    <span class="s-caution-title">{{ title }}</span>
-    <q-card-section class="s-caution-contents">
-      <slot />
-    </q-card-section>
-    <q-card-section class="s-caution-icon"></q-card-section>
-  </q-card>
+  <q-banner dense rounded class="text-black col s-caution">
+    <div class="s-caution-title">{{ title }}</div>
+    <slot />
+    <q-icon class="s-caution-icon" :name="cautionOutlineIcon" />
+  </q-banner>
 </template>
 
 <script>
+import { cautionOutlineIcon } from '../assets/icons.js';
+
 export default {
   props: {
     title: String,
+  },
+  setup() {
+    return {
+      cautionOutlineIcon,
+    };
   },
 };
 </script>
@@ -20,39 +25,53 @@ export default {
 @import '../css/quasar.variables.scss'
 
 .s-caution
-  max-height: 186px
-  max-width: 100%
-  min-width: 1000px
-  padding: 10px 0
-  background-color: rgba(252, 230, 230, 0.55)
-  color: $red-6
-  font:
-    size: 20px
-    weight: 700
-  border:
-    left: 8px solid $red-6
-    radius: 4px 0px 0px 4px
-  .s-caution-title
-    text-indent: 60px
-    display: block
-    margin-top: 8px
-  .s-caution-contents
-    max-width: 1423px
-    min-width: 803px
-    height: 250px
-    margin-top: -12px
-    margin-left: 32px
-    color: black
-    font:
-      weight: 400
-      size: 14px
-    z-index: 1
-  .s-caution-icon
-    width: 216px
-    height: 186px
+  padding: 20px 0
+  background-color: #FEF1F1
+  border-radius: 4px
+  border: 1px solid $red-9
+  position: relative
+  overflow: hidden
+  &:before
+    content: " "
     position: absolute
-    padding: 0
+    top: 0
     right: 0
-    bottom: -4px
-    background: no-repeat url("../assets/caution_outline.svg") 28px -28px / cover
+    bottom: 0
+    left: 0
+    width: 8px
+    height: 100%
+    background: $red-7
+
+  max:
+    height: 100%
+    width: 100%
+
+  .s-caution-title
+    width: 100%
+    height: 30px
+    line-height: 30px
+    font:
+      size: 20px
+      weight: 700
+    color: $red-6
+    margin:
+      left: 54px
+      bottom: 16px
+
+  ul
+    list-style: "-"
+    text-indent: 12px
+    padding: 0
+    margin: 0
+      left: 59px
+    li
+      line-height: 25px
+
+  .s-caution-icon
+    color: rgba(253, 149, 149, 0.24)
+    min-width: 200px
+    min-height: 200px
+    position: absolute
+    right: -40px
+    bottom: -15px
 </style>

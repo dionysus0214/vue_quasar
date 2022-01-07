@@ -1,70 +1,57 @@
 <template>
   <q-dialog>
-    <q-card>
-      <q-card-section>
-        <div class="row items-center no-wrap">
-          <div class="close-button">
-            <q-btn icon="close" flat round dense v-close-popup />
-          </div>
+    <q-card class="s-confirm">
+      <q-card-actions class="modal-close-button">
+        <q-btn :icon="closeIcon" flat round dense v-close-popup color="grey-6" :ripple="false"
+        @click="$emit('handleClose')"
+        />
+      </q-card-actions>
+      <q-card-section class="modal-title">
+        <div v-if="withHeaderIcon" class="flex items-center justify-center modal-icon">
+          <q-icon v-if="type === 'info'" :name="infoOutlineIcon" size="32px" color="positive" />
+          <q-icon v-else :name="warningOutlineIcon" size="32px" color="negative" />
         </div>
+        {{ title }}
       </q-card-section>
-
-      <q-card-section>
-        <div v-if="withHeaderIcon" class="modal-icon q-mt-md">
-          <q-img
-            v-if="type === 'info'"
-            src="~assets/icon_info_outline.svg"
-            width="28px"
-            height="28px"
-          />
-          <q-img
-            v-else
-            src="~assets/icon_warning_outline.svg"
-            width="28px"
-            height="28px"
-          />
-        </div>
-        <div class="modal-title q-mt-sm">
-          {{ title }}
-        </div>
-        <div class="modal-content q-mt-md">
-          <slot name="content"></slot>
-        </div>
-        <div class="modal-button q-mt-md">
-          <q-btn
-            class="modal-button first"
-            :color="type === 'info' ? 'secondary' : 'negative'"
-            no-caps
-            no-wrap
-            dense
-            unelevated
-            style="padding: 5px 12px"
-            :ripple="false"
-            @click="$emit('click')"
-          >
-            {{ buttonLabel }}
-          </q-btn>
-          <q-btn
-            v-if="twoButtons"
-            class="modal-button second"
-            outline
-            :color="type === 'info' ? 'secondary' : 'negative'"
-            no-caps
-            no-wrap
-            dense
-            unelevated
-            style="padding: 5px 12px"
-            :ripple="false"
-          >
-            {{ secondButtonLabel }}
-          </q-btn>
-        </div>
+      <q-card-section class="modal-content">
+        <slot name="content"></slot>
       </q-card-section>
+      <q-card-actions class="modal-buttons" align="center" :vertical="btnVertical" :class="btnVertical ? 'btn-vertical' : 'no-vertical'">
+        <q-btn
+          class="modal-button first"
+          no-caps
+          no-wrap
+          dense
+          unelevated
+          :ripple="false"
+          :color="firstBtnColor"
+          :outline="firstBtnOutLine"
+          @click="$emit('handleFirst')"
+        >
+          {{ buttonLabel }}
+        </q-btn>
+        <q-btn
+          v-if="twoButtons"
+          class="modal-button second"
+          no-caps
+          no-wrap
+          dense
+          unelevated
+          :ripple="false"
+          :color="secondBtnColor"
+          :outline="secondBtnOutLine"
+          @click="$emit('handleSecond')"
+          >
+          {{ secondButtonLabel }}
+        </q-btn>
+      </q-card-actions>
     </q-card>
   </q-dialog>
 </template>
 
 <script>
+import { infoOutlineIcon, warningOutlineIcon, closeIcon } from '../assets/icons.js';
+
 export default {
   props: {
     withHeaderIcon: {
@@ -73,19 +60,19 @@ export default {
     },
     title: {
       type: String,
-      default: "",
+      default: '',
     },
     content: {
       type: String,
-      default: "",
+      default: '',
     },
     type: {
       type: String,
-      default: "info",
+      default: 'info',
     },
     buttonLabel: {
       type: String,
-      default: "",
+      default: '',
     },
     twoButtons: {
       type: Boolean,
@@ -93,8 +80,35 @@ export default {
     },
     secondButtonLabel: {
       type: String,
-      default: "",
+      default: '',
     },
+    firstBtnColor: {
+      type: String,
+      default: '',
+    },
+    secondBtnColor: {
+      type: String,
+      default: '',
+    },
+    firstBtnOutLine: {
+      type: Boolean,
+      default: false,
+    },
+    secondBtnOutLine: {
+      type: Boolean,
+      default: false,
+    },
+    btnVertical: {
+      type: Boolean,
+      default: false,
+    },
+  },
+  setup() {
+    return {
+      infoOutlineIcon,
+      warningOutlineIcon,
+      closeIcon,
+    };
   },
 };
 </script>

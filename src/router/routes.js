@@ -3,7 +3,6 @@ const routes = [
     path: '/',
     component: () => import('layouts/MainLayout.vue'),
     children: [
-      { path: '', component: () => import('pages/Index.vue') },
       { path: 'input', component: () => import('pages/Input.vue') },
       { path: 'select', component: () => import('pages/Select.vue') },
       { path: 'button', component: () => import('pages/Button.vue') },
@@ -19,9 +18,8 @@ const routes = [
       { path: 'tabs', component: () => import('pages/Tabs.vue') },
       { path: 'toggle', component: () => import('pages/Toggle.vue') },
       { path: 'chip', component: () => import('pages/Chip.vue') },
-      { path: 'banner', component: () => import('src/pages/Banner.vue') },
-      { path: 'table', component: () => import('src/pages/Table.vue') },
       { path: 'breadcrumbs', component: () => import('src/pages/Breadcrumbs.vue') },
+      { path: 'dropdown', component: () => import('src/pages/Dropdown.vue') },
       { path: 'project', component: () => import('src/pages/Project.vue') },
     ],
   },
