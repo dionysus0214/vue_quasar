@@ -135,8 +135,6 @@ export default {
 </script>
 
 <style lang="sass">
-@import '../css/variable.sass'
-
 .short
   width: 146px
 

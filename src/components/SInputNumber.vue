@@ -24,10 +24,9 @@
 </template>
 
 <script>
-import { defineComponent } from "vue";
 import { QInput, QBtn } from "quasar";
 
-export default defineComponent({
+export default ({
   name: "SInputNumber",
   components: {
     QInput,
@@ -45,32 +44,57 @@ export default defineComponent({
 </script>
 
 <style lang="sass">
-@import '../css/quasar.variables.scss'
-
-.s-input-number-icon-up
-  border-left: 1px solid $grey-8
-  border-radius: 0px !important
-  position: absolute
-  margin: auto
-  padding-left: 2px
-  top: 0px
-  right: 2px
-
-.s-input-number-icon-down
-  border-left: 1px solid $grey-8
-  border-radius: 0px !important
-  margin: auto
-  padding-left: 2px
-  bottom: -6px
-  right: -6px
-
 .s-input-number
-  .q-btn
-    height: 5px
-  .q-focusable:focus .q-focus-helper,
-  .q-hoverable:hover .q-focus-helper
-    background: inherit !important
-    opacity: 0
+  .q-field__inner
+    .q-field__control
+      padding: 0
+      &-container
+        padding: 0 12px
+        .q-field__native
+          color: $grey-2
+        input::placeholder
+          color: $grey-8
+      &:before
+        border: 1px solid $grey-6
+      .q-field__append
+        display: none
+
+.q-field--focused.s-input-number
+  .q-field__inner
+    .q-field__control
+      .q-field__append
+        display: block
+        width: 26px
+        border-left: 1px solid $grey-8
+        padding: 0
+        display: flex
+        flex-direction: column
+        justify-content: center
+        align-items: center
+        .q-btn
+          padding: 0
+          margin: 0
+          width: 15px
+          min-height: 15px
+          line-height: 15px
+          .q-focus-helper
+            background: none
+          &__content
+            .q-icon
+              height: auto
+              padding: 2.7px
+
+.q-field--disabled.s-input-number
+  .q-field__inner
+    .q-field__control
+      &:before
+        border: 1px solid $grey-8
+      &-container
+        opacity: 1 !important
+        .q-field__native
+          color: $grey-6
+        input::placeholder
+          color: $grey-6
 
 /* Chrome, Safari, Edge, Opera */
 input::-webkit-outer-spin-button,

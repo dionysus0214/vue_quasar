@@ -15,12 +15,7 @@
     <s-button
       size="sm"
       outline
-      label="Button"
-    />
-    <s-button
-      size="sm"
-      outline
-      color="grey-6"
+      color="grey-4"
       label="Button"
     />
     <s-button
@@ -56,15 +51,15 @@
       label="로그인"
     />
     <s-button
-      outline
       disable
       size="md"
       label="Disabled"
     /><br>
-    <s-button-group>
+    <s-button-group noHover>
       <s-button
         outline
         label="Button1"
+        disable
       />
       <s-button
         label="Button2"

@@ -15,7 +15,6 @@
 </template>
 
 <script>
-
 export default ({
   props: {
     size: {
@@ -71,12 +70,16 @@ export default ({
       padding: 9px
       .q-icon
         font-size: 24px
+
+.s-button.disabled
+  background: $grey-9 !important
+  opacity: 1 !important
+  color: $grey-6 !important
+  border: 1px solid $grey-8
+
 .no-hover
-  &::before
-    display: none
   &.q-focusable:focus > .q-focus-helper,
   &.q-manual-focusable--focused > .q-focus-helper,
-  &.q-hoverable:hover > .q-focus-helper,
   &.q-hoverable:hover > .q-focus-helper
     background: none !important
     opacity: 0 !important

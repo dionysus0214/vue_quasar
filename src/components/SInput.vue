@@ -49,22 +49,68 @@ export default {
 };
 </script>
 
-<style lang="scss">
-.s-input {
-  .q-field__prepend {
-    border-right: 1px solid $grey-8;
-    padding-right: 8px;
-    margin-right: 10px;
-  }
-  .q-icon {
-    padding-right: 4px;
-  }
-  .input-label {
-    font-size: 14px;
-    padding-right: 4px;
-  }
-  .input-addon {
-    font-size: 14px;
-  }
-}
+<style lang="sass">
+.s-input
+  .q-field__inner
+    .q-field__control
+      padding: 0
+      &:before
+        border: 1px solid $grey-6
+      &-container
+        padding: 5px 12px
+        height: auto
+        .q-field__native
+          font-size: 14px
+          font-weight: 400
+          color: $grey-2
+        input::placeholder
+          color: $grey-7
+        textarea
+          padding: 3px 0
+      .q-field__append
+        padding: 0
+        padding-right: 12px
+        .q-icon
+          color: $grey-6
+    .q-field__bottom
+      padding: 0
+      padding-top: 4px
+      .q-field__counter
+        padding: 0
+        color: $grey-8
+        font-size: 12px
+  .q-field__before
+    padding-right: 12px
+    .input-label
+      font-size: 14px
+      font-weight: 400
+      color: $grey-2
+  .q-field__prepend
+    height: auto
+    padding: 5px 12px
+    border-right: 1px solid $grey-6
+    .input-addon
+      font-size: 14px
+      font-weight: 400
+      color: $grey-2
+
+.q-field--focused.s-input
+  .q-field__inner
+    .q-field__control
+      &-container
+      .q-field__append
+        .q-icon
+          color: $positive
+
+.s-input.q-field--disabled
+  .q-field__inner
+    .q-field__control
+      &:before
+        border: 1px solid $grey-8
+      &-container
+        opacity: 1 !important
+        .q-field__native
+          color: $grey-2
+        input::placeholder
+          color: $grey-6
 </style>
