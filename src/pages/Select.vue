@@ -5,6 +5,7 @@
         v-model="model"
         :options="options"
         hint="select"
+        disable
       />
       <s-select
         v-model="searchModel"
@@ -12,7 +13,6 @@
         use-input
         input-debounce="0"
         @filter="filterFn"
-        @input-value="setModel"
         hint="select+search"
       />
       <s-select
@@ -31,6 +31,18 @@
         :options="groupOptions"
         hint="group"
       />
+      <s-select
+        checkbox
+        multiple
+        v-model="emptyValue"
+        hint="empty option"
+      />
+      <s-select-checkbox
+        checkbox
+        v-model="checkboxModel"
+        :options="checkboxOptions"
+        hint="include Checkbox"
+      />
     </div>
   </div>
 </template>
@@ -48,21 +60,22 @@ export default {
     SSelect,
   },
   setup() {
-    const model = ref(null);
     const filterOptions = ref(stringOptions);
 
     return {
       text: ref(null),
-      model: ref(null),
+      model: ref('A열'),
       searchModel: ref(null),
       searchAddModel: ref(null),
       groupModel: ref(null),
+      checkboxModel: ref(null),
+      emptyValue: ref(null),
       options: [
         'A열', 'B열', 'C열', 'D열', 'E열', 'F열', 'G열', 'H열',
       ],
       groupOptions: [
         {
-          group: 'Group 1',
+          group: '그룹1',
           disable: true,
         },
         {
@@ -84,10 +97,34 @@ export default {
         {
           label: 'Apple',
           value: 'Apple',
+          disable: true,
         },
         {
           label: 'Oracle',
           value: 'Oracle',
+        },
+      ],
+      checkboxOptions: [
+        {
+          label: 'order_no',
+          value: 'order_no',
+          checked: true,
+        },
+        {
+          label: 'product_name',
+          value: 'product_name',
+          checked: false,
+        },
+        {
+          label: 'product_code',
+          value: 'product_code',
+          checked: false,
+        },
+        {
+          label: 'price',
+          value: 'price',
+          checked: false,
+          disable: true,
         },
       ],
       filterOptions,
@@ -97,7 +134,7 @@ export default {
           if (!stringOptions.includes(val)) {
             stringOptions.push(val);
           }
-          done(val, 'toggle');
+          done(val);
         }
       },
 
@@ -113,11 +150,6 @@ export default {
           }
         });
       },
-
-      setModel(val) {
-        model.value = val;
-      },
-
     };
   },
 };

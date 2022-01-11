@@ -1,7 +1,7 @@
 <template>
   <div class="q-pa-md">
     <div class="q-gutter-sm">
-      <s-radio v-model="item" val="item1" label="item1" />
+      <s-radio v-model="item" val="item1" label="item1" disable />
       <s-radio v-model="item" val="item2" label="item2" />
       <s-radio v-model="item" val="item3" label="item3" />
       <s-radio v-model="item" val="item4" label="item4" />

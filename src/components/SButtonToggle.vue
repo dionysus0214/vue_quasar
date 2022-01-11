@@ -1,49 +1,96 @@
 <template>
   <q-btn-toggle
-    class="s-btn-toggle"
+    v-model="btnValue"
     no-caps
+    no-wrap
+    outline
     unelevated
-    color="white"
-    text-color="grey-3"
-    toggle-color="positive"
+    :ripple="false"
+    color="grey-8"
+    text-color="grey-8"
+    toggle-color="white"
+    toggle-text-color="positive"
     padding="8px 24px"
-    v-model="innerValue"
-    @update:modelValue="handleUpdate"
+    class="s-btn-toggle"
   />
 </template>
 
 <script>
-import { ref } from 'vue';
+import { ref, watch } from 'vue';
 
 export default ({
-  data() {
-    return {
-      innerValue: ref('item01'),
-    };
+  props: {
+    modelValue: String,
   },
-  methods: {
-    handleUpdate() {
-      this.$emit('update:modelValue', this.innerValue);
-    },
+  setup(props) {
+    const btnValue = ref(props.modelValue);
+    watch(
+      () => props.modelValue,
+      (newVal) => {
+        btnValue.value = newVal;
+      },
+    );
+
+    return {
+      btnValue,
+    };
   },
 });
 </script>
 
-<style lang="sass">
-@import '../css/quasar.variables.scss'
-
-.s-btn-toggle
-  .q-btn
-    color: $grey-5
-    border: 1px solid $grey-8
-    height: 38px
-    &__content
-      line-height: 20px
-  .q-btn:nth-child(2n)
-    border-left: transparent
-    border-right: transparent
-  .q-btn:first-child
-    border-left: 1px solid $grey-8
-  .q-btn:last-child
-    border-right: 1px solid $grey-8
+<style lang="scss">
+.s-btn-toggle {
+  .q-btn {
+    height: 38px;
+    &:first-of-type {
+      border-radius: 2px 0 0 2px;
+    }
+    &:last-of-type {
+      border-radius: 0 2px 2px 0;
+    }
+    &:before {
+      border-right: 1px solid $grey-8 !important;
+    }
+    &__content {
+      > span {
+        line-height: 22px;
+        font-size: 14px;
+        font-weight: 500;
+      }
+    }
+    &:hover {
+      .q-focus-helper {
+        opacity: 0 !important;
+      }
+      .q-btn__content {
+        > span {
+          color: $grey-4;
+        }
+      }
+    }
+    &:active {
+      background: $positive !important;
+      &:before {
+        border: 1px solid $positive !important;
+      }
+      .q-btn__content {
+        > span {
+          color: white;
+        }
+      }
+    }
+  }
+  .text-positive {
+    &:before {
+      border: 1px solid $positive !important;
+    }
+    &:hover {
+      .q-btn__content {
+        > span {
+          color: $positive !important;
+        }
+      }
+    }
+  }
+}
 </style>

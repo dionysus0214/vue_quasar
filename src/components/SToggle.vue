@@ -11,8 +11,6 @@
 
 .s-toggle {
   height: 24px;
-  font-weight: 700;
-  width: 100%;
   .q-toggle__inner {
     padding: 0;
     width: 42px;
@@ -30,6 +28,9 @@
       height: 20px;
       top: 2px;
       left: 2px;
+      &:before {
+        background: none;
+      }
     }
     &--truthy {
       .q-toggle__track {
@@ -39,6 +40,21 @@
         left: 0.5em;
         color: #fff;
       }
+    }
+  }
+}
+.disabled.s-toggle {
+  border: none;
+  background: none !important;
+  opacity: 1 !important;
+  .q-toggle__inner {
+    .q-toggle__track {
+      background: $grey-10;
+    }
+  }
+  &--truthy {
+    .q-toggle__track {
+      background: $blue-10;
     }
   }
 }

@@ -1,10 +1,16 @@
 <template>
   <div class="q-pa-md q-gutter-md">
-    <s-toggle v-model="toggleClick" />
+    <s-toggle
+      v-model="toggleClick"
+    />
+    <s-toggle
+      v-model="toggleClick"
+      disable
+    />
     <s-button-toggle
-      v-model="model"
+      v-model="innerValue"
       :options="options"
-      :optionValue="options[0].value"
+      @update:modelValue="updateModelValue"
     />
   </div>
 </template>
@@ -14,11 +20,11 @@ import { ref } from "vue";
 import SToggle from "../components/SToggle.vue";
 import SButtonToggle from "../components/SButtonToggle.vue";
 
-const item = [
-  { label: "item01", value: "item01" },
-  { label: "item02", value: "item02" },
-  { label: "item03", value: "item03" },
-  { label: "item04", value: "item04" },
+const options = [
+  { label: 'item01', value: 'item01' },
+  { label: 'item02', value: 'item02' },
+  { label: 'item03', value: 'item03' },
+  { label: 'item04', value: 'item04' },
 ];
 
 export default {
@@ -27,10 +33,18 @@ export default {
     SButtonToggle,
   },
   setup() {
+    const toggleClick = ref(false);
+    const innerValue = ref(options[0].value);
+
+    function updateModelValue(val) {
+      console.log(val);
+    }
     return {
-      toggleClick: ref(false),
-      model: ref(''),
-      options: ref(item),
+      toggleClick,
+      innerValue,
+      options,
+
+      updateModelValue,
     };
   },
 };
