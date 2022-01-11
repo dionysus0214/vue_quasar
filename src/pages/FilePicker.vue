@@ -6,8 +6,16 @@
         placeholder="파일을 업로드하세요."
         @update:modelValue="updateModelValue"
       />
-      <s-button label="되랏" color="indigo-6" @click="resetFile" />
     </div>
+    <div class="q-gutter-md q-my-md" style="max-width: 297px">
+      <s-file-picker
+        v-model="singleFile"
+        placeholder="파일을 업로드하세요."
+        disable
+        @update:modelValue="updateModelValue"
+      />
+    </div>
+    <s-button label="reset" color="indigo-6" @click="resetFile" />
   </div>
 </template>
 
@@ -23,8 +31,9 @@ export default {
   },
   setup() {
     const singleFile = ref(null);
+    // eslint-disable-next-line no-unused-vars
     function updateModelValue(file) {
-      console.log('updateModelValue', file);
+      // pass
     }
     function resetFile() {
       singleFile.value = null;

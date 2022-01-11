@@ -4,54 +4,61 @@
       size="md"
       label="Info"
       color="indigo-6"
-      @click="confirm = true"
+      @click="dialog = true"
     />
-    <s-confirm
-      type="info"
-      v-model="confirm"
+    <s-dialog
+      type="warning"
+      withHeaderIcon
+      v-model="dialog"
       title="Infomation"
       buttonLabel="Agree"
+      firstBtnColor="negative"
     >
       <template v-slot:content>
         <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis commodo nisi nec sem congue vulputate. Fusce ultrices ommodo nisi metus elit, at molestie quam dignissim nec.</div>
       </template>
-    </s-confirm>
+    </s-dialog>
     <s-button
       size="md"
       label="Warning"
       color="negative"
       @click="warning = true"
     />
-    <s-confirm
+    <s-dialog
       persistent
-      type="warning"
+      type="info"
       withHeaderIcon
       v-model="warning"
-      title="Warning"
+      title="기본양식 수정"
       twoButtons
-      buttonLabel="Agree"
-      secondButtonLabel="Disagree"
+      buttonLabel="수정"
+      secondButtonLabel="취소"
+      firstBtnOutLine
+      firstBtnColor="indigo-6"
+      secondBtnColor="secondary"
+      secondBtnOutLine
+      btnVertical
     >
       <template v-slot:content>
         <div>Donec finibus, sapien sit amet gravida porttitor, enim tortor pulvinar quam, pharetra tincidunt eros libero consequat est. Donec sit amet malesuada ipsum, nec eros. Phasellus sodales ac felis ac mattis.</div>
       </template>
-    </s-confirm>
+    </s-dialog>
   </div>
 </template>
 
 <script>
 import { ref } from 'vue';
 import SButton from '../components/SButton.vue';
-import SConfirm from '../components/SConfirm.vue';
+import SDialog from '../components/SDialog.vue';
 
 export default {
   components: {
-    SConfirm,
+    SDialog,
     SButton,
   },
   setup() {
     return {
-      confirm: ref(false),
+      dialog: ref(false),
       warning: ref(false),
     };
   },
