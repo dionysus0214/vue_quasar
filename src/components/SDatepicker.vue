@@ -3,20 +3,26 @@
     dense
     outlined
     :class="{
-      short: short,
-      long: long,
-      range: range,
+      's-date-picker-short': short,
+      's-date-picker-long': long,
+      's-date-picker-range': range,
+      'text-grey-6 bg-grey-11': $props.isDisable,
     }"
+    readonly
     class="q-pa-none s-date-picker"
-    :mask="!range ? 'yyyy-mm-dd' : ''"
-    :placeholder="!range ? 'yyyy-mm-dd' : 'yyyy-mm-dd ~ yyyy-mm-dd'"
-    :readonly="range"
-    :modelValue="range ? inputDate : innerValue"
+    :placeholder="$props.dateText"
+    v-model="inputDate"
     :disable="$props.isDisable"
   >
     <template v-slot:prepend>
       <div v-if="!range">
-        <q-btn icon="event" dense :ripple="false" flat class="q-pa-none">
+        <q-btn
+          :icon="dateRangeIcon"
+          dense
+          :ripple="false"
+          flat
+          class="q-pa-none"
+        >
           <q-menu
             v-model="calendarOpen"
             fit
@@ -24,17 +30,24 @@
             :offset="[12, 12]"
           >
             <q-date
+              v-model="dateValue"
               color="positive"
-              v-model="innerValue"
               minimal
               no-unset
-              @update:modelValue="handleUpdate"
+              @update:modelValue="dateUpdate"
             />
           </q-menu>
         </q-btn>
       </div>
-      <div v-if="range">
-        <q-btn icon="event" dense :ripple="false" flat class="q-pa-none">
+      <div v-else>
+        <q-btn
+          :icon="dateRangeIcon"
+          dense
+          :ripple="false"
+          flat
+          class="q-pa-none"
+          @click="clickDateIcon"
+        >
           <q-menu
             v-model="calendarOpen"
             fit
@@ -42,13 +55,14 @@
             :offset="[12, 12]"
           >
             <q-date
-              v-model="dateRange"
+              v-model="dateValue"
               minimal
               range
               square
               color="positive"
               class="q-pa-none"
               :options="optionsFn"
+              @range-start="getRangeStartDay"
               @update:modelValue="dateUpdate"
             />
           </q-menu>
@@ -60,57 +74,61 @@
 
 <script>
 import { ref, watch } from "vue";
+import { date } from 'quasar';
+import { dateRangeIcon } from '../assets/icons.js';
 
 export default {
   props: {
     short: Boolean,
     long: Boolean,
     range: Boolean,
-    modelValue: Object,
     isDisable: Boolean,
-    inquiryLimit: Number,
+    modelValue: {
+      type: [String, Object],
+    },
+    dateText: String,
+    subtractDate: {
+      years: Number,
+      months: Number,
+      days: Number,
+    },
+    addDate: {
+      years: Number,
+      months: Number,
+      days: Number,
+    },
   },
   setup(props, { emit }) {
     const calendarOpen = ref(false);
-    function getDateStr(myDate) {
-      const year = myDate.getFullYear();
-      let month = myDate.getMonth() + 1;
-      let day = myDate.getDate();
-      month = month < 10 ? `0${String(month)}` : month;
-      day = day < 10 ? `0${String(day)}` : day;
-      return `${year}/${month}/${day}`;
-    }
-    const today = getDateStr(new Date());
-    function monthAgo(val) {
-      const newDate = new Date();
-      const monthOfYear = newDate.getMonth();
-      newDate.setMonth(monthOfYear - Number(val));
-      return getDateStr(newDate);
-    }
-    const dateRange = ref({});
-    const inputDate = ref(null);
+    const inputDate = ref(props.dateText);
+    watch(
+      () => props.dateText,
+      (val) => {
+        inputDate.value = val;
+      },
+    );
 
+    const dateValue = ref(props.modelValue);
     function dateUpdate() {
-      if (typeof dateRange.value === 'string') {
-        dateRange.value = {
-          from: dateRange.value.replaceAll('/', '-'),
-          to: dateRange.value.replaceAll('/', '-'),
-        };
-        inputDate.value = `${dateRange.value.from} ~ ${dateRange.value.to}`;
-        calendarOpen.value = false;
+      if (props.range) {
+        if (typeof dateValue.value === 'string') {
+          dateValue.value = {
+            from: dateValue.value.replaceAll('/', '-'),
+            to: dateValue.value.replaceAll('/', '-'),
+          };
+        } else {
+          dateValue.value.from = dateValue.value.from.replaceAll('/', '-');
+          dateValue.value.to = dateValue.value.to.replaceAll('/', '-');
+        }
+        inputDate.value = `${dateValue.value.from} ~ ${dateValue.value.to}`;
       } else {
-        dateRange.value.from = dateRange.value.from.replaceAll('/', '-');
-        dateRange.value.to = dateRange.value.to.replaceAll('/', '-');
-        inputDate.value = `${dateRange.value.from} ~ ${dateRange.value.to}`;
-        calendarOpen.value = false;
+        dateValue.value = dateValue.value.replaceAll('/', '-');
+        inputDate.value = dateValue.value;
       }
-      emit('update:modelValue', dateRange.value);
-    }
-    const innerValue = ref(null);
-    function handleUpdate() {
-      emit('update:modelValue', innerValue.value);
       calendarOpen.value = false;
+      emit('update:modelValue', dateValue.value);
     }
+
     watch(
       () => props.isDisable,
       (val) => {
@@ -119,86 +137,193 @@ export default {
       },
     );
 
+    const today = date.formatDate(new Date(), 'YYYY/MM/DD');
+    const startDate = ref(null);
+    function getRangeStartDay(from) {
+      startDate.value = from;
+    }
+    function optionsFn(day) {
+      const clickDate = startDate.value
+        ? `${startDate.value.year}/${startDate.value.month}/${startDate.value.day}`
+        : '';
+      if (clickDate) {
+        let dateAgo = date.subtractFromDate(clickDate, props.subtractDate);
+        dateAgo = date.addToDate(dateAgo, { days: 1 });
+        const dateLater = date.addToDate(clickDate, props.addDate);
+        const agoformatted = date.formatDate(dateAgo, 'YYYY/MM/DD');
+        const laterformatted = date.formatDate(dateLater, 'YYYY/MM/DD');
+        const todayDiff = startDate.value
+          ? date.getDateDiff(clickDate, today)
+          : null;
+        const laterDiff = startDate.value
+          ? date.getDateDiff(clickDate, laterformatted)
+          : null;
+        if (todayDiff > laterDiff) {
+          return agoformatted <= day && day <= today;
+        }
+        if (todayDiff < laterDiff) {
+          return agoformatted <= day && day < laterformatted;
+        }
+      }
+      return day <= today;
+    }
+
+    function clickDateIcon() {
+      dateValue.value = {};
+      startDate.value = {};
+    }
+
     return {
       calendarOpen,
-      dateRange,
+      dateValue,
       inputDate,
       dateUpdate,
-      handleUpdate,
-      innerValue,
-      optionsFn(date) {
-        return date >= monthAgo(props.inquiryLimit) && date <= today;
-      },
+      getRangeStartDay,
+      optionsFn,
+
+      clickDateIcon,
+      dateRangeIcon,
     };
   },
 };
 </script>
 
-<style lang="sass">
-.short
-  width: 146px
-
-.long
-  width: 200px
-  .q-field__control-container
-    .q-field__native
-      text-align: center
-
-.range
-  width: 252px
-
-.range, .long, .short
-  border-radius: 2px !important
-  border: 1px solid $grey-6
-  height: 32px !important
-  .q-field__inner
-    .q-field__control
-      padding: 4px 12px !important
-      height: 100%
-      .q-field__marginal
-        color: $grey-5
-      .q-field__prepend
-        height: 24px
-        padding-right: 12px
-        div
-          height: 100%
-          display: contents
-          .q-btn
-            color: $grey-4
-            height: 24px !important
-            min-height: 0
-          .q-focusable:focus .q-focus-helper,
-          .q-hoverable:hover .q-focus-helper
-            background: inherit !important
-            opacity: 0
-      .q-field__control-container
-        height: 100%
-        .q-field__native
-          padding: 0
-          -webkit-appearance: initial
-          line-height: 20px
-        .q-field__label
-          top: 0px
-          color: black
-      &::before
-        border: none
-
-.date-picker-wrapper.q-menu
-  width: 290px
-  height: 288px
-  min-width: 0 !important
-  min-height: 0 !important
-  .q-date
-    height: 288px
-    &__main
-      .q-date__content
-        .q-date__view
-          min-height: 0 !important
-          .q-date__navigation
-            div
-              height: 32px
-            .relative-position
-              div
-                .q-btn--dense
-                  padding: 0 !important
+<style lang="scss">
+.s-date-picker {
+  .q-field__inner {
+    .q-field__control {
+      padding: 4px 12px !important;
+      &:before {
+        border-style: solid;
+      }
+      .q-field__prepend {
+        height: auto;
+        padding-right: 12px;
+        > div {
+          min-height: 0;
+          height: 100%;
+          display: flex !important;
+          align-items: center;
+          justify-content: center;
+          .q-btn {
+            width: 24px;
+            height: 24px;
+            min-height: 24px;
+          }
+        }
+      }
+      &-container {
+        height: auto;
+        .q-field__native {
+          height: 22px;
+          line-height: 22px;
+          padding: 0 !important;
+          font: {
+            size: 14px;
+            weight: 400;
+          }
+          input::placeholder {
+            color: $grey-2;
+          }
+        }
+      }
+    }
+  }
+}
+.q-field--disabled.s-date-picker {
+  color: $grey-6 !important;
+  .q-field__inner {
+    color: $grey-6 !important;
+    .q-field__control {
+      color: $grey-6 !important;
+      opacity: 1 !important;
+      &:before {
+        border: 1px solid $grey-8;
+      }
+      .q-field__prepend {
+        opacity: 1 !important;
+      }
+      &-container {
+        opacity: 1 !important;
+        .q-field__native {
+          color: $grey-6 !important;
+        }
+      }
+    }
+  }
+  &.q-field--float {
+    color: $grey-6 !important;
+    opacity: 0.9 !important;
+  }
+}
+.s-date-picker-short {
+  width: 146px;
+}
+.s-date-picker-long {
+  width: 200px;
+  .q-field__inner {
+    .q-field__control {
+      .q-field__prepend {
+        padding: 0;
+      }
+      &-container {
+        .q-field__native {
+          text-align: center;
+        }
+      }
+    }
+  }
+}
+.s-date-picker-range {
+  width: 252px;
+  .q-field__inner {
+    .q-field__control {
+      .q-field__prepend {
+        padding: 0;
+      }
+      &-container {
+        .q-field__native {
+          text-align: center;
+        }
+      }
+    }
+  }
+}
+.date-picker-wrapper.q-menu {
+  width: 290px;
+  height: 288px;
+  min-width: 0 !important;
+  min-height: 0 !important;
+  .q-date {
+    height: 288px;
+    &__main {
+      .q-date__content {
+        .q-date__view {
+          min-height: 0 !important;
+          .q-date__navigation {
+            div {
+              height: 32px;
+            }
+            .relative-position {
+              div {
+                .q-btn--dense {
+                  padding: 0 !important;
+                }
+              }
+            }
+          }
+          .q-date__calendar-days-container {
+            .q-date__calendar-days {
+              .q-date__calendar-item {
+                .q-btn {
+                  padding: 0;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
 </style>
