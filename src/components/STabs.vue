@@ -1,28 +1,27 @@
 <template>
   <q-tabs
     align="left"
-    class="tabs text-grey"
     active-color="positive"
     indicator-color="transparent"
     no-caps
-    v-model="innerValue"
-    @update:model-value="clickTab"
+    dense
+    class="s-tabs text-grey"
+    :model-value="tab"
   >
     <slot></slot>
   </q-tabs>
 </template>
 
 <script>
+import { ref } from 'vue';
+
 export default {
-  data() {
+  setup(props) {
+    const tab = ref(props.modelValue);
+
     return {
-      innerValue: null,
+      tab,
     };
-  },
-  methods: {
-    clickTab() {
-      this.$emit('update:model-value', this.innerValue);
-    },
   },
 };
 </script>

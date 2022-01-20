@@ -1,18 +1,11 @@
 <template>
-  <div class="q-pa-lg flex flex-center">
-    <s-pagination
-      :max="8"
-      :max-pages="10"
-      boundary-numbers
-      v-model="currentPage"
-    />
-  </div>
-  <div class="q-pa-lg flex flex-center">
-    <s-pagination
-      :max="50"
-      :max-pages="10"
-      v-model="currentPage"
-    />
+  <div class="bg-grey-10">
+    <div class="q-pa-lg flex flex-center">
+      <s-pagination :max="10" :max-pages="10" v-model="currentPage" />
+    </div>
+    <div class="q-pa-lg flex flex-center">
+      <s-pagination :max="1006" :max-pages="10" v-model="currentPage" />
+    </div>
   </div>
 </template>
 
