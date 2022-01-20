@@ -103,6 +103,11 @@ const linksList = [
     link: "/select",
   },
   {
+    title: "Table",
+    icon: "code",
+    link: "/table",
+  },
+  {
     title: "Tabs",
     icon: "code",
     link: "/tabs",

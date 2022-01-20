@@ -15,6 +15,7 @@ const routes = [
       { path: 'dialog', component: () => import('pages/Dialog.vue') },
       { path: 'tooltip', component: () => import('pages/Tooltip.vue') },
       { path: 'filePicker', component: () => import('pages/FilePicker.vue') },
+      { path: 'table', component: () => import('pages/Table.vue') },
       { path: 'tabs', component: () => import('pages/Tabs.vue') },
       { path: 'toggle', component: () => import('pages/Toggle.vue') },
       { path: 'chip', component: () => import('pages/Chip.vue') },
