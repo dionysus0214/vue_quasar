@@ -34,6 +34,10 @@ export default ({
       type: Boolean,
       default: false,
     },
+    resizable: {
+      type: Boolean,
+      default: false,
+    },
   },
   setup(props) {
     function createDiv(height) {
