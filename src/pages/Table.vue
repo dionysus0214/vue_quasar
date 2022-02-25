@@ -3,8 +3,9 @@
     <s-table
       :columns="columns"
       :rows="rows"
-      row-key="바코드번호"
+      row-key="barcode_no"
       useCustom
+      resizable
       dynamicSlotName="RFID발급할수량"
     >
       <template v-slot:noData>
@@ -12,13 +13,17 @@
           파일을 업로드하세요.
         </div>
       </template>
-
       <template v-slot:header>
         <tr>
           <th v-for="col in columns" :key="col.name">
             {{ col.label }}
           </th>
         </tr>
+      </template>
+      <template v-slot:body-cell-product_code="props">
+        <q-td>
+          <q-chip>{{ props.row.barcode_no }}</q-chip>
+        </q-td>
       </template>
     </s-table>
 
@@ -27,7 +32,7 @@
     <s-table
       :columns="columns"
       :rows="rows"
-      row-key="바코드번호"
+      row-key="barcode_no"
       :useSelect="true"
       selection="multiple"
       v-model:selected="selected"
@@ -43,22 +48,22 @@ import { infoOutlineIcon } from '../assets/icons.js';
 
 const columns = [
   {
-    name: '바코드번호',
+    name: 'barcode_no',
     label: '바코드번호',
-    field: '바코드번호',
+    field: (row) => `${row.barcode_no}-aa`,
     align: 'center',
   },
   {
-    name: '상품코드',
+    name: 'product_code',
     label: '상품코드',
-    field: '상품코드',
+    field: 'product_code',
     align: 'center',
     format: (v) => (!v ? '-' : v),
   },
   {
-    name: '공급처명',
+    name: 'supplier_name',
     label: '공급처명',
-    field: '공급처명',
+    field: 'supplier_name',
     align: 'center',
     format: (v) => (!v ? '-' : v),
   },
@@ -89,25 +94,25 @@ const columns = [
 
 const rows = [
   {
-    바코드번호: 'M87017K2C', 상품코드: 'M87017K2C', 공급처명: 'UPTOWNHOLIC', 공급처상품명: '[소가죽] 베이 스웨이드 롱 부츠 (*2color)', 상품명: 'UPTOWNHOLIC Before She Broke Your', 옵션명: '베이지, 235', 발주수량: 2000, RFID발급할수량: 2000,
+    barcode_no: 'M87017K2C', product_code: 'M87017K2C', supplier_name: 'UPTOWNHOLIC', 공급처상품명: '[소가죽] 베이 스웨이드 롱 부츠 (*2color)', 상품명: 'UPTOWNHOLIC Before She Broke Your', 옵션명: '베이지, 235', 발주수량: 2000, RFID발급할수량: 2000,
   },
   {
-    바코드번호: 'M87017K1C', 상품코드: 'M87017K1C', 공급처명: 'UPTOWNHOLIC', 공급처상품명: '[소가죽] 베이 스웨이드 롱 부츠 (*2color)', 상품명: 'UPTOWNHOLIC Before She Broke Your', 옵션명: '베이지, 230', 발주수량: 100, RFID발급할수량: 100,
+    barcode_no: 'M87017K1C', product_code: 'M87017K1C', supplier_name: 'UPTOWNHOLIC', 공급처상품명: '[소가죽] 베이 스웨이드 롱 부츠 (*2color)', 상품명: 'UPTOWNHOLIC Before She Broke Your', 옵션명: '베이지, 230', 발주수량: 100, RFID발급할수량: 100,
   },
   {
-    바코드번호: 'M86873K6C', 상품코드: 'M86873K6C', 공급처명: 'UPTOWNHOLIC', 공급처상품명: '[소가죽] 베이 스웨이드 롱 부츠 (*2color)', 상품명: 'UPTOWNHOLIC Before She Broke Your', 옵션명: '브라운,M', 발주수량: 600, RFID발급할수량: 600,
+    barcode_no: 'M86873K6C', product_code: 'M86873K6C', supplier_name: 'UPTOWNHOLIC', 공급처상품명: '[소가죽] 베이 스웨이드 롱 부츠 (*2color)', 상품명: 'UPTOWNHOLIC Before She Broke Your', 옵션명: '브라운,M', 발주수량: 600, RFID발급할수량: 600,
   },
   {
-    바코드번호: 'M86873K5C', 상품코드: 'M86873K5C', 공급처명: 'UPTOWNHOLIC', 공급처상품명: '[소가죽] 베이 스웨이드 롱 부츠 (*2color)', 상품명: 'UPTOWNHOLIC Before She Broke Your', 옵션명: '브라운,S', 발주수량: 200, RFID발급할수량: 200,
+    barcode_no: 'M86873K5C', product_code: 'M86873K5C', supplier_name: 'UPTOWNHOLIC', 공급처상품명: '[소가죽] 베이 스웨이드 롱 부츠 (*2color)', 상품명: 'UPTOWNHOLIC Before She Broke Your', 옵션명: '브라운,S', 발주수량: 200, RFID발급할수량: 200,
   },
   {
-    바코드번호: '28443420004', 상품코드: '28443420004', 공급처명: 'ZOOC(상설)', 공급처상품명: 'Z203MSD025', 상품명: '도트 프린트 스커트_Z203MSD025', 옵션명: 'DARK NAVY(DN1) ／ 66', 발주수량: 50, RFID발급할수량: 50,
+    barcode_no: '28443420004', product_code: '28443420004', supplier_name: 'ZOOC(상설)', 공급처상품명: 'Z203MSD025', 상품명: '도트 프린트 스커트_Z203MSD025', 옵션명: 'DARK NAVY(DN1) ／ 66', 발주수량: 50, RFID발급할수량: 50,
   },
   {
-    바코드번호: '28443420003', 상품코드: '28443420003', 공급처명: 'ZOOC(상설)', 공급처상품명: 'Z203MSD025', 상품명: '도트 프린트 스커트_Z203MSD025', 옵션명: 'DARK NAVY(DN1) ／ 55', 발주수량: 50, RFID발급할수량: 50,
+    barcode_no: '28443420003', product_code: '28443420003', supplier_name: 'ZOOC(상설)', 공급처상품명: 'Z203MSD025', 상품명: '도트 프린트 스커트_Z203MSD025', 옵션명: 'DARK NAVY(DN1) ／ 55', 발주수량: 50, RFID발급할수량: 50,
   },
   {
-    바코드번호: '28442920004', 상품코드: '28442920004', 공급처명: 'ZOOC(상설)', 공급처상품명: 'Z203MSD025', 상품명: '도트 프린트 스커트_Z203MSD025', 옵션명: 'BLACK(BK1) ／ 66', 발주수량: 50, RFID발급할수량: 50,
+    barcode_no: '28442920004', product_code: '28442920004', supplier_name: 'ZOOC(상설)', 공급처상품명: 'Z203MSD025', 상품명: '도트 프린트 스커트_Z203MSD025', 옵션명: 'BLACK(BK1) ／ 66', 발주수량: 50, RFID발급할수량: 50,
   },
 ];
 
@@ -122,15 +127,11 @@ export default {
       (newVal) => {
         console.log(newVal);
       });
+
     return {
       columns,
       rows,
-
       selected,
-    };
-  },
-  data() {
-    return {
       infoOutlineIcon,
     };
   },

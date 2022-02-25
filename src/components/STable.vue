@@ -6,6 +6,7 @@
     hide-selected-banner
     class="s-table"
     :class="{ 's-select-table': useSelect }"
+    :table-class="{ 'resizable-table': resizable }"
   >
     <template v-slot:no-data>
       <slot name="noData">
@@ -14,20 +15,18 @@
         </div>
       </slot>
     </template>
-
-    <template v-slot:header="props">
-      <slot name="header">
-        <tr>
-          <th v-for="col in props.cols" :key="col.name">
-            {{ col.label }}
-          </th>
-        </tr>
-      </slot>
+    <template
+      v-for="(index, name) in $slots"
+      :key="index"
+      v-slot:[name]="data">
+      <slot :name="name" v-bind="data"></slot>
     </template>
   </q-table>
 </template>
 
 <script>
+import { onMounted } from 'vue';
+
 export default ({
   name: 'STable',
   props: {
@@ -36,9 +35,75 @@ export default ({
       default: false,
     },
   },
-  setup() {
-    return {
-    };
+  setup(props) {
+    function createDiv(height) {
+      const div = document.createElement('div');
+      div.style.top = 0;
+      div.style.right = 0;
+      div.style.width = '1px';
+      div.style.position = 'absolute';
+      div.style.cursor = 'col-resize';
+      div.style.backgroundColor = '#dddddd';
+      div.style.zIndex = 2;
+      div.style.userSelect = 'none';
+      div.style.height = `${height}px`;
+      return div;
+    }
+
+    function setListeners(div) {
+      let curCol;
+      let nxtCol;
+      let pageX;
+      let curColWidth;
+      let nxtColWidth;
+      div.addEventListener('mousedown', (e) => {
+        curCol = e.target.parentElement;
+        nxtCol = curCol.nextElementSibling;
+        pageX = e.pageX;
+        curColWidth = curCol.offsetWidth;
+        if (nxtCol) {
+          nxtColWidth = nxtCol.offsetWidth;
+        }
+      });
+
+      document.addEventListener('mousemove', (e) => {
+        if (curCol) {
+          const diffX = e.pageX - pageX;
+
+          if (nxtCol) {
+            nxtCol.style.width = `${nxtColWidth - diffX}px`;
+          }
+          curCol.style.width = `${curColWidth + diffX}px`;
+        }
+      });
+
+      document.addEventListener('mouseup', () => {
+        curCol = undefined;
+        nxtCol = undefined;
+        pageX = undefined;
+        nxtColWidth = undefined;
+        curColWidth = undefined;
+      });
+    }
+
+    function addResizable() {
+      const tableElement = document.getElementsByClassName('resizable-table')[0].getElementsByTagName('table')[0];
+      const firstRow = tableElement.getElementsByTagName('tr')[0];
+      const cols = firstRow ? firstRow.children : [];
+      console.log(cols);
+      for (let i = 0; i < cols.length; i += 1) {
+        const div = createDiv(tableElement.offsetHeight);
+        cols[i].appendChild(div);
+        cols[i].style.position = 'relative';
+        setListeners(div);
+      }
+    }
+
+    onMounted(() => {
+      if (props.resizable) {
+        addResizable();
+      }
+    });
   },
 });
 </script>
