@@ -24,14 +24,8 @@
 </template>
 
 <script>
-import { QInput, QBtn } from "quasar";
-
 export default ({
   name: "SInputNumber",
-  components: {
-    QInput,
-    QBtn,
-  },
   methods: {
     plusNumber() {
       this.$emit("update:modelValue", this.$attrs.modelValue + 1);

@@ -38,13 +38,67 @@
       v-model:selected="selected"
     >
     </s-table>
+
+    <br/>
+
+    <s-markup-table
+      :separator="separator"
+      header="top"
+      class="q-ma-md">
+      <thead>
+        <tr>
+          <th v-for="col in columns" :key="col.name">
+            {{ col.label }}
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr v-for="(r, i) in rows" :key="i">
+          <td class="text-center">{{ r.barcode_no }}</td>
+          <td class="text-center">{{ r.product_code }}</td>
+          <td class="text-center">{{ r.supplier_name }}</td>
+          <td class="text-left">{{ r.공급처상품명 }}</td>
+          <td class="text-left">{{ r.상품명 }}</td>
+          <td class="text-center">{{ r.바코드번호 }}</td>
+          <td class="text-center">{{ r.발주수량 }}</td>
+          <td class="text-center">{{ r.RFID발급할수량 }}</td>
+        </tr>
+      </tbody>
+    </s-markup-table>
+
+    <br/>
+
+    <s-markup-table
+      :separator="separator"
+      header="left"
+      class="q-ma-md">
+      <thead>
+        <tr>
+          <th v-for="col in columns" :key="col.name">
+            {{ col.label }}
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr v-for="(r, i) in rows" :key="i">
+          <td class="text-center">{{ r.barcode_no }}</td>
+          <td class="text-center">{{ r.product_code }}</td>
+          <td class="text-center">{{ r.supplier_name }}</td>
+          <td class="text-left">{{ r.공급처상품명 }}</td>
+          <td class="text-left">{{ r.상품명 }}</td>
+          <td class="text-center">{{ r.바코드번호 }}</td>
+          <td class="text-center">{{ r.발주수량 }}</td>
+          <td class="text-center">{{ r.RFID발급할수량 }}</td>
+        </tr>
+      </tbody>
+    </s-markup-table>
   </div>
 </template>
 
 <script>
 import { ref, watch } from 'vue';
 import STable from "../components/STable.vue";
-import { infoOutlineIcon } from '../assets/icons.js';
+import SMarkupTable from "../components/SMarkupTable.vue";
 
 const columns = [
   {
@@ -119,6 +173,7 @@ const rows = [
 export default {
   components: {
     STable,
+    SMarkupTable,
   },
   setup() {
     const selected = ref([]);
@@ -132,7 +187,7 @@ export default {
       columns,
       rows,
       selected,
-      infoOutlineIcon,
+      separator: ref('cell'),
     };
   },
 };
