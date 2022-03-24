@@ -20,7 +20,10 @@ import { ref, watch } from 'vue';
 
 export default ({
   props: {
-    modelValue: String,
+    modelValue: {
+      type: String,
+      default: '',
+    },
   },
   setup(props) {
     const btnValue = ref(props.modelValue);

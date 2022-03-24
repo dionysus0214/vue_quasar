@@ -27,10 +27,22 @@ import { ref, computed } from "vue";
 
 export default {
   props: {
-    label: String,
-    insideLabel: Boolean,
-    password: Boolean,
-    type: String,
+    label: {
+      type: String,
+      default: '',
+    },
+    insideLabel: {
+      type: Boolean,
+      default: false,
+    },
+    password: {
+      type: Boolean,
+      default: false,
+    },
+    type: {
+      type: String,
+      default: 'text',
+    },
   },
   setup(props) {
     const isVisible = ref(false);

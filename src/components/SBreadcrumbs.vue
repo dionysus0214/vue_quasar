@@ -9,7 +9,10 @@
 <script>
 export default {
   props: {
-    labels: Array,
+    labels: {
+      type: Array,
+      default: () => [],
+    },
   },
 };
 </script>

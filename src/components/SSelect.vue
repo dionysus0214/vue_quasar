@@ -42,10 +42,22 @@ import { selectArrowDownIcon } from '../assets/icons.js';
 
 export default {
   props: {
-    label: String,
-    group: Boolean,
-    checkbox: Boolean,
-    selectedOpt: String,
+    label: {
+      type: String,
+      default: '',
+    },
+    group: {
+      type: Boolean,
+      default: false,
+    },
+    checkbox: {
+      type: Boolean,
+      default: false,
+    },
+    selectedOpt: {
+      type: String,
+      default: '',
+    },
   },
   setup() {
     return {

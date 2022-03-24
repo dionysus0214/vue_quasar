@@ -6,8 +6,14 @@
 <script>
 export default {
   props: {
-    name: String,
-    label: String,
+    name: {
+      type: String,
+      default: '',
+    },
+    label: {
+      type: String,
+      default: '',
+    },
   },
 };
 </script>

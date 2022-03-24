@@ -11,7 +11,10 @@ import { cautionOutlineIcon } from '../assets/icons.js';
 
 export default {
   props: {
-    title: String,
+    title: {
+      type: String,
+      default: '',
+    },
   },
   setup() {
     return {
