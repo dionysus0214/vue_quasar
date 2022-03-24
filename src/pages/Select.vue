@@ -32,6 +32,12 @@
         hint="group"
       />
       <s-select
+        label="카테고리"
+        v-model="model"
+        :options="options"
+        hint="label"
+      />
+      <s-select
         checkbox
         multiple
         v-model="emptyValue"

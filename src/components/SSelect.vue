@@ -8,6 +8,9 @@
     popup-content-class="s-select-group-opts"
     class="s-select"
   >
+    <template v-if="label" v-slot:prepend>
+      <div class="include-label">{{ label }}</div>
+    </template>
     <template v-if="group" v-slot:option="scope">
       <q-item
         v-if="scope.opt.group"
@@ -20,11 +23,7 @@
           </q-item-label>
         </q-item-section>
       </q-item>
-      <q-item
-        v-else
-        v-bind="scope.itemProps"
-        class="group-option"
-      >
+      <q-item v-else v-bind="scope.itemProps" class="group-option">
         <q-item-section>
           <q-item-label v-html="scope.opt.label" />
         </q-item-section>
@@ -32,9 +31,7 @@
     </template>
     <template v-slot:no-option>
       <q-item class="s-select-no-option">
-        <q-item-section class="text-grey">
-          No results
-        </q-item-section>
+        <q-item-section class="text-grey"> No results </q-item-section>
       </q-item>
     </template>
   </q-select>
@@ -45,6 +42,7 @@ import { selectArrowDownIcon } from '../assets/icons.js';
 
 export default {
   props: {
+    label: String,
     group: Boolean,
     checkbox: Boolean,
     selectedOpt: String,
@@ -61,9 +59,10 @@ export default {
 .s-select {
   .q-field__inner {
     .q-field__control {
-      padding: 0 12px;
+      padding: 0;
+      padding-right: 12px;
       &:after {
-        border: 1px solid $grey-6;
+        border: 1px solid $grey-7;
         box-shadow: none;
       }
       &:hover:after {
@@ -73,8 +72,9 @@ export default {
         background: $grey-11;
       }
       &-container {
+        padding-left: 8px;
+        height: auto;
         .q-field__native {
-          padding: 0;
           > span {
             color: $grey-2;
           }
@@ -88,6 +88,17 @@ export default {
           height: 12px;
         }
       }
+    }
+  }
+  .q-field__prepend {
+    background-color: $grey-11;
+    height: auto;
+    padding: 5px 12px;
+    border-right: 1px solid $grey-7;
+    .include-label {
+      font-size: 14px;
+      font-weight: 400;
+      color: $grey-2;
     }
   }
 }

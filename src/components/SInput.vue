@@ -86,6 +86,7 @@ export default {
       font-weight: 400
       color: $grey-2
   .q-field__prepend
+    background-color: $grey-11
     height: auto
     padding: 5px 12px
     border-right: 1px solid $grey-6
