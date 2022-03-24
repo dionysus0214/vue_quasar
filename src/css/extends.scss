@@ -1,0 +1,28 @@
+%checkbox {
+  .q-checkbox__inner {
+    min-width: 0;
+    width: 32px;
+    height: 32px;
+    .q-checkbox__bg {
+      border: 1px solid $grey-8;
+      width: 16px;
+      height: 16px;
+      padding: 0 2.5px;
+      background: white;
+      top: 25%;
+      left: 25%;
+      .q-checkbox__svg {
+        width: 11.43px !important;
+        margin: auto;
+      }
+    }
+    &--indet,
+    &--truthy {
+      color: $positive !important;
+      .q-checkbox__bg {
+        border: none;
+        background: $positive;
+      }
+    }
+  }
+}
