@@ -108,6 +108,11 @@ const linksList = [
     link: "/table",
   },
   {
+    title: "MarkupTable",
+    icon: "code",
+    link: "/markupTable",
+  },
+  {
     title: "Tabs",
     icon: "code",
     link: "/tabs",

@@ -4,7 +4,11 @@
     bordered
     :separator="separator"
     class="s-markup-table"
-    :class="{'header-left': header === 'left', 'header-top' : header === 'top'}"
+    :class="{
+      'header-left': header === 'left',
+      'header-top': header === 'top',
+      'tr-no-hover': noHover,
+    }"
   >
     <slot></slot>
   </q-markup-table>
@@ -21,6 +25,10 @@ export default ({
     header: {
       type: String,
       default: 'top',
+    },
+    noHover: {
+      type: Boolean,
+      default: false,
     },
   },
 });
@@ -48,6 +56,9 @@ export default ({
       tr {
         min-height: 0px;
         height: 46px;
+        th {
+          font-size: 14px;
+        }
         td {
           height: 46px;
           padding: 0 24px;
@@ -69,18 +80,28 @@ export default ({
 }
 .s-markup-table.header-left {
   .q-table {
-    thead {
+    tbody {
       tr {
-        th:first-of-type {
+        th {
           background: $th-bg;
+          font-weight: 700;
+          border-bottom: 1px solid $grey-9;
+        }
+        &:last-of-type {
+          th {
+            border-bottom: none;
+          }
         }
       }
     }
-    tbody {
-      tr {
-        td:first-of-type {
-          background: $th-bg;
-        }
+  }
+}
+.s-markup-table.tr-no-hover {
+  tbody {
+    tr:hover {
+      background-color: transparent;
+      td:before {
+        background-color: transparent;
       }
     }
   }

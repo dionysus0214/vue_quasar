@@ -21,6 +21,7 @@ const routes = [
       { path: 'chip', component: () => import('pages/Chip.vue') },
       { path: 'breadcrumbs', component: () => import('src/pages/Breadcrumbs.vue') },
       { path: 'dropdown', component: () => import('src/pages/Dropdown.vue') },
+      { path: 'markupTable', component: () => import('src/pages/MarkupTable.vue') },
       { path: 'project', component: () => import('src/pages/Project.vue') },
     ],
   },
