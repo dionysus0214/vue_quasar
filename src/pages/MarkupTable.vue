@@ -39,6 +39,24 @@
         </tr>
       </tbody>
     </s-markup-table>
+    <s-markup-table separator="horizontal" header="left" class="q-ma-md">
+      <tbody>
+        <tr v-for="col in leftTable" :key="col.name">
+          <th>
+            {{ col.label }}
+          </th>
+          <td v-for="row, idx in col.row" :key="idx">
+            {{ row }}
+          </td>
+          <th>
+            {{ col.label }}
+          </th>
+          <td v-for="row, idx in col.row" :key="idx">
+            {{ row }}
+          </td>
+        </tr>
+      </tbody>
+    </s-markup-table>
   </div>
 </template>
 

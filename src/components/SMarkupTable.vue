@@ -42,11 +42,11 @@ export default ({
     thead {
       min-height: 0;
       tr {
-        height: 46px;
+        height: $table-tr-height;
         th {
-          padding: 0 24px;
-          font-size: 14px;
-          font-weight: 500;
+          padding: $table-th-padding;
+          font-size: $default-font;
+          font-weight: $font-weight-md;
           word-break: keep-all;
           white-space: nowrap;
         }
@@ -55,14 +55,14 @@ export default ({
     tbody {
       tr {
         min-height: 0px;
-        height: 46px;
+        height: $table-tr-height;
         th {
-          font-size: 14px;
+          font-size: $default-font;
         }
         td {
-          height: 46px;
-          padding: 0 24px;
-          font-size: 14px;
+          height: $table-tr-height;
+          padding: $table-td-padding;
+          font-size: $default-font;
         }
         &:hover {
           background-color: $grey-11;
@@ -84,8 +84,14 @@ export default ({
       tr {
         th {
           background: $th-bg;
-          font-weight: 700;
+          font-weight: $font-weight-lg;
           border-bottom: 1px solid $grey-9;
+          &:not(:first-of-type) {
+            border-left: 1px solid $grey-9;
+          }
+        }
+        th:not(:first-of-type) {
+          border-left: 1px solid $grey-9;
         }
         &:last-of-type {
           th {
