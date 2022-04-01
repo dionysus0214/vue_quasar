@@ -5,7 +5,7 @@
     hide-pagination
     hide-selected-banner
     class="s-table"
-    :class="{ 's-select-table': useSelect }"
+    :class="{ 's-select-table': useSelect, 'sticky-header': stickyHeader }"
     :table-class="{ 'resizable-table': resizable }"
   >
     <template v-slot:no-data>
@@ -41,7 +41,6 @@ function createDiv() {
   div.style.height = '22px';
   return div;
 }
-
 function setListeners(div) {
   let curCol;
   let pageX;
@@ -51,6 +50,7 @@ function setListeners(div) {
     pageX = e.pageX;
     curColWidth = curCol.offsetWidth;
   });
+
   document.addEventListener('mousemove', (e) => {
     if (curCol) {
       const diffX = e.pageX - pageX;
@@ -58,13 +58,13 @@ function setListeners(div) {
       curCol.style.width = `${curColWidth + diffX}px`;
     }
   });
+
   document.addEventListener('mouseup', () => {
     curCol = undefined;
     pageX = undefined;
     curColWidth = undefined;
   });
 }
-
 function addResizable() {
   const tableElement = document
     .getElementsByClassName('resizable-table')[0]
@@ -74,7 +74,7 @@ function addResizable() {
   for (let i = 0; i < cols.length; i += 1) {
     const div = createDiv();
     cols[i].appendChild(div);
-    cols[i].style.position = 'relative';
+    cols[i].style.position = 'sticky';
     setListeners(div);
   }
 }
@@ -87,6 +87,10 @@ export default ({
       default: false,
     },
     resizable: {
+      type: Boolean,
+      default: false,
+    },
+    stickyHeader: {
       type: Boolean,
       default: false,
     },
@@ -110,7 +114,7 @@ export default ({
   border: 1px solid $grey-9;
   .q-table__middle {
     .q-table {
-      overflow: hidden;
+      overflow: auto;
       thead {
         background: $th-bg;
         min-height: 0;
@@ -191,6 +195,22 @@ export default ({
             &:after {
               background: none;
             }
+          }
+        }
+      }
+    }
+  }
+}
+.sticky-header {
+  .q-table__middle {
+    .q-table {
+      thead {
+        tr {
+          th {
+            background: $th-bg;
+            position: sticky;
+            top: 0;
+            z-index: 100;
           }
         }
       }
