@@ -5,7 +5,7 @@
     hide-pagination
     hide-selected-banner
     class="s-table"
-    :class="{ 's-select-table': useSelect, 'sticky-header': stickyHeader }"
+    :class="{ 's-select-table': useSelect, 'resizable-table': resizable, 'sticky-header': stickyHeader }"
     :table-class="{ 'resizable-table': resizable }"
   >
     <template v-slot:no-data>
@@ -121,27 +121,20 @@ export default ({
         tr {
           height: 46px;
           th {
-            padding: 0 24px;
-            font-size: 14px;
-            font-weight: 500;
+            padding: 12px 24px;
+            font-size: $default-font;
+            font-weight: $font-weight-md;
             word-break: keep-all;
             white-space: nowrap;
-            &:last-of-type {
-              > div {
-                display: none;
-              }
-            }
           }
         }
       }
       tbody {
         tr {
           min-height: 0px;
-          height: 46px;
           td {
-            height: 46px;
-            padding: 0 24px;
-            font-size: 14px;
+            padding: 0 16px;
+            font-size: $default-font;
             word-break: keep-all;
             white-space: nowrap;
             text-overflow: ellipsis;
@@ -161,21 +154,22 @@ export default ({
     &--nodata {
       height: 240px;
       color: $grey-6;
-      font-size: 14px;
-      line-height: 22px;
+      font-size: $default-font;
+      line-height: $default-line-height;
       display: block;
       padding-top: 80px;
     }
   }
 }
 .s-select-table {
+  margin-bottom: $pagination-size;
   .q-table__middle {
     .q-table {
       thead {
         tr {
           th {
             &:first-of-type {
-              padding: 0 16px;
+              padding: 0 12px 0 24px;
               > .q-checkbox {
                 @extend %checkbox;
               }
@@ -187,13 +181,33 @@ export default ({
         tr {
           td {
             &:first-of-type {
-              padding: 0 16px;
+              padding: 0 12px 0 24px;
               > .q-checkbox {
                 @extend %checkbox;
               }
             }
             &:after {
               background: none;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+.resizable-table {
+  .q-table__middle {
+    .q-table {
+      thead {
+        tr {
+          th:first-of-type {
+            > div:last-of-type {
+              display: none;
+            }
+          }
+          th:last-of-type {
+            > div {
+              display: none;
             }
           }
         }
